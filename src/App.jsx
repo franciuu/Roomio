@@ -2,10 +2,10 @@ import { useState } from "react";
 
 /* ---------- date ---------- */
 const TEAM = [
-  { name: "Stan Ariana-Maria", role: "Developer", mail: "ariana_maria.stan@stud.acs.upb.ro", photo: null },
-  { name: "Ruse Teodor", role: "Inginer 3D & Modelare", mail: "teodor.ruse@stud.acs.upb.ro", photo: null },
-  { name: "Balint Franceska", role: "UI/UX Designer", mail: "franceska.balint@stud.acs.upb.ro", photo: null },
-  { name: "Păștinică Costinela - Beatrice", role: "Marketing & Comunicare", mail: "costinela.pastinica@stud.acs.upb.ro", photo: null },
+  { name: "Stan Ariana-Maria", role: "Developer", mail: "ariana_maria.stan@stud.acs.upb.ro", photo: `${import.meta.env.BASE_URL}team/ariana.jpeg` },
+  { name: "Ruse Teodor", role: "Inginer 3D & Modelare", mail: "teodor.ruse@stud.acs.upb.ro", photo: `${import.meta.env.BASE_URL}team/teodor.jpeg` },
+  { name: "Balint Franceska", role: "UI/UX Designer", mail: "franceska.balint@stud.acs.upb.ro", photo: `${import.meta.env.BASE_URL}team/franceska.png` },
+  { name: "Păștinică Costinela-Beatrice", role: "Marketing & Comunicare", mail: "costinela.pastinica@stud.acs.upb.ro", photo: `${import.meta.env.BASE_URL}team/beatrice.PNG` },
 ];
 
 const COMPETITORS = [
@@ -101,8 +101,6 @@ function Room({ s }) {
 }
 
 /* ---------- pagina ---------- */
-const NAV = [["echipa", "Echipa"], ["problema", "Problema"], ["solutia", "Soluția"], ["clienti", "Clienți"], ["concurenta", "Concurența"], ["avantaj", "Avantaj"], ["metrici", "Metrici"], ["costuri", "Costuri"], ["venituri", "Venituri"]];
-
 export default function App() {
   const [style, setStyle] = useState("Scandinav");
   const initials = (n) => n.split(" ").map((x) => x[0]).join("");
@@ -112,8 +110,10 @@ export default function App() {
       <style>{CSS}</style>
 
       <header className="nav">
-        <a href="#top" className="logo">Roomio</a>
-        <nav>{NAV.map(([id, l]) => <a key={id} href={`#${id}`}>{l}</a>)}</nav>
+        <nav>
+          <a href="#top" className="logo">Roomio</a>
+          <a href="#echipa" className="logo">M1</a>
+        </nav>
       </header>
 
       <section id="top" className="hero">
@@ -205,10 +205,12 @@ export default function App() {
 
         <section id="metrici">
           <h2>Metrici cheie</h2>
-          <p className="intro">Ținte estimative pentru primul an de la lansare.</p>
           <div className="metrics">
-            {METRICS.map(([n, d, v]) => (
+            {/* {METRICS.map(([n, d, v]) => (
               <div key={n} className="metric"><strong>{v}</strong><div><h3>{n}</h3><p>{d}</p></div></div>
+            ))} */}
+            {METRICS.map(([n, d, v]) => (
+              <div key={n} className="metric"><div><h3>{n}</h3><p>{d}</p></div></div>
             ))}
           </div>
         </section>
@@ -253,6 +255,7 @@ body{margin:0}
 .logo{font-weight:800;font-size:22px;text-decoration:none;color:var(--accent)!important}
 .nav nav{display:flex;gap:20px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
 .nav nav a{text-decoration:none;font-size:15px;font-weight:500;opacity:.75}
+.nav nav a.logo{font-size:22px;opacity:1}
 .nav nav a:hover,.nav nav a:focus-visible{opacity:1;color:var(--accent)}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
 .hero{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(24px,5vw,72px);align-items:center;padding:clamp(28px,4vw,56px) clamp(18px,4vw,56px);max-width:1280px;margin:0 auto}
@@ -328,6 +331,22 @@ td:first-child{font-weight:600;white-space:nowrap}
 .revenue div:nth-child(even){padding-left:32px;padding-right:0}
 .revenue h3{margin-bottom:8px}
 .revenue p{margin:0;opacity:.8}
+main section:not(#echipa){font-size:.9em}
+main section:not(#echipa) h2{font-size:clamp(30.6px,4.5vw,54px)}
+main section:not(#echipa) h3{font-size:18.9px}
+main section:not(#echipa) .big{font-size:clamp(21.6px,2.7vw,32.4px)}
+main section:not(#echipa) .prose p{font-size:16.2px}
+main section:not(#echipa) .story{font-size:clamp(17.1px,1.98vw,21.6px)}
+main section:not(#echipa) .steps h3{font-size:clamp(23.4px,2.7vw,34.2px)}
+main section:not(#echipa) .seg p,main section:not(#echipa) .adv p{font-size:14.4px}
+main section:not(#echipa) .adv h3,.metric h3{font-size:17.1px}
+main section:not(#echipa) table{font-size:14.4px}
+main section:not(#echipa) th{font-size:15.3px}
+main section:not(#echipa) .metric strong{font-size:clamp(36px,4.5vw,57.6px)}
+main section:not(#echipa) .metric p{font-size:13.95px}
+main section:not(#echipa) .cost-top h3{font-size:16.2px}
+main section:not(#echipa) .cost-top span{font-size:23.4px}
+main section:not(#echipa) .cost p{font-size:13.5px}
 @media(max-width:860px){
  .hero,.two{grid-template-columns:1fr}
  .team,.adv{grid-template-columns:repeat(2,1fr)}.metrics{grid-template-columns:repeat(2,1fr)}.costs{grid-template-columns:1fr}.cost,.cost.c0,.cost.c1{grid-column:auto}
