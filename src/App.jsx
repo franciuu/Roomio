@@ -294,16 +294,24 @@ function Plan() {
 }
 
 /* ---------- navigare ---------- */
+// M2 are două părți, fiecare cu secțiunile ei
+const M2_PARTS = [
+  { id: "problema", label: "Confirmarea problemei", status: "Finalizată", state: "done", sub: "35 de răspunsuri analizate", sections: [["problema", "Problema"], ["solutia", "Soluția"], ["plan", "Planul"], ["proces", "Procesul"], ["rezultate", "Rezultate"], ["impact", "Impact"], ["concluzie", "Concluzie"], ["dovezi", "Dovezi"]] },
+  { id: "solutie", label: "Validarea soluției", status: "În curs", state: "next", sub: "6 funcții testate într-un formular nou", sections: [["s-teste", "Ce testăm"], ["s-metoda", "Metoda"], ["s-masuram", "Ce măsurăm"], ["s-rezultate", "Rezultate"]] },
+];
+
 const MILESTONES = [
   { id: "m1", label: "M1", ready: true, sections: [["echipa", "Echipa"], ["problema", "Problema"], ["solutia", "Soluția"], ["clienti", "Clienți"], ["concurenta", "Concurența"], ["avantaj", "Avantaj"], ["metrici", "Metrici"], ["costuri", "Costuri"], ["venituri", "Venituri"]] },
-  { id: "m2", label: "M2", ready: true, sections: [["problema", "Problema"], ["solutia", "Soluția"], ["plan", "Planul"], ["proces", "Procesul"], ["rezultate", "Rezultate"], ["impact", "Impact"], ["concluzie", "Concluzie"], ["dovezi", "Dovezi"]] },
+  { id: "m2", label: "M2", ready: true },
   ...Array.from({ length: 8 }, (_, i) => ({ id: `m${i + 3}`, label: `M${i + 3}`, ready: false })),
 ];
 
+// #m2 → partea 1, #m2-solutie → partea 2
 const fromHash = () => {
-  const h = window.location.hash.slice(1);
+  const h = window.location.hash.slice(1).split("-")[0];
   return MILESTONES.some((m) => m.id === h && m.ready) ? h : "m1";
 };
+const partFromHash = () => (window.location.hash === "#m2-solutie" ? "solutie" : "problema");
 
 /* ---------- temă light / dark ---------- */
 const savedTheme = () => { try { return localStorage.getItem("roomio-theme"); } catch { return null; } };
@@ -325,9 +333,16 @@ const MoonIcon = () => (
 
 export default function App() {
   const [ms, setMs] = useState(fromHash);
+  const [part, setPart] = useState(partFromHash);
   const [theme, toggleTheme] = useTheme();
   const current = MILESTONES.find((m) => m.id === ms);
-  const open = (id) => { setMs(id); history.replaceState(null, "", `#${id}`); window.scrollTo(0, 0); };
+  const sections = ms === "m2" ? M2_PARTS.find((p) => p.id === part).sections : current.sections;
+  const open = (id) => { setMs(id); setPart("problema"); history.replaceState(null, "", `#${id}`); window.scrollTo(0, 0); };
+  const openPart = (id) => {
+    setPart(id);
+    history.replaceState(null, "", id === "problema" ? "#m2" : "#m2-solutie");
+    document.getElementById("parti")?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <div className="fiki">
@@ -351,12 +366,12 @@ export default function App() {
           </div>
         </div>
         <div className="wrap sub">
-          <nav>{current.sections.map(([id, l]) => <a key={id} href={`#${id}`}>{l}</a>)}</nav>
+          <nav>{sections.map(([id, l]) => <a key={id} href={`#${id}`}>{l}</a>)}</nav>
         </div>
       </header>
 
       {ms === "m1" && <M1 />}
-      {ms === "m2" && <M2 />}
+      {ms === "m2" && <M2 part={part} onPart={openPart} />}
 
       <footer className="wrap foot">
         <span className="logo">Roomio</span>
@@ -570,11 +585,35 @@ const Q_STORY = [
 // [etapă, dată, stare]
 const PROGRESS = [
   ["Ipoteze", "M1", "done"],
-  ["Formular", "31 oct", "done"],
+  ["Formular: problema", "31 oct", "done"],
   ["35 de răspunsuri", "31 oct – 2 nov", "done"],
-  ["Analiză", "nov", "done"],
-  ["Interviuri cu prototip", "urmează", "next"],
-  ["Customer Validation", "după interviuri", "todo"],
+  ["Problema confirmată", "nov", "done"],
+  ["Formular: soluția", "în curs", "next"],
+  ["Interviuri cu prototip", "urmează", "todo"],
+  ["Customer Validation", "după validare", "todo"],
+];
+
+// partea 2: [ce am aflat în partea 1, funcția testată, întrebarea din formular]
+const SOLUTION_TESTS = [
+  ["21 din 24 au măsurat cu ruleta", "Camera ta, la scară", "Înainte să comanzi o piesă, ai folosi o copie la scară a camerei tale ca să vezi dacă încape?"],
+  ["Doar 5 din 24 au văzut piesele în cameră înainte să cumpere", "Piese de la mai mulți furnizori, împreună", "Ți-ar fi util să vezi împreună, în aceeași cameră, piese de la magazine diferite?"],
+  ["Bugetul a fost cea mai mare dificultate pentru 5 din 24", "Costul total al camerei", "Ai vrea să vezi costul total al camerei pe măsură ce adaugi piese?"],
+  ["Pentru 3 din 24, problema a fost transportul", "Ușa și liftul, verificate", "Ar conta pentru tine să afli înainte de comandă dacă piesa trece prin ușa de la intrare și încape în lift?"],
+  ["13 din 24 au căutat mobilă două luni sau mai mult", "O singură comandă", "Ai comanda toate piesele dintr-un singur loc, chiar dacă vin de la magazine sau producători diferiți?"],
+  ["Mai mulți au ales piese după mobila pe care o aveau deja", "Mobila ta, în aceeași cameră", "Ai vrea să adaugi în aceeași cameră și mobila pe care o ai deja, ca să vezi cum se potrivește cu piesele noi?"],
+];
+
+const SOLUTION_METHOD = [
+  ["Formularul 2", "Situații concrete, cu Da / Nu și „de ce”, fără să prezentăm Roomio. Păstrăm aceeași informare GDPR.", "în curs"],
+  ["Interviuri cu prototip", "Cei 8 respondenți care au acceptat o discuție mobilează o cameră într-un prototip.", "urmează"],
+  ["Lista de testeri", "Cei care vor să testeze primii aplicația își lasă datele de contact.", "urmează"],
+];
+
+const SOLUTION_MEASURE = [
+  ["Câți spun Da", "La fiecare dintre cele 6 situații."],
+  ["De ce spun Nu", "Ce funcții nu interesează și de ce."],
+  ["Câți vor să testeze", "Câți își lasă datele de contact pentru testare."],
+  ["Cât ar plăti", "Ca să evite o greșeală la cumpărarea mobilei."],
 ];
 
 // experiența de la care a pornit ideea
@@ -811,16 +850,16 @@ function Proof() {
   );
 }
 
-function M2() {
+function M2({ part, onPart }) {
   const done = PROGRESS.filter((p) => p[2] === "done").length;
   return (
     <>
       <section id="top" className="hero-m2 wrap">
         <p className="eyebrow">Milestone 2 · Customer Discovery</p>
         <h1>Validarea ideii</h1>
-        <p className="lead">Am verificat dacă problema pe care vrea s-o rezolve Roomio există cu adevărat, înainte să construim soluția.</p>
+        <p className="lead">Am verificat întâi dacă problema pe care vrea s-o rezolve Roomio există cu adevărat. Acum verificăm dacă soluția noastră o rezolvă.</p>
 
-        <div className="progress" style={{ "--done": `${((done - 0.5) / (PROGRESS.length - 1)) * 100}%` }}>
+        <div className="progress" style={{ "--done": `${((done - 0.5) / (PROGRESS.length - 1)) * 100}%`, "--n": PROGRESS.length }}>
           <ol className="plain">
             {PROGRESS.map(([t, d, st]) => (
               <li key={t} className={st}><i aria-hidden="true" /><b>{t}</b><span>{d}</span></li>
@@ -828,6 +867,98 @@ function M2() {
           </ol>
         </div>
 
+        <div id="parti" className="parts" role="tablist" aria-label="Părțile din M2">
+          {M2_PARTS.map((p, i) => (
+            <button key={p.id} role="tab" aria-selected={part === p.id} className="part-card" onClick={() => onPart(p.id)}>
+              <span className="part-num">Partea {i + 1}</span>
+              <b>{p.label}</b>
+              <span className={`part-status ${p.state}`}>{p.status}</span>
+              <small>{p.sub}</small>
+            </button>
+          ))}
+        </div>
+      </section>
+
+      {part === "problema" ? <M2Problem /> : <M2Solution />}
+    </>
+  );
+}
+
+function M2Solution() {
+  return (
+    <main className="part-in">
+      <section id="s-teste" className="band">
+        <div className="wrap">
+          <span className="num">01</span>
+          <h2>Ce testăm</h2>
+          <p className="intro">Pentru fiecare problemă confirmată în partea 1 am ales o funcție a soluției. În formular nu prezentăm Roomio: întrebăm despre o situație concretă în care funcția ar ajuta.</p>
+          <ol className="plain tests">
+            {SOLUTION_TESTS.map(([ev, feat, q], i) => (
+              <li key={feat} className="test">
+                <span className="test-label">Problema confirmată</span>
+                <p className="test-ev">{ev}</p>
+                <span className="test-arrow" aria-hidden="true">↓</span>
+                <span className="test-label">Funcția testată · {String(i + 1).padStart(2, "0")}</span>
+                <h3>{feat}</h3>
+                <p className="test-q">„{q}”</p>
+                <span className="part-status next">în așteptare</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section id="s-metoda">
+        <div className="wrap">
+          <span className="num">02</span>
+          <h2>Metoda</h2>
+          <ol className="plain steps">
+            {SOLUTION_METHOD.map(([t, d, st], i) => (
+              <li key={t}>
+                <span className="num">{String(i + 1).padStart(2, "0")}</span>
+                <h3>{t}</h3>
+                <p>{d}</p>
+                <span className={`part-status ${st === "în curs" ? "next" : "todo"}`}>{st}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section id="s-masuram" className="band">
+        <div className="wrap">
+          <span className="num">03</span>
+          <h2>Ce măsurăm</h2>
+          <ul className="plain metrics">
+            {SOLUTION_MEASURE.map(([t, d]) => <li key={t}><h3>{t}</h3><p>{d}</p></li>)}
+          </ul>
+        </div>
+      </section>
+
+      <section id="s-rezultate">
+        <div className="wrap">
+          <span className="num">04</span>
+          <h2>Rezultate</h2>
+          <p className="intro">Formularul este deschis. Rezultatele apar aici după ce îl închidem și analizăm răspunsurile.</p>
+          <ul className="plain bars pending" aria-label="Rezultate în așteptare">
+            {SOLUTION_TESTS.map(([, feat]) => (
+              <li key={feat}>
+                <span className="bar-label">{feat}</span>
+                <span className="bar-track"><i /></span>
+                <span className="bar-val">–</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+function M2Problem() {
+  return (
+    <>
+      <section className="wrap p1-stats part-in">
         <ul className="plain stats">
           <li><b>35</b><span>de răspunsuri în 7 zile</span></li>
           <li><b>24</b><span>de povești despre ultima amenajare</span></li>
@@ -1141,7 +1272,7 @@ td:last-child{color:var(--muted)}
 .wrap>.num,.split2 .num{margin-bottom:12px}
 /* progres: linia se umple până la etapa curentă */
 .progress{margin-top:clamp(40px,5vw,64px);overflow-x:auto}
-.progress ol{position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:12px;min-width:0}
+.progress ol{position:relative;display:grid;grid-template-columns:repeat(var(--n,6),1fr);gap:12px;min-width:0}
 .progress ol::before,.progress ol::after{content:'';position:absolute;top:7px;left:8px;height:2px;background:var(--line)}
 .progress ol::before{right:8px}
 .progress ol::after{width:calc(var(--done) - 16px);background:var(--wood);animation:grow 1.4s .2s cubic-bezier(.3,.7,.2,1) both}
@@ -1158,6 +1289,35 @@ td:last-child{color:var(--muted)}
 .stats b{font-size:clamp(34px,4vw,48px);font-weight:500;line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
 .stats b small,.bar-val small{font-size:.45em;font-weight:500;color:var(--muted);letter-spacing:0}
 .stats span{font-size:15px;color:var(--muted)}
+/* cele două părți din M2 */
+.parts{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:clamp(40px,5vw,56px);scroll-margin-top:110px}
+.part-card{display:grid;gap:8px;justify-items:start;text-align:left;font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:22px 24px;cursor:pointer;transition:border-color .25s,background .25s,transform .25s}
+.part-card:hover{transform:translateY(-2px);border-color:var(--muted)}
+.part-card[aria-selected="true"]{background:var(--wood-soft);border-color:var(--wood)}
+.part-num{font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.part-card b{font-size:clamp(21px,2.3vw,27px);font-weight:500;letter-spacing:-.02em;line-height:1.2}
+.part-card small{font-size:14px;color:var(--muted)}
+.part-status{display:inline-flex;align-items:center;gap:7px;justify-self:start;font-size:11.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line);border-radius:99px;padding:2px 10px;color:var(--muted)}
+.part-status.done{color:var(--wood);border-color:var(--wood)}
+.part-status.next::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--wood);animation:pulse 1.8s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.25}}
+.part-in{animation:fade .5s ease both}
+.p1-stats{padding-bottom:clamp(48px,6vw,80px)}
+.p1-stats .stats{margin-top:0}
+.tests{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.test{display:grid;gap:8px;align-content:start;background:var(--bg);border-radius:6px;padding:22px 24px}
+.test-label{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.test-ev{font-size:15.5px;margin-bottom:2px!important}
+.test-arrow{color:var(--wood);font-size:18px;line-height:1}
+.test h3{font-size:20px;margin-bottom:4px}
+.test-q{font-size:14.5px;color:var(--muted);font-style:italic;border-top:1px dashed var(--line);padding-top:12px;margin:4px 0 8px!important}
+#s-metoda .steps li{display:grid;gap:6px;justify-items:start}
+#s-metoda .steps p{margin-top:0!important}
+.pending{border:1px dashed var(--line);border-radius:6px;padding:28px;max-width:860px}
+.pending .bar-track{background:linear-gradient(90deg,var(--line) 0%,var(--surface) 50%,var(--line) 100%);background-size:200% 100%;animation:shimmer 2.4s linear infinite}
+.pending .bar-track i{display:none}
+.pending .bar-val{color:var(--muted)}
+@keyframes shimmer{to{background-position:-200% 0}}
 /* povestea: linia de stejar crește până la ultimul pas văzut */
 .story{position:relative;display:grid;gap:32px;max-width:780px;margin-top:8px}
 .story::before,.story::after{content:'';position:absolute;left:19px;top:20px;width:2px}
@@ -1271,7 +1431,7 @@ td:last-child{color:var(--muted)}
  .team li{flex-direction:row;align-items:center;gap:18px}
  .team img{width:104px;flex:none;aspect-ratio:1}
  .metrics{grid-template-columns:1fr;gap:28px}
- .steps4,.findings{grid-template-columns:1fr}
+ .steps4,.findings,.parts,.tests{grid-template-columns:1fr}
  .stats{gap:24px 16px}
  .progress ol{grid-template-columns:1fr;gap:18px}
  .progress ol::before,.progress ol::after{display:none}
