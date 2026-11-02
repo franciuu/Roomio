@@ -296,7 +296,8 @@ function Plan() {
 /* ---------- navigare ---------- */
 const MILESTONES = [
   { id: "m1", label: "M1", ready: true, sections: [["echipa", "Echipa"], ["problema", "Problema"], ["solutia", "Soluția"], ["clienti", "Clienți"], ["concurenta", "Concurența"], ["avantaj", "Avantaj"], ["metrici", "Metrici"], ["costuri", "Costuri"], ["venituri", "Venituri"]] },
-  ...Array.from({ length: 9 }, (_, i) => ({ id: `m${i + 2}`, label: `M${i + 2}`, ready: false })),
+  { id: "m2", label: "M2", ready: true, sections: [["problema", "Problema"], ["solutia", "Soluția"], ["plan", "Planul"], ["proces", "Procesul"], ["rezultate", "Rezultate"], ["impact", "Impact"], ["concluzie", "Concluzie"], ["dovezi", "Dovezi"]] },
+  ...Array.from({ length: 8 }, (_, i) => ({ id: `m${i + 3}`, label: `M${i + 3}`, ready: false })),
 ];
 
 const fromHash = () => {
@@ -355,6 +356,7 @@ export default function App() {
       </header>
 
       {ms === "m1" && <M1 />}
+      {ms === "m2" && <M2 />}
 
       <footer className="wrap foot">
         <span className="logo">Roomio</span>
@@ -542,6 +544,384 @@ function M1() {
   );
 }
 
+/* ---------- date M2 ---------- */
+const Q_SCREEN = [
+  "Te-ai mutat într-o locuință nouă în ultimii 2 ani?",
+  "Ți-ai luat vreodată mobilă pe comandă?",
+  "Ai returnat vreodată o piesă de mobilier pentru că nu se potrivea ca dimensiune, culoare sau stil?",
+  "Ai plătit vreodată pentru un designer de interior sau pentru un proiect 3D al unei camere?",
+  "Ai mobilat sau renovat o cameră în ultimii 2 ani?",
+  "În ultima lună ai căutat mobilier pentru o cameră (în magazine sau pe site-uri)?",
+];
+
+const Q_STORY = [
+  "Povestește-ne cum a decurs ultima amenajare a unei camere: ce cameră a fost și când s-a întâmplat?",
+  "Cum ai decis ce mobilier să alegi pentru ea?",
+  "Cum ai comparat piesele de mobilier găsite la magazine diferite?",
+  "Cum ai verificat dacă piesele de mobilier încap în spațiu? Ce ai folosit concret (ruletă, schiță, aplicație, altceva)?",
+  "Ce ai făcut în momentul în care nu erai sigur dacă două piese se potrivesc între ele?",
+  "Care a fost cea mai mare dificultate întâmpinată?",
+  "Cum ai gestionat acel moment? În cazul în care a existat un impediment.",
+  "Cât timp sau câți bani te-a costat rezolvarea ei?",
+  "Cât timp a trecut de când ai început să cauți mobilier până când ai finalizat achiziția?",
+  "Dacă ai mai cumpărat mobilier după aceea, ce ai făcut altfel?",
+];
+
+// [etapă, dată, stare]
+const PROGRESS = [
+  ["Ipoteze", "M1", "done"],
+  ["Formular", "31 oct", "done"],
+  ["35 de răspunsuri", "31 oct – 2 nov", "done"],
+  ["Analiză", "nov", "done"],
+  ["Interviuri cu prototip", "urmează", "next"],
+  ["Customer Validation", "după interviuri", "todo"],
+];
+
+// [ipoteză, ce a ieșit din formular]
+const HYPOTHESES = [
+  ["Oamenii verifică dacă mobila încape mai ales cu ruleta.", "confirmată"],
+  ["Nu pot vedea dinainte cum arată piesele împreună.", "confirmată"],
+  ["Compararea produselor de la mai mulți furnizori durează mult.", "parțial"],
+];
+
+const PLAN = [
+  ["Ipoteze", "Am scris ce credem despre problemă."],
+  ["Formular", "Întrebări despre ultima cameră mobilată, fără să pomenim Roomio."],
+  ["Distribuire", "WhatsApp, prieteni, familie și grupuri de facultate."],
+  ["Analiză", "Am grupat răspunsurile pe teme."],
+];
+
+const PROCESS = [
+  ["Pe cine am căutat", "Oameni care au mobilat o cameră în ultimii 2 ani sau caută mobilă acum."],
+  ["Cum am ajuns la ei", "Am trimis linkul pe WhatsApp și în grupurile de facultate, între 31 octombrie și 2 noiembrie 2026."],
+  ["Cum am strâns informația", "Un formular Google Forms: 6 întrebări da/nu, apoi 10 întrebări despre ultima amenajare, doar pentru cei care au mobilat recent."],
+];
+
+const FUNNEL = [
+  [35, "au completat formularul"],
+  [25, "au mobilat recent sau caută mobilă acum"],
+  [24, "au povestit ultima amenajare"],
+];
+
+// [întrebare scurtă, „Da”, câți au primit întrebarea]
+const SCREEN = [
+  ["S-au mutat în ultimii 2 ani", 21, 35],
+  ["Și-au luat mobilă pe comandă", 23, 35],
+  ["Au returnat o piesă care nu se potrivea", 14, 35],
+  ["Au plătit un designer sau un proiect 3D", 9, 35],
+  ["Au mobilat o cameră în ultimii 2 ani", 19, 35],
+  ["Caută mobilă acum (dintre cei care n-au mobilat)", 6, 16],
+];
+
+// grupate manual din răspunsurile la „Care a fost cea mai mare dificultate întâmpinată?”
+const DIFFICULTIES = [
+  ["Bugetul, prețurile prea mari", 5],
+  ["Nu știau dacă piesa încape sau se potrivește", 5],
+  ["Alegerea stilului și a culorilor", 4],
+  ["Transportul, căratul, montajul", 3],
+  ["Timpul de așteptare, lipsa din stoc", 3],
+  ["Execuția nu a respectat planul", 2],
+  ["Nicio dificultate", 2],
+];
+
+const FINDINGS = [
+  ["21 din 24", "au măsurat cu ruleta. Doar 3 au folosit și o aplicație: planificatorul IKEA, un configurator 3D și Measure de pe iPhone."],
+  ["5 din 24", "au văzut piesele în cameră înainte să cumpere. Ceilalți și-au imaginat camera, au întrebat pe cineva sau au renunțat."],
+  ["13 din 24", "au căutat mobilă două luni sau mai mult. O persoană a renunțat de tot."],
+  ["14 din 35", "au returnat cel puțin o piesă pentru că nu se potrivea ca dimensiune, culoare sau stil."],
+];
+
+// doar de la persoane care au fost de acord să apară în prezentare
+const QUOTES = [
+  "Nu știam dacă se va potrivi cu dimensiunile camerei sau cu mobila pe care o mai aveam.",
+  "Am încercat să-l pun pe ChatGPT să mi le proiecteze, să pot vizualiza imaginea.",
+  "M-am uitat la telefon și mi-am imaginat.",
+];
+
+const IMPACT = [
+  ["Bugetul camerei", "Vezi costul total al camerei pe măsură ce adaugi piese.", "Bugetul a fost cea mai mare dificultate pentru 5 din 24."],
+  ["Mobila existentă", "Adăugarea mobilei pe care o ai deja devine primul pas.", "Mai mulți au ales piese după ce aveau deja: parchet, covor, mobila rămasă."],
+  ["Drumul până în cameră", "Verificăm dacă piesa trece prin ușă și încape în lift.", "Un blat de 3 m nu a încăput în lift; altcineva s-a temut de ușă."],
+  ["Stoc și livrare", "Vezi dacă piesa e în stoc și în cât timp ajunge.", "Pentru 3 din 24, problema a fost așteptarea sau lipsa din stoc."],
+];
+
+const VALIDATED = [
+  "14 din 35 au returnat o piesă care nu se potrivea.",
+  "21 din 24 au măsurat cu ruleta; doar 3 au folosit și o aplicație.",
+  "13 din 24 au căutat mobilă două luni sau mai mult.",
+];
+
+const NOT_VALIDATED = [
+  "Nimeni nu a văzut încă Roomio, deci soluția nu e testată.",
+  "Nu știm dacă oamenii ar comanda prin aplicație.",
+  "35 de respondenți, cei mai mulți din București și din cercul nostru.",
+];
+
+const NEXT = [
+  ["Prototip", "Îl testăm cu cei 8 respondenți care au acceptat o discuție."],
+  ["Respondenți noi", "Grupuri despre renovări, alte orașe, oameni peste 35 de ani."],
+  ["Listă de așteptare", "O pagină cu înscriere pe email, ca să măsurăm interesul."],
+];
+
+// capturi din Google Forms; răspunsurile individuale doar de la cei care au fost de acord să apară
+const shot = (f) => `${import.meta.env.BASE_URL}m2/${f}`;
+const CHARTS = ["mutat", "comanda", "retur", "designer", "mobilat", "cauta", "varsta", "acord"];
+// [prenume, vârstă, ce reiese din răspuns, capturi]
+const PEOPLE = [
+  ["Mihai", "25–34", "Nu a mai cumpărat piesele de care nu era sigur", ["mihai-1", "mihai-2"]],
+  ["Alina", "25–34", "A renunțat după ce a comparat prețurile", ["alina"]],
+  ["Luana", "18–24", "A încercat să vadă camera cu ChatGPT", ["luana"]],
+  ["Roberta", "18–24", "Blatul de 3 m nu a încăput în lift", ["roberta"]],
+  ["Andrei", "25–34", "Piesele din magazine nu se potrivesc spațiului", ["andrei"]],
+  ["Mădălina", "18–24", "Piesele de pe site nu erau în magazin", ["madalina"]],
+  ["Ionela", "25–34", "S-a temut că mobila nu trece prin ușă", ["ionela"]],
+  ["Andreea", "25–34", "Aplicații 3D, AI și colaje", ["andreea"]],
+  ["Elena", "18–24", "A folosit planificatorul IKEA", ["elena"]],
+];
+
+function Bars({ items }) {
+  return (
+    <ul className="plain bars">
+      {items.map(([label, n, total]) => (
+        <li key={label}>
+          <span className="bar-label">{label}</span>
+          <span className="bar-track"><i style={{ width: `${(n / total) * 100}%` }} /></span>
+          <span className="bar-val">{n} <small>din {total}</small></span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+// dovezile se deschid cu o parolă; în cod păstrăm doar hash-ul ei (SHA-256)
+const PROOF_HASH = "bf4403ae94febabaa85d6ec2f425ce91a041327d5f1a0e2804eb86c17ebc28d7";
+const sha256 = async (text) => {
+  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
+  return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, "0")).join("");
+};
+
+function Locked({ children }) {
+  const [open, setOpen] = useState(false);
+  const [pass, setPass] = useState("");
+  const [wrong, setWrong] = useState(false);
+  const unlock = async (e) => {
+    e.preventDefault();
+    if ((await sha256(pass)) === PROOF_HASH) setOpen(true);
+    else setWrong(true);
+  };
+  if (open) return children;
+  return (
+    <form className="lock" onSubmit={unlock}>
+      <label htmlFor="proof-pass">Parola pentru dovezi</label>
+      <div>
+        <input id="proof-pass" type="password" value={pass} onChange={(e) => { setPass(e.target.value); setWrong(false); }} autoComplete="off" />
+        <button type="submit">Deschide</button>
+      </div>
+      {wrong && <p className="lock-err">Parola nu este corectă.</p>}
+    </form>
+  );
+}
+
+// captura mărită peste pagină; se închide cu click sau Escape
+function Zoom({ src, onClose }) {
+  useEffect(() => {
+    const key = (e) => e.key === "Escape" && onClose();
+    window.addEventListener("keydown", key);
+    return () => window.removeEventListener("keydown", key);
+  }, [onClose]);
+  return (
+    <button className="zoom" onClick={onClose} aria-label="Închide captura">
+      <img src={src} alt="" />
+    </button>
+  );
+}
+
+function Proof() {
+  const [big, setBig] = useState(null);
+  const Img = ({ src, alt }) => (
+    <button className="shot" onClick={() => setBig(src)} aria-label={`Mărește: ${alt}`}><img src={src} alt={alt} loading="lazy" /></button>
+  );
+  return (
+    <>
+      <figure className="shot-form">
+        <Img src={shot("formular.jpg")} alt="Începutul formularului: Cum ți-ai mobilat locuința?" />
+        <figcaption>Formularul trimis respondenților.</figcaption>
+      </figure>
+
+      <h3 className="sub-h">Rezumatul din Google Forms</h3>
+      <div className="charts-grid">
+        {CHARTS.map((c) => <Img key={c} src={shot(`grafic-${c}.jpg`)} alt={`Graficul din Google Forms: ${c}`} />)}
+      </div>
+
+      <h3 className="sub-h">Răspunsuri individuale</h3>
+      <div className="people">
+        {PEOPLE.map(([name, age, gist, imgs]) => (
+          <article key={name + gist} className="person">
+            <header>
+              <span className="avatar" aria-hidden="true">{name[0]}</span>
+              <div><h4>{name}</h4><span>{age} ani</span></div>
+            </header>
+            <p className="gist">{gist}</p>
+            {imgs.map((f) => <Img key={f} src={shot(`${f}.jpg`)} alt={`Răspunsul lui ${name} în formular`} />)}
+          </article>
+        ))}
+      </div>
+      {big && <Zoom src={big} onClose={() => setBig(null)} />}
+    </>
+  );
+}
+
+function M2() {
+  const done = PROGRESS.filter((p) => p[2] === "done").length;
+  return (
+    <>
+      <section id="top" className="hero-m2 wrap">
+        <p className="eyebrow">Milestone 2 · Customer Discovery</p>
+        <h1>Validarea ideii</h1>
+        <p className="lead">Am verificat dacă problema pe care vrea s-o rezolve Roomio există cu adevărat, înainte să construim soluția.</p>
+
+        <div className="progress" style={{ "--done": `${((done - 0.5) / (PROGRESS.length - 1)) * 100}%` }}>
+          <ol className="plain">
+            {PROGRESS.map(([t, d, st]) => (
+              <li key={t} className={st}><i aria-hidden="true" /><b>{t}</b><span>{d}</span></li>
+            ))}
+          </ol>
+        </div>
+
+        <ul className="plain stats">
+          <li><b>35</b><span>de răspunsuri în 7 zile</span></li>
+          <li><b>24</b><span>de povești despre ultima amenajare</span></li>
+          <li><b>14 <small>din 35</small></b><span>au returnat o piesă care nu se potrivea</span></li>
+          <li><b>21 <small>din 24</small></b><span>au măsurat cu ruleta</span></li>
+        </ul>
+      </section>
+
+      <main>
+        <section id="problema" className="band">
+          <div className="wrap split2">
+            <div>
+              <span className="num">01</span>
+              <h2>Cum am identificat problema</h2>
+              <p className="intro">Mobila se alege din poze și din fișa produsului. Abia după livrare afli dacă încape și dacă se potrivește cu restul. Am pornit de la trei ipoteze:</p>
+            </div>
+            <ol className="plain hyp">
+              {HYPOTHESES.map(([h, r], i) => <li key={i}><span className="num">I{i + 1}</span><p>{h}</p><em className={r === "parțial" ? "part" : ""}>{r}</em></li>)}
+            </ol>
+          </div>
+        </section>
+
+        <section id="solutia">
+          <div className="wrap split2">
+            <div>
+              <span className="num">02</span>
+              <h2>Ce credeam că e soluția</h2>
+            </div>
+            <p className="big">O aplicație în care îți reproduci camera la dimensiunile reale, o mobilezi cu piese 3D de la mai mulți furnizori și comanzi direct din ea.</p>
+          </div>
+        </section>
+
+        <section id="plan" className="band">
+          <div className="wrap">
+            <span className="num">03</span>
+            <h2>Planul</h2>
+            <ol className="plain steps steps4">
+              {PLAN.map(([t, d], i) => <li key={t}><span className="num">{String(i + 1).padStart(2, "0")}</span><h3>{t}</h3><p>{d}</p></li>)}
+            </ol>
+          </div>
+        </section>
+
+        <section id="proces">
+          <div className="wrap">
+            <span className="num">04</span>
+            <h2>Procesul</h2>
+            <ul className="plain cols3">
+              {PROCESS.map(([t, d]) => <li key={t}><h3>{t}</h3><p>{d}</p></li>)}
+            </ul>
+            <ol className="plain funnel">
+              {FUNNEL.map(([n, t]) => <li key={t} style={{ "--w": `${(n / FUNNEL[0][0]) * 100}%` }}><b>{n}</b><span>{t}</span></li>)}
+            </ol>
+            <div className="cols2 qs">
+              <div>
+                <h3>Întrebări da / nu</h3>
+                <ol>{Q_SCREEN.map((q) => <li key={q}>{q}</li>)}</ol>
+              </div>
+              <div>
+                <h3>Întrebări despre ultima amenajare</h3>
+                <ol>{Q_STORY.map((q) => <li key={q}>{q}</li>)}</ol>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="rezultate" className="band">
+          <div className="wrap">
+            <span className="num">05</span>
+            <h2>Ce am aflat</h2>
+            <ul className="plain findings">
+              {FINDINGS.map(([n, d]) => <li key={n + d}><b>{n}</b><p>{d}</p></li>)}
+            </ul>
+            <div className="cols2 charts">
+              <div>
+                <h3 className="sub-h">Răspunsurile da / nu</h3>
+                <Bars items={SCREEN} />
+              </div>
+              <div>
+                <h3 className="sub-h">Cea mai mare dificultate</h3>
+                <Bars items={DIFFICULTIES.map(([l, n]) => [l, n, 24])} />
+              </div>
+            </div>
+            <ul className="plain quotes">
+              {QUOTES.map((q) => <li key={q}><blockquote>„{q}”</blockquote></li>)}
+            </ul>
+          </div>
+        </section>
+
+        <section id="impact">
+          <div className="wrap">
+            <span className="num">06</span>
+            <h2>Ce schimbăm în Roomio</h2>
+            <ul className="plain cols2 impact">
+              {IMPACT.map(([t, d, why]) => <li key={t}><h3>{t}</h3><p>{d}</p><p className="why"><span>De ce</span>{why}</p></li>)}
+            </ul>
+          </div>
+        </section>
+
+        <section id="concluzie" className="band">
+          <div className="wrap">
+            <span className="num">07</span>
+            <h2>Suntem gata pentru Customer Validation?</h2>
+            <p className="verdict">Nu încă.</p>
+            <p className="intro">Am validat problema, dar nu și soluția.</p>
+            <div className="cols2">
+              <div>
+                <h3>Ce am validat</h3>
+                <ul className="checks ok">{VALIDATED.map((v) => <li key={v}>{v}</li>)}</ul>
+              </div>
+              <div>
+                <h3>Ce lipsește</h3>
+                <ul className="checks no">{NOT_VALIDATED.map((v) => <li key={v}>{v}</li>)}</ul>
+              </div>
+            </div>
+            <h3 className="sub-h">Pașii următori</h3>
+            <ol className="plain steps">
+              {NEXT.map(([t, d], i) => <li key={t}><span className="num">{String(i + 1).padStart(2, "0")}</span><h3>{t}</h3><p>{d}</p></li>)}
+            </ol>
+          </div>
+        </section>
+
+        <section id="dovezi">
+          <div className="wrap">
+            <span className="num">08</span>
+            <h2>Dovezi</h2>
+            <p className="intro">Capturi din Google Forms. Răspunsurile individuale sunt doar de la persoane care au fost de acord să apară cu prenumele și vârsta.</p>
+            <Locked><Proof /></Locked>
+          </div>
+        </section>
+      </main>
+    </>
+  );
+}
+
 /* ---------- stiluri ---------- */
 const CSS = `
 @import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600&display=swap');
@@ -709,6 +1089,94 @@ td:last-child{color:var(--muted)}
 .foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:36px;color:var(--muted);font-size:13.5px;border-top:1px solid var(--line)}
 .foot .logo{font-size:15px}
 
+/* ---------- M2 ---------- */
+.hero-m2{padding-block:clamp(48px,7vw,104px)}
+.hero-m2 h1{font-size:clamp(48px,7.5vw,92px);line-height:1;letter-spacing:-.045em;margin-bottom:24px}
+.hero-m2 .lead{max-width:48ch}
+.wrap>.num,.split2 .num{margin-bottom:12px}
+/* progres: linia se umple până la etapa curentă */
+.progress{margin-top:clamp(40px,5vw,64px);overflow-x:auto}
+.progress ol{position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:12px;min-width:0}
+.progress ol::before,.progress ol::after{content:'';position:absolute;top:7px;left:8px;height:2px;background:var(--line)}
+.progress ol::before{right:8px}
+.progress ol::after{width:calc(var(--done) - 16px);background:var(--wood);animation:grow 1.4s .2s cubic-bezier(.3,.7,.2,1) both}
+@keyframes grow{from{width:0}}
+.progress li{position:relative;z-index:1;display:grid;gap:4px;align-content:start}
+.progress i{width:16px;height:16px;border-radius:50%;border:2px solid var(--line);background:var(--bg);margin-bottom:10px}
+.progress .done i{background:var(--wood);border-color:var(--wood)}
+.progress .next i{border-color:var(--wood);box-shadow:0 0 0 5px var(--wood-soft)}
+.progress b{font-size:15px;font-weight:500;line-height:1.3}
+.progress span{font-size:13px;color:var(--muted)}
+.progress .todo b{color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-top:clamp(40px,5vw,64px)}
+.stats li{border-top:1px solid var(--ink);padding-top:16px;display:grid;gap:6px;align-content:start}
+.stats b{font-size:clamp(34px,4vw,48px);font-weight:500;line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.stats b small,.bar-val small{font-size:.45em;font-weight:500;color:var(--muted);letter-spacing:0}
+.stats span{font-size:15px;color:var(--muted)}
+.split2{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(32px,6vw,80px);align-items:start}
+.split2>*{min-width:0}
+.split2 .intro{margin-bottom:0!important}
+.big{font-size:clamp(21px,2.3vw,27px);font-weight:500;letter-spacing:-.015em;line-height:1.4}
+.hyp li{display:grid;grid-template-columns:44px 1fr auto;gap:12px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--line)}
+.hyp li:first-child{border-top:1px solid var(--line)}
+.hyp .num{margin:0!important}
+.hyp p{font-size:18px}
+.hyp em{font-style:normal;font-size:11.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--wood);border:1px solid var(--wood);border-radius:99px;padding:2px 10px;white-space:nowrap}
+.hyp em.part{color:var(--muted);border-color:var(--line)}
+.steps4{grid-template-columns:repeat(4,1fr);gap:32px}
+.cols3 p,.impact p{color:var(--muted);margin-top:6px!important}
+.funnel{display:grid;gap:8px;margin-top:56px;max-width:760px}
+.funnel li{display:flex;align-items:baseline;gap:14px;width:var(--w);min-width:min(100%,300px);background:var(--surface);padding:14px 18px;border-left:3px solid var(--wood)}
+.funnel b{font-size:26px;font-weight:500;line-height:1;font-variant-numeric:tabular-nums}
+.funnel span{font-size:15px;color:var(--muted)}
+.qs{margin-top:64px}
+.qs ol{margin:16px 0 0;padding-left:22px;display:grid;gap:10px;color:var(--muted);font-size:16px}
+.qs ol li::marker{color:var(--ink)}
+.findings{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.findings li{background:var(--bg);padding:24px;display:grid;gap:10px;align-content:start}
+.findings b{font-size:30px;font-weight:500;line-height:1;letter-spacing:-.02em;color:var(--wood);font-variant-numeric:tabular-nums}
+.findings p{font-size:15px;color:var(--muted)}
+.charts{margin-top:8px}
+.bars{display:grid;gap:14px}
+.bars li{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) 64px;gap:14px;align-items:center}
+.bar-label{font-size:14.5px}
+.bar-track{height:8px;background:var(--line);border-radius:0 4px 4px 0}
+.bar-track i{display:block;height:100%;background:var(--wood);border-radius:0 4px 4px 0;min-width:4px;animation:grow 1s cubic-bezier(.3,.7,.2,1) both}
+.bar-val{font-size:17px;font-weight:500;text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:64px}
+.quotes li{background:var(--bg);padding:24px}
+.quotes blockquote{margin:0;font-size:17.5px;line-height:1.5}
+.impact .why{font-size:14.5px;margin-top:14px!important;padding-top:12px;border-top:1px dashed var(--line)}
+.why span{display:block;font-size:11.5px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--wood);margin-bottom:2px}
+.verdict{font-size:clamp(40px,5vw,60px);font-weight:500;letter-spacing:-.035em;line-height:1;margin-bottom:14px!important}
+.checks{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:12px}
+.checks li,.cols2 .checks li{position:relative;padding:0 0 0 26px;border:0;color:var(--muted)}
+.checks li::before{position:absolute;left:0;top:0;font-weight:600}
+.checks.ok li::before{content:'✓';color:var(--wood)}
+.checks.no li::before{content:'—';color:var(--warn)}
+.sub-h{margin:56px 0 24px!important}
+.lock{display:grid;gap:10px;max-width:420px;padding:28px;background:var(--surface);border-radius:2px}
+.lock label{font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.lock div{display:flex;gap:8px}
+.lock input{flex:1;min-width:0;font:inherit;font-size:16px;padding:9px 12px;border:1px solid var(--line);border-radius:2px;background:var(--bg);color:var(--ink)}
+.lock input:focus{outline:none;border-color:var(--ink)}
+.lock button{font:inherit;font-size:15px;padding:9px 18px;border:1px solid var(--ink);border-radius:2px;background:var(--ink);color:var(--bg);cursor:pointer}
+.lock-err{font-size:14px;color:var(--warn)}
+.shot{display:block;width:100%;padding:0;border:1px solid var(--line);border-radius:4px;background:#fff;cursor:zoom-in;overflow:hidden;transition:border-color .2s,transform .2s}
+.shot:hover{border-color:var(--wood);transform:translateY(-2px)}
+.shot img{width:100%;max-width:100%;height:auto;display:block}
+.shot-form{margin:0;max-width:720px}
+.shot-form figcaption{font-size:14px;color:var(--muted);margin-top:10px}
+.charts-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.people{columns:2 340px;column-gap:24px}
+.person{break-inside:avoid;margin-bottom:24px;background:var(--surface);padding:20px;border-radius:4px;display:grid;gap:12px}
+.person header{display:flex;align-items:center;gap:12px}
+.avatar{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--wood-soft);color:var(--wood);font-weight:600}
+.person h4{margin:0;font-size:16px;font-weight:500}
+.person header span{font-size:13px;color:var(--muted)}
+.gist{font-size:15px;line-height:1.45}
+.zoom{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));border:0;background:rgba(20,20,19,.82);cursor:zoom-out;animation:fade .2s both}
+.zoom img{max-width:min(1100px,100%);max-height:100%;border-radius:4px;background:#fff}
 @media(max-width:860px){
  .ms{display:none}
  .ms-select{display:block}
@@ -716,6 +1184,10 @@ td:last-child{color:var(--muted)}
  .steps,.cols3{grid-template-columns:1fr;gap:32px}
  .team,.metrics{grid-template-columns:repeat(2,1fr)}
  .legend,.cols2{grid-template-columns:1fr}
+ .steps4,.stats,.findings{grid-template-columns:repeat(2,1fr)}
+ .split2,.quotes{grid-template-columns:1fr}
+ .charts-grid{grid-template-columns:repeat(2,1fr)}
+ .charts{gap:0}
 }
 @media(max-width:600px){
  .fiki{font-size:16.5px}
@@ -738,6 +1210,17 @@ td:last-child{color:var(--muted)}
  .team li{flex-direction:row;align-items:center;gap:18px}
  .team img{width:104px;flex:none;aspect-ratio:1}
  .metrics{grid-template-columns:1fr;gap:28px}
+ .steps4,.findings{grid-template-columns:1fr}
+ .stats{gap:24px 16px}
+ .progress ol{grid-template-columns:1fr;gap:18px}
+ .progress ol::before,.progress ol::after{display:none}
+ .progress li{grid-template-columns:16px 1fr;column-gap:14px}
+ .progress i{grid-row:span 2;margin:2px 0 0}
+ .bars li{grid-template-columns:1fr auto;gap:6px 12px}
+ .bar-label{grid-column:1/-1}
+ .hyp li{grid-template-columns:36px 1fr}
+ .hyp em{grid-column:2;justify-self:start}
+
 }
 @media(prefers-reduced-motion:reduce){
  html{scroll-behavior:auto}
@@ -748,6 +1231,7 @@ td:last-child{color:var(--muted)}
  .room .sun{opacity:.26}
  .room .planks,.room .art{opacity:1}
  .room .glow{opacity:.65}
+ .progress ol::after,.bar-track i{animation:none}
  .dimline line{stroke-dashoffset:0}
 }
 `;
