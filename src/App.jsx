@@ -577,6 +577,46 @@ const PROGRESS = [
   ["Customer Validation", "după interviuri", "todo"],
 ];
 
+// experiența de la care a pornit ideea
+const STORY = [
+  ["O bucătărie nouă", "Am vrut să-mi schimb complet bucătăria: gresia, mobila, tot. O schimbare radicală, nu doar câteva piese."],
+  ["Planificatorul IKEA", "Am descoperit că IKEA te lasă să-ți proiectezi bucătăria de acasă. Știam că se poate în magazin, dar nu și din fața calculatorului."],
+  ["De acasă, în liniște", "Mi s-a părut un proces relaxant și plăcut: îmi organizam bucătăria în liniștea casei mele, în ritmul meu."],
+  ["Restul casei", "Mi-a lipsit să pot face la fel și pentru celelalte camere."],
+  ["Nu doar IKEA", "Apoi mi-am dat seama că vreau să păstrez unele piese pe care le am deja și să cumpăr mobilă și de la alte magazine."],
+];
+const STORY_END = "De aici a pornit Roomio: un singur loc în care îți proiectezi de acasă orice cameră, cu mobila pe care o ai deja și cu piese de la mai mulți furnizori.";
+
+// pașii se aprind pe rând, pe măsură ce ajung în ecran
+function Story() {
+  const ref = useRef(null);
+  const [seen, setSeen] = useState(0);
+  useEffect(() => {
+    const items = [...ref.current.querySelectorAll("li")];
+    if (reducedMotion() || !("IntersectionObserver" in window)) { setSeen(items.length); return; }
+    const io = new IntersectionObserver((entries) => entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      setSeen((s) => Math.max(s, items.indexOf(e.target) + 1));
+      io.unobserve(e.target);
+    }), { rootMargin: "0px 0px -20% 0px" });
+    items.forEach((li) => io.observe(li));
+    return () => io.disconnect();
+  }, []);
+  return (
+    <>
+      <ol ref={ref} className="plain story" style={{ "--seen": Math.max(0, seen - 1) / (STORY.length - 1) }}>
+        {STORY.map(([t, d], i) => (
+          <li key={t} className={i < seen ? "in" : ""}>
+            <span className="story-dot">{i + 1}</span>
+            <div><h3>{t}</h3><p>{d}</p></div>
+          </li>
+        ))}
+      </ol>
+      <p className={`story-end${seen === STORY.length ? " in" : ""}`}>{STORY_END}</p>
+    </>
+  );
+}
+
 // [ipoteză, ce a ieșit din formular]
 const HYPOTHESES = [
   ["Oamenii verifică dacă mobila încape mai ales cu ruleta.", "confirmată"],
@@ -798,15 +838,20 @@ function M2() {
 
       <main>
         <section id="problema" className="band">
-          <div className="wrap split2">
-            <div>
-              <span className="num">01</span>
-              <h2>Cum am identificat problema</h2>
-              <p className="intro">Mobila se alege din poze și din fișa produsului. Abia după livrare afli dacă încape și dacă se potrivește cu restul. Am pornit de la trei ipoteze:</p>
+          <div className="wrap">
+            <span className="num">01</span>
+            <h2>Cum am identificat problema</h2>
+            <p className="intro">Totul a pornit de la o experiență personală.</p>
+            <Story />
+            <div className="split2 hyp-wrap">
+              <div>
+                <h3>Ce am dedus</h3>
+                <p className="intro">Mobila se alege din poze și din fișa produsului, iar abia după livrare afli dacă încape și dacă se potrivește cu restul. Am pornit de la trei ipoteze, pe care le-am verificat în formular:</p>
+              </div>
+              <ol className="plain hyp">
+                {HYPOTHESES.map(([h, r], i) => <li key={i}><span className="num">I{i + 1}</span><p>{h}</p><em className={r === "parțial" ? "part" : ""}>{r}</em></li>)}
+              </ol>
             </div>
-            <ol className="plain hyp">
-              {HYPOTHESES.map(([h, r], i) => <li key={i}><span className="num">I{i + 1}</span><p>{h}</p><em className={r === "parțial" ? "part" : ""}>{r}</em></li>)}
-            </ol>
           </div>
         </section>
 
@@ -1113,6 +1158,22 @@ td:last-child{color:var(--muted)}
 .stats b{font-size:clamp(34px,4vw,48px);font-weight:500;line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
 .stats b small,.bar-val small{font-size:.45em;font-weight:500;color:var(--muted);letter-spacing:0}
 .stats span{font-size:15px;color:var(--muted)}
+/* povestea: linia de stejar crește până la ultimul pas văzut */
+.story{position:relative;display:grid;gap:32px;max-width:780px;margin-top:8px}
+.story::before,.story::after{content:'';position:absolute;left:19px;top:20px;width:2px}
+.story::before{bottom:20px;background:var(--line)}
+.story::after{height:calc((100% - 40px) * var(--seen));background:var(--wood);transition:height .9s cubic-bezier(.3,.7,.2,1)}
+.story li{position:relative;display:grid;grid-template-columns:40px 1fr;gap:22px;opacity:.2;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.story li.in{opacity:1;transform:none}
+.story-dot{position:relative;z-index:1;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--surface);border:2px solid var(--line);font-size:14px;font-weight:600;color:var(--muted);transition:border-color .5s,color .5s,background .5s}
+.story li.in .story-dot{border-color:var(--wood);color:var(--wood)}
+.story li.in:last-child .story-dot{background:var(--wood);color:var(--surface)}
+.story h3{font-size:21px;margin-top:6px}
+.story p{color:var(--muted);margin-top:4px!important;max-width:58ch}
+.story-end{margin-top:40px!important;max-width:780px;padding:28px 32px;background:var(--bg);border-left:3px solid var(--wood);font-size:clamp(19px,2vw,23px);font-weight:500;line-height:1.4;letter-spacing:-.01em;opacity:0;transform:translateY(18px);transition:opacity .8s .3s ease,transform .8s .3s ease}
+.story-end.in{opacity:1;transform:none}
+.hyp-wrap{margin-top:80px}
+.hyp-wrap h3{font-size:22px;margin-bottom:12px}
 .split2{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(32px,6vw,80px);align-items:start}
 .split2>*{min-width:0}
 .split2 .intro{margin-bottom:0!important}
@@ -1232,6 +1293,7 @@ td:last-child{color:var(--muted)}
  .room .planks,.room .art{opacity:1}
  .room .glow{opacity:.65}
  .progress ol::after,.bar-track i{animation:none}
+ .story li,.story-end{opacity:1;transform:none;transition:none}
  .dimline line{stroke-dashoffset:0}
 }
 `;
