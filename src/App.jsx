@@ -731,9 +731,9 @@ const VALIDATED = [
 ];
 
 const NOT_VALIDATED = [
-  "Nimeni nu a văzut încă Roomio, deci soluția nu e testată.",
-  "Nu știm dacă oamenii ar comanda prin aplicație.",
-  "35 de respondenți, cei mai mulți din București și din cercul nostru.",
+  "Dacă cele 6 funcții Roomio rezolvă problemele găsite, printr-un formular nou.",
+  "Dacă oamenii ar comanda toate piesele prin aplicație.",
+  "Un eșantion mai larg: alte orașe și oameni peste 35 de ani.",
 ];
 
 const NEXT = [
@@ -879,7 +879,7 @@ function M2({ part, onPart }) {
         </div>
       </section>
 
-      {part === "problema" ? <M2Problem /> : <M2Solution />}
+      {part === "problema" ? <M2Problem onPart={onPart} /> : <M2Solution />}
     </>
   );
 }
@@ -955,7 +955,7 @@ function M2Solution() {
   );
 }
 
-function M2Problem() {
+function M2Problem({ onPart }) {
   return (
     <>
       <section className="wrap p1-stats part-in">
@@ -1065,19 +1065,20 @@ function M2Problem() {
         <section id="concluzie" className="band">
           <div className="wrap">
             <span className="num">07</span>
-            <h2>Suntem gata pentru Customer Validation?</h2>
-            <p className="verdict">Nu încă.</p>
-            <p className="intro">Am validat problema, dar nu și soluția.</p>
+            <h2>Suntem pregătiți să validăm soluția?</h2>
+            <p className="verdict">Da.</p>
+            <p className="intro">Problema este validată. Următorul pas este validarea soluției.</p>
             <div className="cols2">
               <div>
-                <h3>Ce am validat</h3>
+                <h3>Problema validată</h3>
                 <ul className="checks ok">{VALIDATED.map((v) => <li key={v}>{v}</li>)}</ul>
               </div>
               <div>
-                <h3>Ce lipsește</h3>
-                <ul className="checks no">{NOT_VALIDATED.map((v) => <li key={v}>{v}</li>)}</ul>
+                <h3>Ce validăm acum</h3>
+                <ul className="checks next">{NOT_VALIDATED.map((v) => <li key={v}>{v}</li>)}</ul>
               </div>
             </div>
+            <button className="go" onClick={() => onPart("solutie")}>Vezi validarea soluției →</button>
             <h3 className="sub-h">Pașii următori</h3>
             <ol className="plain steps">
               {NEXT.map(([t, d], i) => <li key={t}><span className="num">{String(i + 1).padStart(2, "0")}</span><h3>{t}</h3><p>{d}</p></li>)}
@@ -1375,6 +1376,8 @@ td:last-child{color:var(--muted)}
 .checks li::before{position:absolute;left:0;top:0;font-weight:600}
 .checks.ok li::before{content:'✓';color:var(--wood)}
 .checks.no li::before{content:'—';color:var(--warn)}
+.checks.next li::before{content:'→';color:var(--wood)}
+.go{margin-top:40px;font:inherit;font-size:15px;padding:10px 20px;border:1px solid var(--ink);border-radius:2px;background:var(--ink);color:var(--bg);cursor:pointer}
 .sub-h{margin:56px 0 24px!important}
 .lock{display:grid;gap:10px;max-width:420px;padding:28px;background:var(--surface);border-radius:2px}
 .lock label{font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
