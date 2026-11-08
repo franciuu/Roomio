@@ -1,0 +1,22 @@
+/* M3: wireframe și landing page */
+.scaled{position:relative;width:100%;max-width:100%;overflow:hidden}
+.scaled>div{position:absolute;top:0;left:0;transform-origin:0 0}
+.wf-chrome{display:flex;align-items:center;gap:6px;height:34px;padding:0 12px;border-bottom:1px solid var(--line);background:var(--surface);font-family:var(--font)}
+.wf-chrome i{width:10px;height:10px;border-radius:50%;border:1.5px solid var(--line)}
+.wf-chrome span{margin-left:12px;flex:1;max-width:420px;padding:2px 12px;border:1px solid var(--line);border-radius:99px;background:var(--bg);color:var(--muted);font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* landing page: previzualizare și link */
+.lp-preview{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--bg);box-shadow:0 24px 60px -30px rgba(0,0,0,.4)}
+.lp-preview iframe{display:block;border:0;pointer-events:none;background:var(--bg)}
+.lp-link{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:28px}
+.fiki .lp-link .go{margin-top:0;text-decoration:none;display:inline-block;color:var(--bg)}
+.lp-link code{font-size:14px;color:var(--muted);word-break:break-all}
+.lp-measure{row-gap:40px}
+.lp-parts{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.lp-parts li{border-top:1px solid var(--ink);padding-top:18px}
+.lp-parts p{color:var(--muted);margin-top:6px!important;font-size:15.5px}
+@media(max-width:1000px){
+ .lp-parts{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+ .lp-parts{grid-template-columns:1fr}
+}
