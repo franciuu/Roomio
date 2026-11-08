@@ -1,4 +1,5 @@
 import "./m3.css";
+import { useState } from "react";
 import { Wireframe } from "./wireframe/Wireframe.jsx";
 import { Scaled } from "./Scaled.jsx";
 import { LANDING_MEASURE, LANDING_PARTS, LANDING_URL, M3_PARTS } from "./data.js";
@@ -25,6 +26,28 @@ export function M3({ part, onPart }) {
   );
 }
 
+// landing page-ul, navigabil direct din Fiki: pe desktop e afișat la 1440 px și micșorat, pe telefon la 390 px
+const LANDING_HREF = `${import.meta.env.BASE_URL}landing.html`;
+function LandingBrowser() {
+  const [device, setDevice] = useState("desktop");
+  return (
+    <div className={`lp-browser ${device}`}>
+      <div className="lp-browser-bar">
+        <span className="lp-dots"><i /><i /><i /></span>
+        <span className="lp-url">{LANDING_URL.replace("https://", "")}</span>
+        <div className="lp-device" role="group" aria-label="Dispozitiv">
+          <button type="button" aria-pressed={device === "desktop"} onClick={() => setDevice("desktop")}>Desktop</button>
+          <button type="button" aria-pressed={device === "phone"} onClick={() => setDevice("phone")}>Telefon</button>
+        </div>
+        <a className="lp-open" href={LANDING_HREF} target="_blank" rel="noopener">Deschide separat ↗</a>
+      </div>
+      {device === "desktop"
+        ? <Scaled w={1440} h={900}><iframe src={LANDING_HREF} title="Landing page Roomio, versiunea desktop" width="1440" height="900" /></Scaled>
+        : <div className="lp-phone"><iframe src={LANDING_HREF} title="Landing page Roomio, versiunea pentru telefon" width="390" height="760" /></div>}
+    </div>
+  );
+}
+
 function M3Landing() {
   return (
     <main className="part-in">
@@ -32,15 +55,9 @@ function M3Landing() {
         <div className="wrap">
           <span className="num">01</span>
           <h2>Landing page</h2>
-          <p className="intro">Prima pagină pe care o vede un vizitator nou. Are un singur obiectiv: înscrierea pe lista de așteptare.</p>
-          <div className="lp-preview">
-            <div className="wf-chrome big"><i /><i /><i /><span>{LANDING_URL.replace("https://", "")}</span></div>
-            <Scaled w={1280} h={760}><iframe src={`${import.meta.env.BASE_URL}landing.html`} title="Landing page Roomio" width="1280" height="760" tabIndex="-1" scrolling="no" /></Scaled>
-          </div>
-          <div className="lp-link">
-            <a className="go" href={`${import.meta.env.BASE_URL}landing.html`} target="_blank" rel="noopener">Deschide landing page-ul ↗</a>
-            <code>{LANDING_URL}</code>
-          </div>
+          <p className="intro">Prima pagină pe care o vede un vizitator nou. Are un singur obiectiv: înscrierea pe lista de așteptare. Poți naviga în ea direct de aici: derulează și apasă ca pe site.</p>
+          <LandingBrowser />
+          <p className="lp-link">Link separat: <a href={LANDING_HREF} target="_blank" rel="noopener">{LANDING_URL}</a></p>
         </div>
       </section>
 
