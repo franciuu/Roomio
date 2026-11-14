@@ -3,84 +3,96 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Roomio — Vezi mobila în camera ta înainte să o cumperi</title>
-<meta name="description" content="Roomio îți reconstruiește camera la dimensiunile reale. Pui în ea piese de la mai mulți furnizori, vezi dacă încap și cum arată împreună, apoi comanzi totul dintr-un singur loc.">
-<meta name="theme-color" content="#1F4D3F">
+<title>Roomio — Tot mobilierul. Toate combinațiile. Un singur loc.</title>
+<meta name="description" content="Roomio îți reconstruiește camera în 3D, la dimensiunile reale. Așezi mobilă de la mai mulți vânzători, vezi dacă încape și cât costă, apoi cumperi direct de la fiecare magazin.">
+<meta name="theme-color" content="#EAE5DC">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='2' y='2' width='28' height='28' rx='8' fill='%231F4D3F'/%3E%3Cpath d='M10 23V10h13' fill='none' stroke='%23FBF8F3' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Crect x='16' y='16' width='7' height='7' rx='1.6' fill='%23C9663C'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Instrument+Sans:wght@400;500;600;700&display=swap">
 <style>
-body{margin:0;background:#FBF8F3}
-.lp{--lp-g:#1F4D3F;--lp-g2:#2A6352;--lp-tc:#C9663C;--lp-tci:#A4502C;--lp-bg:#FBF8F3;--lp-sf:#F3EEE6;--lp-card:#FFFFFF;--lp-tx:#17201D;--lp-tx2:#5C6863;--lp-ln:#E5DED2;--lp-gl:#E3ECE7;--lp-serif:"Fraunces",Georgia,"Times New Roman",serif;--lp-sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color-scheme:light;background:var(--lp-bg);color:var(--lp-tx);font-family:var(--lp-sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip;min-width:0}
-.lp *,.lp *::before,.lp *::after{box-sizing:border-box}
-.lp :where(h1,h2,h3,p,ul,ol,figure){margin:0}
-.lp ul,.lp ol{padding:0;list-style:none}
-.lp svg{display:block}
-.lp a{color:inherit}
-.lp a.lp-btn--primary,.lp a.lp-btn--accent{color:#fff}
-.lp a.lp-btn--ghost{color:var(--lp-g)}
-.lp :focus-visible{outline:3px solid var(--lp-tc);outline-offset:3px;border-radius:6px}
-.lp-sr{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-.lp-skip{position:absolute;left:16px;top:-60px;z-index:100;background:var(--lp-g);color:#fff!important;padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:600}
-.lp-skip:focus{top:12px}
-.lp-wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 24px}
-.lp-section{padding:112px 0;scroll-margin-top:72px;position:relative}
-.lp-section--sf{background:var(--lp-sf)}
-.lp-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--lp-tci);margin-bottom:18px}
-.lp-eyebrow::before{content:"";width:22px;height:9px;border-left:1.5px solid currentColor;border-right:1.5px solid currentColor;background:linear-gradient(currentColor,currentColor) center/100% 1.5px no-repeat}
-.lp-h2{font-family:var(--lp-serif);font-weight:500;font-size:clamp(32px,4.2vw,50px);line-height:1.1;letter-spacing:-.015em;font-variation-settings:"opsz" 96;max-width:18ch}
-.lp-h2 em,.lp-h1 em{font-style:italic;color:var(--lp-g2);font-weight:500}
-.lp-lead{font-size:19px;color:var(--lp-tx2);max-width:56ch;margin-top:20px}
-.lp-head{margin-bottom:56px}
-.lp-head--center{text-align:center;display:flex;flex-direction:column;align-items:center}
-.lp-head--center .lp-h2{margin-left:auto;margin-right:auto}
+:root{
+  --bg:#EAE5DC;
+  --ink:#221D1C;
+  --ink-2:#5A5350;
+  --btn:#2E5A1A;
+  --btn-h:#224612;
+  --btn-tx:#F3EFE8;
+  --green:#2E5A1A;
+  --sand:#D4C4B5;
+  --paper:#F3EFE8;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --sans:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,p,ul,ol,figure{margin:0}
+ul,ol{padding:0;list-style:none}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip{position:absolute;left:16px;top:-60px;z-index:100;background:var(--ink);color:var(--bg);padding:10px 16px;text-decoration:none;font-weight:600}
+.skip:focus{top:12px}
+
+.wrap{max-width:1240px;margin:0 auto;padding:0 40px}
+section{scroll-margin-top:76px}
+.section{padding:76px 0;border-top:1px solid var(--sand)}
+.kicker{font-size:14px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:10px}
+.h2{font-family:var(--serif);font-weight:500;font-size:clamp(32px,3.8vw,46px);line-height:1.15;letter-spacing:-.01em;max-width:22ch}
+.lead{font-size:19px;color:var(--ink-2);max-width:58ch;margin-top:16px}
+.head{margin-bottom:28px}
 
 /* butoane */
-.lp-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 26px;border-radius:999px;font-family:var(--lp-sans);font-size:17px;font-weight:600;line-height:1;text-decoration:none;border:1.5px solid transparent;cursor:pointer;transition:background-color .2s ease,color .2s ease,border-color .2s ease,transform .2s ease,box-shadow .2s ease;white-space:nowrap}
-.lp-btn svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s ease}
-.lp-btn--primary{background:var(--lp-g);color:#fff;box-shadow:0 10px 24px -12px rgba(31,77,63,.7)}
-.lp-btn--primary:hover{background:var(--lp-g2);transform:translateY(-1px);box-shadow:0 14px 28px -12px rgba(31,77,63,.75)}
-.lp-btn--primary:hover svg,.lp-btn--accent:hover svg{transform:translateX(3px)}
-.lp-btn--ghost{background:transparent;color:var(--lp-g);border-color:var(--lp-g)}
-.lp-btn--ghost:hover{background:var(--lp-gl);color:var(--lp-g)}
-.lp-btn--accent{background:var(--lp-tc);color:#fff;font-size:20px;font-weight:700;min-height:62px;padding:0 32px;box-shadow:0 14px 30px -14px rgba(0,0,0,.5)}
-.lp-btn--accent:hover{background:#B5582F;transform:translateY(-1px)}
-.lp-btn--sm{min-height:44px;padding:0 18px;font-size:15px}
-.lp-btn--block{width:100%}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:6px;font-family:var(--sans);font-size:17px;font-weight:600;line-height:1;text-decoration:none;border:1.5px solid transparent;cursor:pointer;transition:background-color .15s ease,border-color .15s ease,color .15s ease;white-space:nowrap}
+.btn-primary{background:var(--btn);color:var(--btn-tx)}
+.btn-primary:hover{background:var(--btn-h)}
+.btn-outline{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn-outline:hover{background:var(--ink);color:var(--bg)}
+.btn[disabled]{background:transparent;color:var(--ink-2);border-color:var(--sand);border-style:dashed;cursor:not-allowed}
+.btn-block{width:100%}
 
-/* bara de sus */
-.lp-nav{position:sticky;top:0;z-index:50;background:rgba(251,248,243,.88);-webkit-backdrop-filter:saturate(1.4) blur(12px);backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid transparent;transition:box-shadow .3s ease,border-color .3s ease}
-.lp-nav--scrolled{box-shadow:0 10px 30px -18px rgba(23,32,29,.35);border-bottom-color:var(--lp-ln)}
-.lp-nav-in{display:flex;align-items:center;gap:24px;height:72px}
-.lp-logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--lp-serif);font-weight:600;font-size:24px;letter-spacing:-.01em;color:var(--lp-tx)}
-.lp-logo svg{width:32px;height:32px}
-.lp-nav-links{display:flex;gap:4px;margin-left:auto}
-.lp-nav-link{position:relative;display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:999px;font-size:15px;font-weight:500;color:var(--lp-tx2);text-decoration:none;transition:color .2s ease,background-color .2s ease}
-.lp-nav-link:hover{color:var(--lp-tx);background:var(--lp-sf)}
-.lp-nav-link.lp-is-active{color:var(--lp-g)}
-.lp-nav-link.lp-is-active::after{content:"";position:absolute;left:14px;right:14px;bottom:6px;height:2px;border-radius:2px;background:var(--lp-tc)}
-.lp-nav .lp-btn{margin-left:8px}
+/* header */
+.top{position:sticky;top:0;z-index:50;background:rgba(234,229,220,.94);border-bottom:1px solid var(--sand);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.top-in{display:flex;align-items:center;justify-content:space-between;gap:24px;height:72px}
+.nav{display:flex;gap:4px;align-items:center;margin-left:auto}
+.nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;font-size:16.5px;font-weight:600;color:var(--ink-2);text-decoration:none;border-bottom:2px solid transparent}
+.nav a:hover{color:var(--ink)}
+.nav a.is-active{color:var(--ink);border-bottom-color:var(--btn)}
+.logo{display:inline-flex;align-items:center;gap:12px;text-decoration:none;font-family:var(--serif);font-weight:600;font-size:30px;letter-spacing:-.01em;color:var(--ink)}
+.logo svg{width:46px;height:46px}
+.menu-btn{display:none;background:none;border:1px solid var(--sand);border-radius:6px;width:44px;height:44px;cursor:pointer;color:var(--ink)}
+.menu-btn svg{width:22px;height:22px;margin:auto}
 
 /* hero */
-.lp-hero{position:relative;padding:28px 0 88px;overflow:hidden}
-.lp-hero-bg{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(31,77,63,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(31,77,63,.055) 1px,transparent 1px);background-size:32px 32px;-webkit-mask-image:radial-gradient(ellipse 70% 70% at 70% 40%,#000 30%,transparent 75%);mask-image:radial-gradient(ellipse 70% 70% at 70% 40%,#000 30%,transparent 75%)}
-.lp-blob{position:absolute;pointer-events:none}
-.lp-blob--a{width:620px;height:620px;right:-140px;top:-80px}
-.lp-blob--b{width:260px;height:260px;left:-90px;bottom:40px}
-.lp-hero-grid{position:relative;display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.24fr);gap:48px;align-items:center}
-.lp-h1{font-family:var(--lp-serif);font-weight:500;font-size:clamp(40px,5.6vw,70px);line-height:1.04;letter-spacing:-.025em;font-variation-settings:"opsz" 144}
-.lp-hero-p{font-size:19px;color:var(--lp-tx2);margin-top:24px;max-width:50ch}
-.lp-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
-.lp-perks{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:36px}
-.lp-perks li{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:500;color:var(--lp-tx)}
-.lp-perks svg,.lp-check svg{width:20px;height:20px;flex:none;fill:none;stroke:var(--lp-g2);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.lp-perks .lp-tick{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--lp-gl)}
-.lp-perks .lp-tick svg{width:14px;height:14px}
+.hero{padding:36px 0 60px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.15fr);gap:88px;align-items:center}
+.h1{font-family:var(--serif);font-weight:500;font-size:clamp(40px,4vw,54px);line-height:1.14;letter-spacing:-.022em}
+.h1 span{display:block}
+.hero-p{font-size:19px;color:var(--ink-2);margin-top:22px;max-width:48ch}
+.points{margin-top:28px;display:grid;gap:12px}
+.points li{display:flex;gap:12px;align-items:flex-start;font-size:19px}
+.points li::before{content:"";flex:none;width:9px;height:9px;margin-top:11px;background:var(--btn)}
+.points b{font-weight:600}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
 
-/* mockup aplicație */
+.demo{background:var(--paper);border:1px solid var(--sand);border-radius:10px;overflow:hidden;box-shadow:0 30px 60px -40px rgba(34,29,28,.45)}
+.demo-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;border-bottom:1px solid var(--sand);font-size:13px}
+.demo-bar b{font-weight:600}
+.demo-bar span{color:var(--ink-2)}
+.demo-img{background:#E9DFD2}
+.demo-img img{width:100%;height:auto;aspect-ratio:1408/768;object-fit:cover}
+.demo-foot{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--sand)}
+.demo-foot div{padding:12px 16px;font-size:13px;border-left:1px solid var(--sand)}
+.demo-foot div:first-child{border-left:0}
+.demo-foot small{display:block;color:var(--ink-2);font-size:12px}
+.demo-foot strong{font-family:var(--serif);font-size:18px;font-weight:600}
+
+
+.lp-stage{--lp-g:#2E5A1A;--lp-g2:#3A6A24;--lp-tc:#C9663C;--lp-tci:#A4502C;--lp-card:#F7F4EE;--lp-tx:#221D1C;--lp-tx2:#5A5350;--lp-ln:#D9CCBE;--lp-gl:#E3EADB;--lp-sans:var(--sans);--lp-serif:var(--serif)}
 .lp-stage{position:relative;padding:20px 0}
-.lp-app{position:relative;background:var(--lp-card);border:1px solid var(--lp-ln);border-radius:18px;box-shadow:0 1px 0 rgba(255,255,255,.8) inset,0 40px 80px -40px rgba(23,32,29,.38),0 18px 36px -24px rgba(23,32,29,.22);overflow:hidden}
+.lp-app{position:relative;background:var(--lp-card);border:1px solid var(--lp-ln);border-radius:10px;box-shadow:0 30px 60px -40px rgba(34,29,28,.4);overflow:hidden}
 .lp-app-bar{display:flex;align-items:center;gap:14px;height:48px;padding:0 16px;border-bottom:1px solid var(--lp-ln);background:#FDFBF8}
 .lp-dots{display:flex;gap:6px}
 .lp-dots span{width:10px;height:10px;border-radius:50%;background:#E5DED2}
@@ -93,7 +105,7 @@ body{margin:0;background:#FBF8F3}
 .lp-app-tools span{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;color:var(--lp-tx2)}
 .lp-app-tools span.lp-on{background:var(--lp-gl);color:var(--lp-g)}
 .lp-app-tools svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.lp-app-canvas{position:relative;background-color:#F8F5EF;background-image:radial-gradient(rgba(31,77,63,.13) 1px,transparent 1.4px);background-size:18px 18px}
+.lp-app-canvas{position:relative;background-color:#F8F5EF;background-image:radial-gradient(rgba(95,125,82,.16) 1px,transparent 1.4px);background-size:18px 18px}
 .lp-room{width:100%;height:auto}
 .lp-app-cat .lp-cat:nth-child(4){display:none}
 .lp-app-cat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;padding:12px 14px;border-top:1px solid var(--lp-ln);background:#FDFBF8}
@@ -127,12 +139,12 @@ body{margin:0;background:#FBF8F3}
 .lp-wd-t{fill:#D2A878}.lp-wd-r{fill:#A67447}.lp-wd-l{fill:#BC8C5D}.lp-wd2-t{fill:#CFA272}
 .lp-wd-shelf{fill:#94643B}
 .lp-grain{stroke:#B98B5C;stroke-width:1;stroke-linecap:round}
-.lp-bk1{fill:#1F4D3F}.lp-bk2{fill:#C9663C}.lp-bk3{fill:#EFE6D6}.lp-bk4{fill:#2A6352}.lp-bk5{fill:#E3B48F}
+.lp-bk1{fill:#5F7D52}.lp-bk2{fill:#C9663C}.lp-bk3{fill:#EFE6D6}.lp-bk4{fill:#7C9A6D}.lp-bk5{fill:#E3B48F}
 .lp-pot-t{fill:#F4EEE4}.lp-pot-r{fill:#D9CDBD}.lp-pot-l{fill:#E9E0D2}
-.lp-stem{fill:none;stroke:#2F5D44;stroke-width:1.6}
-.lp-lf1{fill:#3F7A5A}.lp-lf2{fill:#5C9470}.lp-lf3{fill:#2A6352}
+.lp-stem{fill:none;stroke:#5F7D52;stroke-width:1.6}
+.lp-lf1{fill:#7C9A6D}.lp-lf2{fill:#9DB88E}.lp-lf3{fill:#7C9A6D}
 .lp-tc-t{fill:#DB8158}.lp-tc-r{fill:#AE532D}.lp-tc-l{fill:#C9663C}.lp-tc-c{fill:#E3946E}
-.lp-gr-t{fill:#3B7D64}.lp-gr-r{fill:#22574A}.lp-gr-l{fill:#2A6352}.lp-gr-c{fill:#4A8C71}.lp-gr-p{fill:#E9DFC9}.lp-gr-p2{fill:#E08A62}
+.lp-gr-t{fill:#93AE85}.lp-gr-r{fill:#56724B}.lp-gr-l{fill:#7C9A6D}.lp-gr-c{fill:#A6BE98}.lp-gr-p{fill:#E9DFC9}.lp-gr-p2{fill:#E08A62}
 .lp-lamp-base{fill:#3A3F3C}.lp-lamp-pole{stroke:#3A3F3C;stroke-width:2.2}
 .lp-lamp-glow{fill:#F6D9A5;opacity:.35}
 .lp-lamp-shade{fill:#F3E1BE;stroke:#D8C29A;stroke-width:1}
@@ -157,368 +169,321 @@ body{margin:0;background:#FBF8F3}
 .lp-verdict--3{right:-36px;bottom:15%}
 .lp-v-total{font-family:var(--lp-serif);font-size:22px!important;font-weight:600!important;letter-spacing:-.01em}
 
-/* cifre */
-.lp-stats{padding:88px 0 96px;background:var(--lp-sf);border-top:1px solid var(--lp-ln);border-bottom:1px solid var(--lp-ln);position:relative;overflow:hidden}
-.lp-stats-top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px 40px;margin-bottom:44px}
-.lp-stats-top .lp-h2{font-size:clamp(28px,3.4vw,40px);max-width:22ch}
-.lp-stat-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
-.lp-stat{background:var(--lp-card);border:1px solid var(--lp-ln);border-radius:20px;padding:30px 28px 28px;position:relative;overflow:hidden}
-.lp-stat-num{display:flex;align-items:baseline;gap:10px;font-family:var(--lp-serif);color:var(--lp-g)}
-.lp-stat-num .lp-count{font-size:72px;line-height:1;font-weight:500;letter-spacing:-.03em;font-variant-numeric:tabular-nums;font-variation-settings:"opsz" 144}
-.lp-stat-num .lp-of{font-family:var(--lp-sans);font-size:17px;font-weight:600;color:var(--lp-tx2)}
-.lp-bar{height:8px;border-radius:8px;background:var(--lp-gl);margin:22px 0 18px;overflow:hidden}
-.lp-bar-fill{height:100%;border-radius:8px;background:linear-gradient(90deg,var(--lp-g),var(--lp-g2));transform-origin:left center}
-.lp-stat p{font-size:16px;color:var(--lp-tx)}
-.lp-source{font-size:14px;color:var(--lp-tx2);margin-top:28px;display:flex;align-items:center;gap:8px}
-.lp-source svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8}
+@media (max-width:1120px){.lp-verdict--1{left:-16px}.lp-verdict--2,.lp-verdict--3{right:-12px}}
+@media (max-width:960px){.lp-stage{max-width:760px;width:100%;margin:0 auto}}
+@media (max-width:720px){
+  .lp-verdict{position:static}
+  .lp-verdicts{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;margin-top:14px}
+  .lp-stage{padding:0}
+  .lp-app-body{grid-template-columns:minmax(0,1fr)}
+  .lp-app-tools{display:none}
+  .lp-app-cat{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .lp-app-cat .lp-cat:nth-child(n+3){display:none}
+}
+@media (max-width:520px){.lp-app-bar{padding:0 12px;gap:10px}.lp-app-tab small{display:none}}
 
-/* problema */
-.lp-prob-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center;margin-bottom:64px}
-.lp-sheet-wrap{position:relative;padding:20px 10px 40px 30px}
-.lp-tabs{display:flex;gap:4px;padding-left:8px;margin-bottom:-1px;overflow:hidden}
-.lp-tabs span{flex:0 0 auto;font-size:12px;color:var(--lp-tx2);background:#EDE6DA;border:1px solid var(--lp-ln);border-bottom:0;border-radius:10px 10px 0 0;padding:7px 14px;white-space:nowrap}
-.lp-tabs span.lp-on{background:#fff;color:var(--lp-tx);font-weight:600}
-.lp-sheet{background:#fff;border:1px solid var(--lp-ln);border-radius:4px 16px 16px 16px;padding:22px;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:22px;box-shadow:0 30px 60px -36px rgba(23,32,29,.35)}
-.lp-sheet-img{background:#F3EEE6;border-radius:12px;display:grid;place-items:center;padding:14px;aspect-ratio:1/1}
-.lp-sheet-img svg{width:100%;height:auto}
-.lp-sheet h3{font-family:var(--lp-sans);font-size:17px;font-weight:600;line-height:1.3}
-.lp-sheet .lp-dimrow{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}
-.lp-sheet .lp-dimrow span{font-size:12px;font-weight:600;padding:4px 9px;border-radius:7px;background:var(--lp-sf);color:var(--lp-tx)}
-.lp-sheet .lp-price{font-family:var(--lp-serif);font-size:26px;font-weight:600;color:var(--lp-tx)}
-.lp-sheet .lp-fakebtn{display:block;text-align:center;margin-top:14px;padding:10px;border-radius:10px;background:#EDE6DA;color:var(--lp-tx2);font-size:13px;font-weight:600}
-.lp-stars{display:flex;gap:3px;margin-top:6px}
-.lp-stars i{width:44px;height:6px;border-radius:4px;background:var(--lp-ln)}
-.lp-stars i:first-child{width:70px}
-.lp-ruler{position:absolute;left:0;right:20px;bottom:0;height:40px}
-.lp-ruler svg{width:100%;height:100%}
-.lp-ask{position:absolute;right:-6px;top:0;background:var(--lp-tx);color:#fff;font-size:14px;font-weight:600;padding:10px 14px;border-radius:14px 14px 4px 14px;box-shadow:0 14px 30px -14px rgba(0,0,0,.5)}
-.lp-ask--2{right:auto;left:0;top:auto;bottom:60px;background:#fff;color:var(--lp-tx);border:1px solid var(--lp-ln);border-radius:14px 14px 14px 4px}
-.lp-cards3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
-.lp-card{background:var(--lp-card);border:1px solid var(--lp-ln);border-radius:20px;padding:30px 28px}
-.lp-card h3{font-family:var(--lp-serif);font-weight:500;font-size:24px;line-height:1.2;letter-spacing:-.01em;margin:20px 0 10px}
-.lp-card p{color:var(--lp-tx2);font-size:16px}
-.lp-ic{display:grid;place-items:center;width:52px;height:52px;border-radius:15px;background:var(--lp-gl);color:var(--lp-g)}
-.lp-ic svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.lp-ic--tc{background:#F6E3D8;color:var(--lp-tci)}
-.lp-num-tag{font-family:var(--lp-serif);font-style:italic;color:var(--lp-tci);font-size:15px;float:right;margin-top:14px}
-
-/* pași */
-.lp-steps{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
-.lp-steps-line{position:absolute;left:16.66%;right:16.66%;top:27px;height:2px;background:repeating-linear-gradient(90deg,var(--lp-tc) 0 10px,transparent 10px 18px);transform-origin:left center}
-.lp-step{position:relative;display:flex;flex-direction:column}
-.lp-step-n{position:relative;z-index:1;align-self:center;display:grid;place-items:center;width:56px;height:56px;border-radius:50%;background:var(--lp-g);color:#fff;font-family:var(--lp-serif);font-size:24px;font-weight:600;box-shadow:0 0 0 8px var(--lp-bg)}
-.lp-step-card{margin-top:28px;background:var(--lp-card);border:1px solid var(--lp-ln);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;flex:1}
-.lp-step-vis{background:var(--lp-sf);padding:22px;border-bottom:1px solid var(--lp-ln);min-height:260px;display:flex;align-items:center;justify-content:center}
-.lp-step-txt{padding:24px 26px 28px}
-.lp-step-txt h3{font-family:var(--lp-serif);font-weight:500;font-size:24px;line-height:1.2;margin-bottom:8px}
-.lp-step-txt p{color:var(--lp-tx2);font-size:16px}
-.lp-mini{width:100%;max-width:300px;background:#fff;border:1px solid var(--lp-ln);border-radius:14px;padding:14px;box-shadow:0 18px 36px -24px rgba(23,32,29,.35);font-size:12px}
-.lp-mini-h{display:flex;align-items:center;justify-content:space-between;font-weight:600;font-size:12px;margin-bottom:10px}
-.lp-mini-h small{font-weight:500;color:var(--lp-tx2);font-size:11px}
-.lp-fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
-.lp-field{border:1px solid var(--lp-ln);border-radius:8px;padding:6px 8px}
-.lp-field small{display:block;font-size:10px;color:var(--lp-tx2)}
-.lp-field b{font-size:13px;font-weight:600}
-.lp-field.lp-on{border-color:var(--lp-g2);box-shadow:0 0 0 2px var(--lp-gl)}
-.lp-chips{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
-.lp-chip{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:500;padding:4px 9px;border-radius:999px;border:1px solid var(--lp-ln);color:var(--lp-tx2)}
-.lp-chip.lp-on{background:var(--lp-g);border-color:var(--lp-g);color:#fff}
-.lp-chip svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2}
-.lp-miniplan{width:100%;height:auto;border-radius:8px;background-color:#F8F5EF;background-image:linear-gradient(rgba(31,77,63,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(31,77,63,.07) 1px,transparent 1px);background-size:12px 12px}
-.lp-vendor{border-top:1px solid var(--lp-ln);padding:8px 0}
-.lp-vendor:first-of-type{border-top:0;padding-top:0}
-.lp-vendor-h{display:flex;align-items:center;justify-content:space-between;font-size:11px;font-weight:600;color:var(--lp-tci);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
-.lp-vendor-h small{text-transform:none;letter-spacing:0;color:var(--lp-tx2);font-weight:500}
-.lp-li{display:flex;justify-content:space-between;gap:8px;font-size:12px;padding:2px 0}
-.lp-li span{color:var(--lp-tx)}
-.lp-li b{font-weight:600;white-space:nowrap}
-.lp-li--own span,.lp-li--own b{color:var(--lp-tx2);font-weight:500}
-.lp-li--own b{font-style:italic}
-.lp-mini-total{display:flex;justify-content:space-between;align-items:center;margin-top:8px;padding-top:10px;border-top:1.5px dashed var(--lp-ln);font-weight:600}
-.lp-mini-total b{font-family:var(--lp-serif);font-size:18px;color:var(--lp-g)}
-.lp-mini-btn{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:10px;padding:9px;border-radius:9px;background:var(--lp-g);color:#fff;font-weight:600;font-size:12px}
-.lp-mini-btn svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2}
-
-/* înainte / după */
-.lp-ba{position:relative;max-width:980px;margin:0 auto;border-radius:24px;overflow:hidden;border:1px solid var(--lp-ln);background:#fff;box-shadow:0 40px 80px -48px rgba(23,32,29,.45);--lp-pos:50%;touch-action:pan-y}
-.lp-ba-layer svg{width:100%;height:auto}
-.lp-ba-before{background-color:#F8F5EF;background-image:linear-gradient(rgba(31,77,63,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(31,77,63,.08) 1px,transparent 1px);background-size:20px 20px}
-.lp-ba-after{position:absolute;inset:0;background:#FBF8F3;clip-path:inset(0 0 0 var(--lp-pos))}
-.lp-ba-tag{position:absolute;top:16px;z-index:2;font-size:13px;font-weight:600;padding:7px 14px;border-radius:999px;background:#fff;border:1px solid var(--lp-ln);color:var(--lp-tx)}
-.lp-ba-tag--l{left:16px}
-.lp-ba-tag--r{right:16px;background:var(--lp-g);border-color:var(--lp-g);color:#fff}
-.lp-ba-range{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize;z-index:4;-webkit-appearance:none;appearance:none}
-.lp-ba-handle{position:absolute;top:0;bottom:0;left:var(--lp-pos);width:0;z-index:3;pointer-events:none}
-.lp-ba-handle::before{content:"";position:absolute;top:0;bottom:0;left:-1.5px;width:3px;background:var(--lp-g)}
-.lp-ba-knob{position:absolute;top:50%;left:0;transform:translate(-50%,-50%);width:52px;height:52px;border-radius:50%;background:#fff;border:3px solid var(--lp-g);display:grid;place-items:center;box-shadow:0 10px 24px -10px rgba(23,32,29,.5);transition:box-shadow .2s ease}
-.lp-ba-knob svg{width:24px;height:24px;fill:none;stroke:var(--lp-g);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.lp-ba-range:focus-visible~.lp-ba-handle .lp-ba-knob{box-shadow:0 0 0 4px var(--lp-tc)}
-.lp-ba-note{text-align:center;color:var(--lp-tx2);font-size:15px;margin-top:20px}
-.lp-plan text{font-family:var(--lp-sans)}
-.lp-p-wall{fill:none;stroke:#17201D;stroke-width:8;stroke-linecap:square}
-.lp-p-win{fill:#fff;stroke:#17201D;stroke-width:1.5}
-.lp-p-winl{stroke:#17201D;stroke-width:1.2}
-.lp-p-door{fill:none;stroke:#17201D;stroke-width:2}
-.lp-p-arc{fill:none;stroke:#C9663C;stroke-width:1.5;stroke-dasharray:5 5}
-.lp-p-dim{stroke:#5C6863;stroke-width:1.3}
-.lp-p-dimtc{stroke:#C9663C;stroke-width:1.6}
-.lp-p-pill{fill:#fff;stroke:#E5DED2}
-.lp-p-t{font-size:12px;font-weight:600;fill:#17201D;text-anchor:middle}
-.lp-p-ts{font-size:11px;font-weight:500;fill:#5C6863;text-anchor:middle}
-.lp-p-tl{font-family:"Fraunces",Georgia,serif!important;font-size:22px;font-style:italic;fill:#2A6352;text-anchor:middle}
-.lp-p-floor{fill:#EFE3D0}
-.lp-p-plank{stroke:#E2D2B9;stroke-width:1}
-.lp-p-lab{font-size:11px;font-weight:600;fill:#fff;text-anchor:middle}
-.lp-p-labd{font-size:11px;font-weight:600;fill:#17201D;text-anchor:middle}
+/* === Pas cu pas: animație === */
+.pcp{--p-brand:#546B3A;--p-brand-2:#425429;--p-brand-soft:#E8EBDD;--p-oak:#C9663C;--p-ink:#221D1C;--p-ink-2:#5A5350;--p-ink-3:#8E8578;--p-surface:#FBF9F5;--p-surface-2:#F3EFE8;--p-stage:#E6DFCF;--p-line:#DED3C2;--p-line-2:#CDBFA6;--p-fit:#546B3A;--p-warn:#C08A2E;--p-clash:#C2553F;--p-floor:#DCC7A8;--p-wall:#F3EFE8;--p-wall-top:#C7B9A3;color:var(--p-ink)}
+.pcp .num{font-variant-numeric:tabular-nums}
+.pcp .faint{color:var(--p-ink-3)}
+.pcp-stage{position:relative;aspect-ratio:1.6/1;background:var(--p-stage);border-radius:10px;overflow:hidden;border:1px solid var(--p-line-2);width:100%;box-shadow:0 30px 60px -36px rgba(34,29,28,.35)}
+.pcp-stage.instant *{transition:none!important;animation:none!important}
+.pcp .hcover{position:absolute;inset:0;z-index:40;background:var(--p-stage);opacity:0;pointer-events:none;transition:opacity .35s}
+.pcp-stage.fade .hcover{opacity:1}
+.pcp .hform{position:absolute;z-index:6;top:18px;left:18px;width:304px;background:var(--p-surface);border:1px solid var(--p-line-2);border-radius:8px;box-shadow:0 12px 30px -14px rgba(34,29,28,.35);padding:16px;font-size:13.5px;opacity:0;transform:translateY(-8px);transition:opacity .3s,transform .3s;pointer-events:none}
+.pcp .hform.show{opacity:1;transform:none}
+.pcp .hform h6{font-size:13px;color:var(--p-ink-3);font-weight:500;margin:0 0 9px}
+.pcp .hf{display:flex;align-items:center;gap:9px;border:1px solid var(--p-line-2);border-radius:5px;height:32px;padding:0 11px;margin-bottom:6px;transition:border-color .15s,box-shadow .15s}
+.pcp .hf.pos{margin-left:16px;border-style:dashed}
+.pcp .hf.pos span{width:58px}
+.pcp .hf span{color:var(--p-ink-3);width:70px;flex:none;font-size:13px}
+.pcp .hf b{font-weight:500;font-variant-numeric:tabular-nums;flex:1;white-space:nowrap;overflow:hidden;font-size:13px}
+.pcp .hf.act{border-color:var(--p-brand);box-shadow:0 0 0 3px var(--p-brand-soft)}
+.pcp .hf.act b::after{content:"";display:inline-block;width:1px;height:14px;background:var(--p-brand);margin-left:1px;vertical-align:-2px;animation:pcp-blink 1s steps(2) infinite}
+.pcp .hf .ok{font-style:normal;color:var(--p-fit);font-weight:600;opacity:0;transition:opacity .2s;font-size:13px}
+.pcp .hf.ok{border-color:color-mix(in srgb,var(--p-fit),transparent 50%)}
+.pcp .hf.ok .ok{opacity:1}
+.pcp .hsub{font-size:12.5px;color:var(--p-ink-3);margin:9px 0 5px}
+.pcp .hhint{font-size:12px;color:var(--p-brand);margin:-1px 0 6px 16px;max-height:0;overflow:hidden;transition:max-height .25s}
+.pcp .hhint.show{max-height:44px}
+.pcp .sumrow{display:none;justify-content:space-between;margin-top:9px;padding-top:9px;border-top:1px solid var(--p-line);font-size:13px}
+.pcp .sumrow.show{display:flex}
+.pcp .cbtn{margin-top:11px;height:34px;border-radius:5px;background:var(--p-brand);color:#fff;display:none;place-items:center;font-weight:500;font-size:13.5px;transition:transform .12s,background .12s}
+.pcp .cbtn.show{display:grid}
+.pcp .cbtn.press{transform:scale(.95);background:var(--p-brand-2)}
+.pcp .sfoot{position:absolute;left:0;top:0;opacity:0;transition:opacity .25s;background:repeating-linear-gradient(45deg,color-mix(in srgb,var(--p-brand),transparent 70%) 0 3px,transparent 3px 6px);outline:1.5px solid var(--p-brand)}
+.pcp .pline{position:absolute;background:repeating-linear-gradient(180deg,var(--p-brand) 0 4px,transparent 4px 7px);opacity:0;transition:opacity .25s}
+.pcp .cap{position:absolute;z-index:5;font-size:13.5px;color:var(--p-ink-2);transition:opacity .3s;opacity:0;pointer-events:none}
+.pcp .cap.show{opacity:1;pointer-events:auto}
+.pcp .cap-dims{top:20px;left:22px}
+.pcp .cap-dims b{display:block;font-weight:500;color:var(--p-ink);font-size:17px;margin-top:3px}
+.pcp .cap-act{top:20px;right:22px;text-align:right}
+.pcp .cap-act b{display:block;font-weight:500;color:var(--p-ink);font-size:17px;margin-top:3px}
+.pcp .cap-fit{left:22px;bottom:20px;display:flex;align-items:center;gap:9px;color:var(--p-ink);font-size:14px}
+.pcp .cap-total{right:22px;bottom:20px;text-align:right}
+.pcp .cap-total b{display:block;font-size:24px;font-weight:500;color:var(--p-ink);letter-spacing:-.02em;margin:3px 0 10px}
+.pcp .dot{width:8px;height:8px;border-radius:50%;background:var(--p-fit);flex:none}
+.pcp .dot.clash{background:var(--p-clash)}
+.pcp .dot.warn{background:var(--p-warn)}
+.pcp #heroBtn{display:inline-flex;align-items:center;justify-content:center;height:36px;padding:0 16px;background:var(--p-brand);color:#fff;border-radius:5px;font-size:13.5px;font-weight:500;transition:transform .12s,background .12s;cursor:pointer}
+.pcp #heroBtn.pressed{transform:scale(.95);background:var(--p-brand-2)}
+.pcp .hlist{position:absolute;z-index:20;top:16px;right:16px;bottom:16px;width:min(400px,62%);background:var(--p-surface);border:1px solid var(--p-line-2);border-radius:6px;box-shadow:0 20px 50px -20px rgba(34,29,28,.35);display:flex;flex-direction:column;transform:translateX(calc(100% + 20px));transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.pcp .hlist.show{transform:none}
+.pcp .hlist header{padding:16px 18px 13px;border-bottom:1px solid var(--p-line)}
+.pcp .hlist header b{font-weight:500;font-size:17px;display:block;margin-bottom:2px}
+.pcp .hlist .grp{padding:10px 18px;border-bottom:1px solid var(--p-line)}
+.pcp .hlist .gh{display:flex;justify-content:space-between;font-size:13.5px;margin-bottom:4px}
+.pcp .hlist .gh b{font-weight:500}
+.pcp .hlist .it{display:flex;align-items:center;gap:11px;font-size:13.5px;padding:3px 0}
+.pcp .hlist .it .st{width:46px;height:34px;flex:none;border-radius:3px;background:var(--p-surface-2)}
+.pcp .hlist .it span:nth-child(2){flex:1}
+.pcp .hlist footer{margin:auto 0 0;border-top:1px solid var(--p-line);padding:14px 18px;display:flex;justify-content:space-between;align-items:baseline;color:var(--p-ink);font-size:14.5px}
+.pcp .hlist footer b{font-size:22px;font-weight:500}
+.pcp .ecat{position:absolute;z-index:15;left:0;top:0;bottom:0;width:272px;background:var(--p-surface);border-right:1px solid var(--p-line-2);display:flex;flex-direction:column;transform:translateX(calc(-100% - 10px));transition:transform .45s cubic-bezier(.2,.8,.2,1);min-height:0}
+.pcp .ecat.show{transform:none}
+.pcp .esearch{display:flex;align-items:center;gap:9px;margin:14px 16px 6px;border:1px solid var(--p-line-2);border-radius:6px;height:36px;padding:0 11px;color:var(--p-ink-3);background:var(--p-surface);transition:border-color .15s ease,box-shadow .15s ease}
+.pcp .esearch.act{border-color:var(--p-brand);box-shadow:0 0 0 3px var(--p-brand-soft);color:var(--p-ink-2)}
+.pcp .esearch input{border:0;outline:0;font:inherit;font-size:13px;flex:1;min-width:0;color:var(--p-ink);background:none;pointer-events:none}
+.pcp .ecats{display:flex;flex-wrap:wrap;gap:4px 14px;padding:10px 16px 10px;border-bottom:1px solid var(--p-line)}
+.pcp .ecats button{font:inherit;font-size:12.5px;color:var(--p-ink-3);padding:3px 0;border:0;background:none;border-bottom:1.5px solid transparent;cursor:default;transition:color .2s ease,border-color .2s ease}
+.pcp .ecats button.on{color:var(--p-brand);border-color:var(--p-brand);font-weight:500}
+.pcp .elist{flex:1;overflow:hidden;padding:8px 10px}
+.pcp .erow{display:flex;align-items:center;gap:11px;padding:8px;border-radius:6px;transition:background-color .15s ease,transform .1s ease;margin-bottom:2px}
+.pcp .erow.hl{background:var(--p-brand-soft)}
+.pcp .erow.press{transform:scale(.97)}
+.pcp .erow .st{width:54px;height:42px;flex:none;border-radius:4px;background:var(--p-surface-2)}
+.pcp .erow .t{flex:1;min-width:0;font-size:12.5px;line-height:1.3}
+.pcp .erow .t b{display:block;font-weight:500;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pcp .erow .t small{display:block;color:var(--p-ink-3);font-size:11.5px;font-variant-numeric:tabular-nums;margin-top:2px}
+.pcp .hand{position:absolute;left:0;top:0;z-index:30;width:32px;height:32px;opacity:0;pointer-events:none;transition:transform .9s cubic-bezier(.45,0,.2,1),opacity .25s}
+.pcp .hand.notr{transition:none}
+.pcp .hand svg{width:32px;height:32px;display:block;transition:transform .12s;filter:drop-shadow(0 2px 3px rgba(0,0,0,.25))}
+.pcp .hand.press svg{transform:scale(.86)}
+.pcp .ripple{position:absolute;z-index:29;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;border:2px solid var(--p-ink);pointer-events:none;animation:pcp-rip .5s ease-out forwards}
+.pcp .stage{position:relative;overflow:hidden}
+.pcp .cam{position:absolute;left:50%;top:50%;width:0;height:0}
+.pcp .floor,.pcp .floor .cub,.pcp .floor .item,.pcp .floor .wall,.pcp .floor .bb{position:absolute;left:0;top:0;transform-style:preserve-3d}
+.pcp .f{position:absolute;left:0;top:0;transform-origin:0 0;box-shadow:inset 0 0 0 .5px rgba(25,30,38,.13)}
+.pcp .f.rug{box-shadow:inset 0 0 0 1px rgba(25,30,38,.1)}
+.pcp .fsurf{position:absolute;inset:0}
+.pcp .fplank{position:absolute;inset:0;background-color:var(--p-floor);transition:clip-path .8s cubic-bezier(.4,0,.2,1)}
+.pcp .floor .rugd{transform-style:flat;transition:opacity .4s,transform .35s cubic-bezier(.2,.8,.25,1);box-shadow:inset 0 0 0 1px rgba(25,30,38,.1)}
+.pcp .item{transform-origin:50% 50%;transition:transform .55s cubic-bezier(.25,.75,.3,1)}
+.pcp .item.drag{transition:none}
+.pcp .wall{transition:transform .75s cubic-bezier(.3,.7,.2,1)}
+.pcp .door{position:absolute;background:#CDBA9C;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12);transition:opacity .5s}
+.pcp .win{position:absolute;background:linear-gradient(170deg,#E3EBF0,#C7D5DE);box-shadow:inset 0 0 0 2px #fff,inset 0 0 0 2.5px rgba(0,0,0,.1);transition:opacity .5s}
+.pcp .darc{position:absolute;border:1px dashed rgba(23,26,30,.35);border-top:0;border-left:1px solid rgba(23,26,30,.45);border-radius:0 0 100% 0;transition:opacity .5s}
+.pcp .edge{position:absolute;background:var(--p-brand);transition:transform .3s ease,opacity .4s}
+.pcp .ghost{position:absolute;outline:1.5px dashed color-mix(in srgb,var(--p-ink),transparent 45%);background:color-mix(in srgb,var(--p-ink),transparent 93%);transition:opacity .3s}
+.pcp .fp{position:absolute;left:0;top:0;display:none;transform-origin:50% 50%}
+.pcp .fp.fit,.pcp .fp.warn,.pcp .fp.clash{display:block}
+.pcp .fp.fit{background:color-mix(in srgb,var(--p-fit),transparent 82%);outline:1.5px solid var(--p-fit)}
+.pcp .fp.warn{background:color-mix(in srgb,var(--p-warn),transparent 80%);outline:1.5px solid var(--p-warn)}
+.pcp .fp.clash{background:color-mix(in srgb,var(--p-clash),transparent 78%);outline:1.5px solid var(--p-clash)}
+.pcp .bb>span{position:absolute;left:0;top:0;transform:translate(-50%,-100%);white-space:nowrap;pointer-events:none}
+.pcp .dimtag{font:500 13px var(--sans);color:var(--p-ink);background:var(--p-surface);padding:3px 9px;border-radius:3px;border:1px solid var(--p-line-2);transition:opacity .35s}
+.pcp .tag{font:500 13px var(--sans);padding:4px 10px;border-radius:3px;color:#fff;box-shadow:0 6px 16px -6px rgba(0,0,0,.35)}
+.pcp .tag.fit{background:var(--p-fit)}
+.pcp .tag.clash{background:var(--p-clash)}
+.pcp .shadow{position:absolute;inset:-6%;border-radius:50%;background:radial-gradient(closest-side,rgba(20,25,30,.12),transparent);transform:translateZ(-.5px)}
+.pcp .ovl{position:absolute;inset:0;pointer-events:none;z-index:7;overflow:hidden}
+.pcp .opin{position:absolute;left:0;top:0;white-space:nowrap}
+.pcp-stage .opin{animation:pcp-pinIn .25s ease-out}
+.pcp .opin.out{opacity:0;transition:opacity .2s}
+.pcp .mk{position:absolute;left:0;top:0;width:1px;height:1px;visibility:hidden}
+.pcp .darc.hot{border-color:var(--p-clash);background:color-mix(in srgb,var(--p-clash),transparent 82%)}
+.pcp-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;list-style:none;margin:28px 0 0;padding:0}
+.pcp-steps li{position:relative;padding:16px 18px 18px;border:1px solid var(--p-line);border-radius:10px;background:var(--p-surface-2);cursor:pointer;transition:border-color .2s ease,background-color .2s ease;display:flex;flex-direction:column;gap:7px;min-width:0;overflow:hidden}
+.pcp-steps li:hover{border-color:var(--p-brand)}
+.pcp-steps li em{font-style:normal;font-size:13px;color:var(--p-ink-3);font-weight:600;letter-spacing:.08em;font-variant-numeric:tabular-nums}
+.pcp-steps li b{font-weight:500;font-size:15px;color:var(--p-ink-2);line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.pcp-steps li.on{background:var(--p-brand-soft);border-color:var(--p-brand)}
+.pcp-steps li.on em,.pcp-steps li.done em{color:var(--p-brand)}
+.pcp-steps li.on b,.pcp-steps li.done b{color:var(--p-ink)}
+.pcp-steps li.done{background:#fff;border-color:var(--p-brand-soft)}
+.pcp-steps .bar{position:absolute;left:-1px;right:-1px;bottom:-1px;height:3px;background:var(--p-brand);width:0;border-radius:0 0 10px 10px}
+.pcp-steps li.on .bar{animation:pcp-fill linear forwards;animation-duration:var(--d,2s)}
+.pcp-steps.paused .bar{animation-play-state:paused}
+.pcp-ctl{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:26px}
+.pcp-ctl button{width:50px;height:50px;border:1px solid var(--p-line-2);border-radius:8px;display:grid;place-items:center;background:var(--p-surface);color:var(--p-brand);cursor:pointer;transition:border-color .15s ease,background .15s ease}
+.pcp-ctl button svg{width:22px;height:22px}
+.pcp-ctl #hPlay{background:var(--p-brand);border-color:var(--p-brand);color:#fff}
+.pcp-ctl #hPlay:hover{background:var(--p-brand-2);border-color:var(--p-brand-2)}
+.pcp-ctl button:hover:not(#hPlay):not(:disabled){border-color:var(--p-ink-3)}
+.pcp-ctl button:disabled{opacity:.35;cursor:default}
+.pcp-ctl span{font-size:15px;color:var(--p-ink-3);margin-left:14px;font-variant-numeric:tabular-nums}
+@keyframes pcp-fill{to{width:100%}}
+@keyframes pcp-blink{50%{opacity:0}}
+@keyframes pcp-rip{from{transform:scale(.2);opacity:.6}to{transform:scale(1.3);opacity:0}}
+@keyframes pcp-pinIn{from{opacity:0}}
+@media (max-width:1040px){.pcp-steps{grid-template-columns:repeat(4,minmax(0,1fr))}.pcp-stage{aspect-ratio:1.3/1}.pcp .ecat{width:230px}}
+@media (max-width:640px){.pcp-steps{grid-template-columns:repeat(2,minmax(0,1fr))}.pcp .hform{width:230px;left:10px;top:10px;padding:12px;font-size:12px}.pcp .hf{height:28px}.pcp .hf span,.pcp .hf b,.pcp .hf .ok{font-size:12px}.pcp .hlist{width:min(320px,82%)}.pcp-stage{aspect-ratio:1.1/1}.pcp .ecat{width:200px}.pcp .erow .st{width:44px;height:34px}.pcp .ecats{gap:3px 10px;font-size:11.5px}}
 
 /* funcționalități */
-.lp-feat-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-.lp-feat{background:var(--lp-card);border:1px solid var(--lp-ln);border-radius:20px;padding:28px 26px;position:relative;overflow:hidden}
-.lp-feat h3{font-family:var(--lp-sans);font-weight:600;font-size:18px;line-height:1.3;margin:18px 0 8px}
-.lp-feat p{color:var(--lp-tx2);font-size:15.5px}
-.lp-feat-deco{position:absolute;right:-1px;top:-1px;width:84px;height:84px;opacity:.55}
-
-/* tabel */
-.lp-table-box{max-width:960px;margin:0 auto;border-radius:24px;border:1px solid var(--lp-ln);background:#fff;overflow:hidden}
-.lp-table{width:100%;border-collapse:collapse;table-layout:fixed}
-.lp-table th{text-align:left;padding:22px 28px;font-family:var(--lp-serif);font-weight:500;font-size:24px}
-.lp-table th:first-child{color:var(--lp-tx2);background:#FDFBF8}
-.lp-table th:last-child{background:var(--lp-g);color:#fff}
-.lp-table td{padding:20px 28px;border-top:1px solid var(--lp-ln);vertical-align:top;font-size:16px}
-.lp-table td:first-child{color:var(--lp-tx2);background:#FDFBF8}
-.lp-table td:last-child{background:#F4F8F5;font-weight:500}
-.lp-cell{display:flex;gap:12px;align-items:flex-start}
-.lp-cell svg{flex:none;width:22px;height:22px;margin-top:1px;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.lp-cell--x svg{stroke:#9AA39F}
-.lp-cell--ok svg{stroke:var(--lp-g2)}
-
-/* pentru cine */
-.lp-who{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
-.lp-who-card{background:var(--lp-card);border:1px solid var(--lp-ln);border-radius:22px;overflow:hidden}
-.lp-who-vis{height:170px;background:var(--lp-sf);display:grid;place-items:center;border-bottom:1px solid var(--lp-ln)}
-.lp-who-vis svg{width:220px;height:140px}
-.lp-who-txt{padding:24px 26px 28px}
-.lp-who-txt h3{font-family:var(--lp-serif);font-weight:500;font-size:24px;line-height:1.2;margin-bottom:8px}
-.lp-who-txt p{color:var(--lp-tx2);font-size:16px}
-.lp-ill{fill:none;stroke:#1F4D3F;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.lp-ill-tc{fill:none;stroke:#C9663C;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.lp-ill-fill{fill:#E3ECE7}
-.lp-ill-fill2{fill:#F6E3D8}
+.features{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.card{background:var(--paper);border:1px solid var(--sand);border-radius:10px;padding:30px 28px 32px}
+.card-ic{display:grid;place-items:center;width:46px;height:46px;border-radius:8px;background:var(--bg);border:1px solid var(--sand);color:var(--green)}
+.card-ic svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-family:var(--serif);font-size:24px;font-weight:500;line-height:1.2;margin:16px 0 6px}
+.card p{color:var(--ink-2);font-size:17.5px}
 
 /* prețuri */
-.lp-price-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;max-width:920px;margin:0 auto}
-.lp-plan-card{background:var(--lp-card);border:1px solid var(--lp-ln);border-radius:24px;padding:36px 34px;display:flex;flex-direction:column;position:relative;overflow:hidden}
-.lp-plan-card--main{border:2px solid var(--lp-g);box-shadow:0 30px 60px -40px rgba(31,77,63,.55)}
-.lp-plan-name{font-size:15px;font-weight:600;color:var(--lp-tci);letter-spacing:.04em;text-transform:uppercase}
-.lp-plan-price{display:flex;align-items:baseline;gap:10px;margin:14px 0 4px;font-family:var(--lp-serif)}
-.lp-plan-price b{font-size:56px;line-height:1;font-weight:500;letter-spacing:-.02em}
-.lp-plan-price span{font-family:var(--lp-sans);font-size:16px;color:var(--lp-tx2)}
-.lp-plan-price--sub b{font-size:34px}
-.lp-plan-for{color:var(--lp-tx2);font-size:15px;min-height:24px}
-.lp-plan-list{margin:26px 0 30px;display:flex;flex-direction:column;gap:12px;flex:1}
-.lp-plan-list li{display:flex;gap:12px;align-items:flex-start;font-size:16px}
-.lp-plan-list .lp-tick{flex:none;display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--lp-gl);margin-top:1px}
-.lp-plan-list .lp-tick svg{width:14px;height:14px;fill:none;stroke:var(--lp-g2);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
-.lp-price-note{text-align:center;color:var(--lp-tx2);font-size:15px;margin-top:24px}
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;align-items:stretch}
+.plan{display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--sand);border-radius:10px;padding:32px 28px;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.plan:hover{transform:translateY(-4px);box-shadow:0 22px 44px -26px rgba(34,29,28,.38);border-color:var(--btn)}
+.plan--main{border:2px solid var(--btn);position:relative}
+.plan--main:hover{border-color:var(--btn-h)}
+@media (prefers-reduced-motion:reduce){.plan{transition:box-shadow .2s ease,border-color .2s ease}.plan:hover{transform:none}}
+.plan-tag{position:absolute;top:-13px;left:28px;background:var(--btn);color:var(--btn-tx);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:4px}
+.plan-name{font-family:var(--serif);font-size:27px;font-weight:600}
+.plan-for{color:var(--ink-2);font-size:16.5px;margin-top:4px}
+.plan-price{display:flex;align-items:baseline;gap:6px;margin:18px 0 4px;font-family:var(--serif)}
+.plan-price strong{font-size:44px;font-weight:500;line-height:1}
+.plan-price span{font-family:var(--sans);font-size:15px;color:var(--ink-2)}
+.plan-note{font-size:15.5px;color:var(--ink-2)}
+.plan ul{margin:20px 0 26px;padding-top:20px;border-top:1px solid var(--sand);display:grid;gap:11px;flex:1}
+.plan li{display:flex;gap:10px;font-size:17px}
+.plan li svg{flex:none;width:18px;height:18px;margin-top:3px;fill:none;stroke:var(--green);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 
-/* întrebări */
-.lp-faq-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr);gap:64px;align-items:start}
-.lp-faq{display:flex;flex-direction:column;gap:12px}
-.lp-faq details{background:var(--lp-card);border:1px solid var(--lp-ln);border-radius:18px;transition:border-color .2s ease}
-.lp-faq details[open]{border-color:#CFC5B5}
-.lp-faq summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 24px;cursor:pointer;font-weight:600;font-size:17px;line-height:1.4;border-radius:18px;transition:background-color .2s ease,color .2s ease}
-.lp-faq summary::-webkit-details-marker{display:none}
-.lp-faq summary:hover{background:#FDFBF8;color:var(--lp-g)}
-.lp-faq-pm{flex:none;position:relative;width:32px;height:32px;border-radius:50%;background:var(--lp-gl);transition:transform .3s ease,background-color .2s ease}
-.lp-faq-pm::before,.lp-faq-pm::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:2px;margin:-1px 0 0 -6px;background:var(--lp-g);border-radius:2px}
-.lp-faq-pm::after{transform:rotate(90deg);transition:transform .3s ease}
-.lp-faq details[open] .lp-faq-pm{background:var(--lp-g)}
-.lp-faq details[open] .lp-faq-pm::before{background:#fff}
-.lp-faq details[open] .lp-faq-pm::after{transform:rotate(0deg);background:#fff}
-.lp-faq-a{padding:0 24px 22px;color:var(--lp-tx2);font-size:16px;max-width:64ch}
-.lp-faq-side p{color:var(--lp-tx2);margin-top:18px}
+/* formular */
+.signup{display:none;margin-top:32px;background:var(--paper);border:1px solid var(--sand);border-radius:24px;overflow:hidden}
+.signup.is-open{display:block}
+.signup-top{padding:34px 36px 30px;border-bottom:1px solid var(--sand)}
+.signup-top h3{font-family:var(--serif);font-size:clamp(24px,2.6vw,30px);font-weight:500;line-height:1.2;max-width:30ch}
+.signup-top p{color:var(--ink-2);margin-top:10px;max-width:60ch}
+.offer{display:inline-block;margin-top:18px;padding:12px 18px;background:#E4EAD9;border-radius:16px;font-size:16px;color:var(--ink)}
+.inline-form{display:flex;gap:10px;margin-top:26px;max-width:560px}
+.inline-form input{flex:1;min-width:0}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-size:16px;font-weight:500;padding-left:6px}
+.field small{font-size:14.5px;color:var(--ink-2)}
+input[type=text],input[type=email],select,textarea{font:inherit;font-size:16px;color:var(--ink);background:#FBF9F5;border:1px solid var(--sand);border-radius:999px;padding:0 20px;min-height:52px;width:100%;transition:border-color .2s ease,background-color .2s ease}
+input::placeholder,textarea::placeholder{color:#A09790}
+select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235A5350' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 18px center;background-size:18px;padding-right:46px}
+.pill{border-radius:999px;padding:0 20px}
+.signup .btn{border-radius:999px}
+textarea{padding:16px 20px;min-height:120px;resize:vertical;border-radius:22px}
+input:hover,select:hover,textarea:hover{border-color:#BFAE9D}
+input:focus,select:focus,textarea:focus{outline:none;background:#fff;border-color:var(--btn);box-shadow:0 0 0 4px rgba(63,94,36,.14)}
+.signup-bottom{padding:30px 36px 34px}
+.signup-bottom h4{font-family:var(--serif);font-size:24px;font-weight:500}
+.signup-bottom > p{color:var(--ink-2);margin-top:6px}
+.grid-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 20px;margin-top:26px}
+.grid-form .full{grid-column:1/-1}
+.check{display:flex;gap:12px;align-items:flex-start;font-size:16.5px;color:var(--ink-2);cursor:pointer;padding-left:6px}
+.check input{flex:none;width:20px;height:20px;margin:3px 0 0;accent-color:var(--btn);cursor:pointer}
+.q-sec{grid-column:1/-1;margin-top:18px;padding-top:22px;border-top:1px solid var(--sand)}
+.q-sec:first-of-type{margin-top:4px;padding-top:4px;border-top:0}
+.q-sec h5{font-family:var(--serif);font-size:22px;font-weight:500;margin:0 0 6px}
+.q-sec p{color:var(--ink-2);font-size:15.5px;margin:6px 0 0;max-width:62ch;padding:0}
+.q-sec--thanks{text-align:center;border-top:0;margin-top:10px;padding-top:12px}
+.q-sec--thanks h5{color:var(--btn);font-size:24px}
+.q-title{font-size:16px;font-weight:600;padding-left:6px;color:var(--ink);margin:0 0 4px;line-height:1.35}
+.q-title em{font-style:normal;color:var(--ink-3);font-weight:500;margin-right:6px;font-variant-numeric:tabular-nums}
+.q-hint{font-weight:400;color:var(--ink-3);font-size:14.5px;font-style:italic;margin-left:4px}
+.q-opts{display:flex;flex-direction:column;gap:9px;margin-top:4px}
+.q-opts .check{padding-left:6px;font-size:15.5px;align-items:center}
+.q-opts .check input[type="radio"],.q-opts .check input[type="checkbox"]{width:19px;height:19px;margin-top:0}
+.field label em{font-style:normal;color:var(--ink-3);font-weight:500;margin-right:6px;font-variant-numeric:tabular-nums}
+.form-msg{font-size:16px;font-weight:600;color:var(--green);margin-top:12px;min-height:1.4em}
 
-/* banda finală */
-.lp-final{padding:0 0 112px}
-.lp-final-box{position:relative;overflow:hidden;background:var(--lp-g);color:#fff;border-radius:32px;padding:88px 48px;text-align:center}
-.lp-final-box .lp-eyebrow{color:#F0BFA6}
-.lp-final-h{font-family:var(--lp-serif);font-weight:500;font-size:clamp(34px,4.6vw,56px);line-height:1.08;letter-spacing:-.02em;max-width:18ch;margin:0 auto}
-.lp-final-h em{font-style:italic;color:#F0BFA6}
-.lp-final-p{color:rgba(255,255,255,.86);font-size:19px;max-width:48ch;margin:20px auto 34px}
-.lp-final-note{color:rgba(255,255,255,.78);font-size:14px;margin-top:20px}
-.lp-final-deco{position:absolute;inset:0;pointer-events:none;width:100%;height:100%}
-.lp-final-in{position:relative}
+/* FAQ */
+.faq-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:48px}
+.faq details{border-bottom:1px solid var(--sand)}
+.faq details:first-child{border-top:1px solid var(--sand)}
+.faq summary{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:18px 0;cursor:pointer;list-style:none;font-family:var(--serif);font-size:23px;font-weight:500;transition:color .2s ease}
+.faq summary:hover{color:var(--green)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex:none;font-family:var(--sans);font-size:24px;font-weight:400;color:var(--green);line-height:1;transition:transform .2s ease}
+.faq summary:hover::after{transform:scale(1.15)}
+.faq details[open] summary::after{content:"\2212"}
+.faq p{padding:0 0 20px;color:var(--ink-2);max-width:62ch}
 
-/* subsol */
-.lp-foot{border-top:1px solid var(--lp-ln);padding:40px 0}
-.lp-foot-in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px}
-.lp-foot-slogan{font-family:var(--lp-serif);font-style:italic;color:var(--lp-tx2);font-size:17px}
-.lp-foot-copy{font-size:14px;color:var(--lp-tx2)}
-.lp-foot-l{display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px}
-
-/* animații (doar când JS a pornit și mișcarea e permisă) */
-@keyframes lp-rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
-@keyframes lp-floor{from{opacity:0;transform:translateY(18px) scale(.94)}to{opacity:1;transform:none}}
-@keyframes lp-wall{from{opacity:0;transform:scaleY(0)}to{opacity:1;transform:scaleY(1)}}
-@keyframes lp-drop{0%{opacity:0;transform:translateY(-54px)}60%{opacity:1;transform:translateY(3px)}80%{transform:translateY(-2px)}100%{opacity:1;transform:none}}
-@keyframes lp-fade{from{opacity:0}to{opacity:1}}
-@keyframes lp-pop{from{opacity:0;transform:translateY(16px) scale(.92)}to{opacity:1;transform:none}}
-@keyframes lp-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-.lp-room g{transform-box:fill-box;transform-origin:50% 100%}
-.lp-anim .lp-h-item,.lp-anim .lp-r-floor,.lp-anim .lp-r-walls,.lp-anim .lp-r-p,.lp-anim .lp-r-dims,.lp-anim .lp-verdict,.lp-anim .lp-app{opacity:0}
-.lp-anim.lp-go .lp-h-item{animation:lp-rise .8s cubic-bezier(.2,.7,.2,1) both}
-.lp-anim.lp-go .lp-h-1{animation-delay:.05s}
-.lp-anim.lp-go .lp-h-2{animation-delay:.2s}
-.lp-anim.lp-go .lp-h-3{animation-delay:.35s}
-.lp-anim.lp-go .lp-h-4{animation-delay:.5s}
-.lp-anim.lp-go .lp-app{animation:lp-rise 1s cubic-bezier(.2,.7,.2,1) .15s both}
-.lp-anim.lp-go .lp-r-floor{animation:lp-floor .8s cubic-bezier(.2,.7,.2,1) .45s both}
-.lp-anim.lp-go .lp-r-walls{animation:lp-wall .8s cubic-bezier(.3,.8,.2,1) .75s both}
-.lp-anim.lp-go .lp-r-p{animation:lp-drop .75s cubic-bezier(.3,.7,.3,1) both}
-.lp-anim.lp-go .lp-r-p1{animation-delay:1.15s}
-.lp-anim.lp-go .lp-r-p2{animation-delay:1.3s}
-.lp-anim.lp-go .lp-r-p3{animation-delay:1.45s}
-.lp-anim.lp-go .lp-r-p4{animation-delay:1.6s}
-.lp-anim.lp-go .lp-r-p5{animation-delay:1.75s}
-.lp-anim.lp-go .lp-r-p6{animation-delay:1.9s}
-.lp-anim.lp-go .lp-r-p7{animation-delay:2.02s}
-.lp-anim.lp-go .lp-r-dims{animation:lp-fade .7s ease 2.25s both}
-.lp-anim.lp-go .lp-verdict{animation:lp-pop .7s cubic-bezier(.2,.8,.2,1) both}
-.lp-anim.lp-go .lp-verdict--1{animation-delay:2.45s}
-.lp-anim.lp-go .lp-verdict--2{animation-delay:2.65s}
-.lp-anim.lp-go .lp-verdict--3{animation-delay:2.85s}
-.lp-anim .lp-verdict-in{animation:lp-float 6s ease-in-out infinite}
-.lp-anim .lp-verdict--2 .lp-verdict-in{animation-delay:-2s}
-.lp-anim .lp-verdict--3 .lp-verdict-in{animation-delay:-4s}
-.lp-anim .lp-st{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
-.lp-anim .lp-in .lp-st{opacity:1;transform:none}
-.lp-anim .lp-bar-fill{transform:scaleX(0);transition:transform 1.4s cubic-bezier(.2,.7,.2,1) .2s}
-.lp-anim .lp-in .lp-bar-fill{transform:scaleX(1)}
-.lp-anim .lp-steps-line{transform:scaleX(0);transition:transform 1.6s cubic-bezier(.45,.1,.2,1) .3s}
-.lp-anim .lp-in .lp-steps-line{transform:scaleX(1)}
+/* footer */
+.foot{background:var(--ink);color:#CFC7BF;padding:48px 0 24px}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px}
+.foot .logo{color:var(--bg)}
+.foot-about{font-size:16.5px;margin-top:14px;max-width:34ch}
+.foot h4{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--sand);margin-bottom:14px}
+.foot ul{display:grid;gap:8px}
+.foot a{text-decoration:none;font-size:16.5px}
+.foot a:hover{color:var(--bg);text-decoration:underline}
+.foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:36px;padding-top:20px;border-top:1px solid #3A3331;font-size:14px;color:#9C938B}
 
 /* responsive */
-@media (max-width:1120px){
-.lp-hero-grid{grid-template-columns:minmax(0,1fr);gap:40px}
-.lp-hero-copy{max-width:720px}
-.lp-stage{max-width:760px;width:100%;margin:0 auto}
-.lp-verdict--1{left:-20px}
-.lp-verdict--2{right:-16px}
-.lp-verdict--3{right:-16px}
+@media (max-width:960px){
+  .hero-grid{grid-template-columns:1fr;gap:44px}
+  .features,.plans{grid-template-columns:1fr 1fr}
+  .plans .plan:last-child{grid-column:1/-1}
+  .faq-grid{grid-template-columns:1fr;gap:28px}
+  .foot-grid{grid-template-columns:1fr 1fr}
 }
-@media (max-width:980px){
-.lp-nav-links{display:none}
-.lp-nav .lp-btn{margin-left:auto}
-.lp-section{padding:88px 0}
-.lp-prob-grid,.lp-faq-grid{grid-template-columns:minmax(0,1fr);gap:40px}
-.lp-cards3,.lp-who,.lp-stat-grid{grid-template-columns:minmax(0,1fr)}
-.lp-feat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-.lp-steps{grid-template-columns:minmax(0,1fr);gap:36px;padding-left:76px}
-.lp-steps-line{left:27px;right:auto;top:28px;bottom:28px;width:2px;height:auto;background:repeating-linear-gradient(180deg,var(--lp-tc) 0 10px,transparent 10px 18px);transform-origin:center top}
-.lp-anim .lp-steps-line{transform:scaleY(0)}
-.lp-anim .lp-in .lp-steps-line{transform:scaleY(1)}
-.lp-step-n{position:absolute;left:-76px;top:0;align-self:auto}
-.lp-step-card{margin-top:0}
-.lp-stat-num .lp-count{font-size:60px}
-}
-@media (max-width:720px){
-.lp-verdict{position:static}
-.lp-verdicts{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;margin-top:14px}
-.lp-stage{padding:0}
-.lp-app-body{grid-template-columns:minmax(0,1fr)}
-.lp-app-tools{display:none}
-.lp-app-cat{grid-template-columns:repeat(2,minmax(0,1fr))}
-.lp-app-cat .lp-cat:nth-child(n+3){display:none}
-.lp-feat-grid{grid-template-columns:minmax(0,1fr)}
-.lp-sheet{grid-template-columns:minmax(0,1fr)}
-.lp-sheet-img{aspect-ratio:auto}
-.lp-sheet-img svg{max-width:240px}
-.lp-table th,.lp-table td{padding:16px 16px;font-size:15px}
-.lp-table th{font-size:19px}
-.lp-cell{flex-direction:column;gap:6px}
-.lp-final-box{padding:64px 24px;border-radius:24px}
-.lp-plan-card{padding:30px 24px}
-.lp-price-grid{grid-template-columns:minmax(0,1fr)}
-.lp-ba-tag{top:10px;font-size:12px;padding:5px 10px}
-.lp-ba-tag--l{left:10px}.lp-ba-tag--r{right:10px}
-.lp-ba-knob{width:44px;height:44px}
+@media (max-width:760px){
+  .menu-btn{display:grid}
+  .nav{display:none;position:absolute;left:0;right:0;top:72px;flex-direction:column;align-items:stretch;background:var(--bg);border-bottom:1px solid var(--sand);padding:8px 20px 16px}
+  .nav.is-open{display:flex}
+  .nav a{border-bottom:1px solid var(--sand)}
+  .steps{grid-template-columns:1fr}
+  .step{border-left:0;border-top:1px solid var(--sand)}
+  .step:first-child{border-top:0}
+  .features,.plans{grid-template-columns:1fr}
+  .section{padding:44px 0}
+  .hero{padding:24px 0 44px}
+  .signup-top,.signup-bottom{padding:30px 22px}
+  .grid-form{grid-template-columns:1fr}
+  .inline-form{flex-direction:column}
+  .demo-foot div{padding:10px 12px}
 }
 @media (max-width:520px){
-.lp{font-size:16px}
-.lp-wrap{padding:0 16px}
-.lp-section{padding:72px 0}
-.lp-hero{padding:44px 0 72px}
-.lp-nav-in{height:64px;gap:12px}
-.lp-logo{font-size:21px}
-.lp-logo svg{width:28px;height:28px}
-.lp-nav .lp-btn{padding:0 14px;font-size:14px;gap:6px}
-.lp-nav .lp-btn svg{width:16px;height:16px}
-.lp-ctas .lp-btn{width:100%}
-.lp-hero-p,.lp-lead,.lp-final-p{font-size:17px}
-.lp-app-bar{padding:0 12px;gap:10px}
-.lp-app-tab small{display:none}
-.lp-steps{padding-left:0}
-.lp-step-n{position:relative;left:auto;align-self:flex-start;margin-bottom:16px;width:48px;height:48px;font-size:20px}
-.lp-steps-line{display:none}
-.lp-step-vis{padding:16px;min-height:0}
-.lp-sheet-wrap{padding:44px 0 36px 0}
-.lp-ask{right:0}
-.lp-tabs span:nth-child(n+3){display:none}
-.lp-faq summary{padding:18px;font-size:16px}
-.lp-faq-a{padding:0 18px 18px}
-.lp-plan-price b{font-size:46px}
-.lp-head{margin-bottom:40px}
+  .wrap{padding:0 20px}
+  .foot-grid{grid-template-columns:1fr}
+  .ctas .btn{flex:1}
 }
-@media (prefers-reduced-motion:reduce){
-.lp *,.lp *::before,.lp *::after{animation:none!important;transition:none!important}
-.lp .lp-h-item,.lp .lp-r-floor,.lp .lp-r-walls,.lp .lp-r-p,.lp .lp-r-dims,.lp .lp-verdict,.lp .lp-app,.lp .lp-st{opacity:1!important;transform:none!important}
-.lp .lp-bar-fill,.lp .lp-steps-line{transform:none!important}
-}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
-<div class="lp">
-<a class="lp-skip" href="#lp-continut">Sari la conținut</a>
+<a class="skip" href="#continut">Sari la conținut</a>
 
-<header class="lp-nav" data-lp-nav="">
-<div class="lp-wrap lp-nav-in">
-<a class="lp-logo" href="#lp-acasa" data-lp-scroll="lp-acasa" aria-label="Roomio, mergi la începutul paginii">
-<svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="8" fill="#1F4D3F"></rect><path d="M10 23V10h13" fill="none" stroke="#FBF8F3" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path><rect x="16" y="16" width="7" height="7" rx="1.6" fill="#C9663C"></rect></svg>
-<span>Roomio</span>
-</a>
-<nav class="lp-nav-links" aria-label="Navigare principală">
-<a class="lp-nav-link" href="#lp-functii" data-lp-scroll="lp-functii">Funcționalități</a>
-<a class="lp-nav-link" href="#lp-preturi" data-lp-scroll="lp-preturi">Prețuri</a>
-<a class="lp-nav-link" href="#lp-intrebari" data-lp-scroll="lp-intrebari">Întrebări</a>
-</nav>
-<a class="lp-btn lp-btn--primary lp-btn--sm" href="https://docs.google.com/forms/d/e/1FAIpQLSfvsAgB9XWx8_69c8-1mv8OSg-LZfZ_yZGdUaK9UfCxqXe7bg/viewform" target="_blank" rel="noopener">Intră în listă<span class="lp-sr"> (se deschide într-o filă nouă)</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
-</div>
+<header class="top">
+  <div class="wrap top-in">
+    <a class="logo" href="#" aria-label="Roomio, mergi la începutul paginii">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="8" fill="#1F4D3F"/><path d="M10 23V10h13" fill="none" stroke="#FBF8F3" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><rect x="16" y="16" width="7" height="7" rx="1.6" fill="#C9663C"/></svg>
+      <span>Roomio</span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Navigare principală">
+      <a href="#functionalitati">Funcționalități</a>
+      <a href="#cum-functioneaza">Pas cu pas</a>
+      <a href="#preturi">Prețuri</a>
+      <a href="#intrebari">Întrebări</a>
+    </nav>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Deschide meniul">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
 </header>
 
+<main id="continut">
 
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="h-hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1 class="h1" id="h-hero"><span>Tot mobilierul.</span><span>Toate combinațiile.</span><span>Un singur loc.</span></h1>
+        <ul class="points">
+          <li><span><b>Camera ta în 3D</b>, la dimensiunile reale, în câteva minute.</span></li>
+          <li><span>Amenajezi cu <b>piese de mobilier reale</b>, disponibile în magazinele partenere.</span></li>
+          <li><span><b>Descoperi mobilier</b> dintr-un singur loc, fără să cauți prin zeci de magazine.</span></li>
+          <li><span><b>Costul întregii amenajări</b>, calculat automat și actualizat în timp real.</span></li>
+        </ul>
+        <div class="ctas">
+          <a class="btn btn-outline" href="#cum-functioneaza">Citește mai mult</a>
+          <a class="btn btn-primary" href="#preturi">Încearcă Roomio</a>
+        </div>
+      </div>
 
-<main id="lp-continut">
-
-<!-- 2. PRIMA SECȚIUNE -->
-<section class="lp-hero" id="lp-acasa" aria-labelledby="lp-h1">
-<div class="lp-hero-bg" aria-hidden="true"></div>
-<svg class="lp-blob lp-blob--a" viewBox="0 0 600 600" aria-hidden="true"><path d="M421 72c76 40 139 117 140 200 1 86-61 178-146 226-86 48-196 52-276 4C59 454 9 357 37 271 65 186 161 112 248 76c60-25 113-29 173-4z" fill="#E3ECE7" opacity=".7"></path></svg>
-<svg class="lp-blob lp-blob--b" viewBox="0 0 260 260" aria-hidden="true"><path d="M182 32c38 22 63 69 55 113-8 45-50 87-98 97-49 10-104-12-125-55-21-44-8-108 30-138 38-31 100-39 138-17z" fill="#F6E3D8" opacity=".75"></path></svg>
-<div class="lp-wrap lp-hero-grid">
-<div class="lp-hero-copy">
-<h1 class="lp-h1 lp-h-item lp-h-1" id="lp-h1">Vezi mobila în camera ta <em>înainte</em> să o cumperi.</h1>
-<p class="lp-hero-p lp-h-item lp-h-2">Roomio îți reconstruiește camera la dimensiunile reale. Pui în ea piese de la mai mulți furnizori, vezi dacă încap și cum arată împreună, apoi comanzi totul dintr-un singur loc.</p>
-<div class="lp-ctas lp-h-item lp-h-3">
-<a class="lp-btn lp-btn--ghost" href="#lp-cum" data-lp-scroll="lp-cum">Vezi cum funcționează</a>
-</div>
-<ul class="lp-perks lp-h-item lp-h-4">
-<li><span class="lp-tick"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>Planificare gratuită</li>
-<li><span class="lp-tick"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>Direct din browser</li>
-<li><span class="lp-tick"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>Furnizori din România</li>
-</ul>
-</div>
-
-<div class="lp-stage">
+      <div class="lp-stage">
 <div class="lp-app" role="img" aria-label="Interfața Roomio: un living de 4,20 pe 3,60 metri, reconstruit la scară, cu o canapea verde de 220 cm, un fotoliu teracotă, o măsuță din lemn, o bibliotecă, o plantă, un covor și o lampă. Pe podea apar cotele camerei și 70 cm de trecere între canapea și masă.">
 <div class="lp-app-bar">
 <div class="lp-dots"><span></span><span></span><span></span></div>
@@ -572,7 +537,7 @@ body{margin:0;background:#FBF8F3}
 <polygon class="lp-pot-l" points="490.9,337.9 508.1,347.8 508.1,324.0 490.9,314.1"></polygon><polygon class="lp-pot-r" points="525.2,337.9 508.1,347.8 508.1,324.0 525.2,314.1"></polygon><polygon class="lp-pot-t" points="508.1,304.2 525.2,314.1 508.1,324.0 490.9,314.1"></polygon><path class="lp-stem" d="M508.1 314.1 L506.1 254.1 M508.1 314.1 L518.1 274.1"></path><ellipse class="lp-lf1" cx="494.1" cy="284.1" rx="13.0" ry="9.4"></ellipse><ellipse class="lp-lf2" cx="520.1" cy="278.1" rx="14.0" ry="10.1"></ellipse><ellipse class="lp-lf1" cx="506.1" cy="260.1" rx="15.0" ry="10.8"></ellipse><ellipse class="lp-lf3" cx="488.1" cy="256.1" rx="11.0" ry="7.9"></ellipse><ellipse class="lp-lf3" cx="526.1" cy="252.1" rx="11.0" ry="7.9"></ellipse><ellipse class="lp-lf2" cx="510.1" cy="238.1" rx="12.0" ry="8.6"></ellipse><ellipse class="lp-lf3" cx="498.1" cy="300.1" rx="10.0" ry="7.2"></ellipse><ellipse class="lp-lf1" cx="522.1" cy="300.1" rx="9.0" ry="6.5"></ellipse>
 </g>
 <g class="lp-r-p lp-r-p5">
-<polygon class="lp-gr-l" points="128.5,295.0 178.8,324.0 178.8,297.6 128.5,268.6"></polygon><polygon class="lp-gr-r" points="304.6,251.4 178.8,324.0 178.8,297.6 304.6,225.0"></polygon><polygon class="lp-gr-t" points="254.3,196.0 304.6,225.0 178.8,297.6 128.5,268.6"></polygon><polygon class="lp-gr-l" points="128.5,268.6 141.1,275.9 141.1,246.8 128.5,239.6"></polygon><polygon class="lp-gr-r" points="266.8,203.3 141.1,275.9 141.1,246.8 266.8,174.2"></polygon><polygon class="lp-gr-t" points="254.3,167.0 266.8,174.2 141.1,246.8 128.5,239.6"></polygon><polygon class="lp-gr-l" points="244.0,201.9 294.3,231.0 294.3,217.8 244.0,188.7"></polygon><polygon class="lp-gr-r" points="304.6,225.0 294.3,231.0 294.3,217.8 304.6,211.8"></polygon><polygon class="lp-gr-t" points="254.3,182.8 304.6,211.8 294.3,217.8 244.0,188.7"></polygon><polygon class="lp-gr-l" points="204.5,239.2 241.1,260.4 241.1,254.4 204.5,233.3"></polygon><polygon class="lp-gr-r" points="293.1,230.3 241.1,260.4 241.1,254.4 293.1,224.4"></polygon><polygon class="lp-gr-c" points="256.6,203.3 293.1,224.4 241.1,254.4 204.5,233.3"></polygon><polygon class="lp-gr-l" points="151.4,269.9 188.0,291.0 188.0,285.1 151.4,264.0"></polygon><polygon class="lp-gr-r" points="240.0,261.0 188.0,291.0 188.0,285.1 240.0,255.1"></polygon><polygon class="lp-gr-c" points="203.4,234.0 240.0,255.1 188.0,285.1 151.4,264.0"></polygon><polygon class="lp-gr-l" points="128.5,268.6 178.8,297.6 178.8,284.4 128.5,255.4"></polygon><polygon class="lp-gr-r" points="189.1,291.7 178.8,297.6 178.8,284.4 189.1,278.5"></polygon><polygon class="lp-gr-t" points="138.8,249.5 189.1,278.5 178.8,284.4 128.5,255.4"></polygon><polygon class="lp-gr-l" points="217.7,207.9 226.8,213.2 226.8,192.0 217.7,186.8"></polygon><polygon class="lp-gr-r" points="249.7,200.0 226.8,213.2 226.8,192.0 249.7,178.8"></polygon><polygon class="lp-gr-p" points="240.6,173.6 249.7,178.8 226.8,192.0 217.7,186.8"></polygon><polygon class="lp-tc-l" points="148.0,248.1 157.1,253.4 157.1,232.3 148.0,227.0"></polygon><polygon class="lp-tc-r" points="180.0,240.2 157.1,253.4 157.1,232.3 180.0,219.1"></polygon><polygon class="lp-gr-p2" points="170.8,213.8 180.0,219.1 157.1,232.3 148.0,227.0"></polygon>
+<polygon class="lp-gr-l" points="128.5,295.0 178.8,324.0 178.8,297.6 128.5,268.6"></polygon><polygon class="lp-gr-r" points="304.6,251.4 178.8,324.0 178.8,297.6 304.6,225.0"></polygon><polygon class="lp-gr-t" points="254.3,196.0 304.6,225.0 178.8,297.6 128.5,268.6"></polygon><polygon class="lp-gr-l" points="137.6,262.5 150.7,270.0 150.7,240.7 137.6,233.2"></polygon><polygon class="lp-gr-r" points="256.5,209.3 150.7,270.0 150.7,240.7 256.5,180.0"></polygon><polygon class="lp-gr-t" points="243.4,172.5 256.5,180.0 150.7,240.7 137.6,233.2"></polygon><polygon class="lp-gr-l" points="244.0,201.9 294.3,231.0 294.3,217.8 244.0,188.7"></polygon><polygon class="lp-gr-r" points="304.6,225.0 294.3,231.0 294.3,217.8 304.6,211.8"></polygon><polygon class="lp-gr-t" points="254.3,182.8 304.6,211.8 294.3,217.8 244.0,188.7"></polygon><polygon class="lp-gr-l" points="204.5,239.2 241.1,260.4 241.1,254.4 204.5,233.3"></polygon><polygon class="lp-gr-r" points="293.1,230.3 241.1,260.4 241.1,254.4 293.1,224.4"></polygon><polygon class="lp-gr-c" points="256.6,203.3 293.1,224.4 241.1,254.4 204.5,233.3"></polygon><polygon class="lp-gr-l" points="151.4,269.9 188.0,291.0 188.0,285.1 151.4,264.0"></polygon><polygon class="lp-gr-r" points="240.0,261.0 188.0,291.0 188.0,285.1 240.0,255.1"></polygon><polygon class="lp-gr-c" points="203.4,234.0 240.0,255.1 188.0,285.1 151.4,264.0"></polygon><polygon class="lp-gr-l" points="128.5,268.6 178.8,297.6 178.8,284.4 128.5,255.4"></polygon><polygon class="lp-gr-r" points="189.1,291.7 178.8,297.6 178.8,284.4 189.1,278.5"></polygon><polygon class="lp-gr-t" points="138.8,249.5 189.1,278.5 178.8,284.4 128.5,255.4"></polygon><polygon class="lp-gr-l" points="217.7,207.9 226.8,213.2 226.8,192.0 217.7,186.8"></polygon><polygon class="lp-gr-r" points="249.7,200.0 226.8,213.2 226.8,192.0 249.7,178.8"></polygon><polygon class="lp-gr-p" points="240.6,173.6 249.7,178.8 226.8,192.0 217.7,186.8"></polygon><polygon class="lp-tc-l" points="148.0,248.1 157.1,253.4 157.1,232.3 148.0,227.0"></polygon><polygon class="lp-tc-r" points="180.0,240.2 157.1,253.4 157.1,232.3 180.0,219.1"></polygon><polygon class="lp-gr-p2" points="170.8,213.8 180.0,219.1 157.1,232.3 148.0,227.0"></polygon>
 </g>
 <g class="lp-r-p lp-r-p6">
 <ellipse class="lp-lamp-base" cx="134.2" cy="314.8" rx="13" ry="6.5"></ellipse><line class="lp-lamp-pole" x1="134.2" y1="314.8" x2="134.2" y2="215.8"></line><circle class="lp-lamp-glow" cx="134.2" cy="219.8" r="34"></circle><path class="lp-lamp-shade" d="M123.2 197.8 L145.2 197.8 L152.2 219.8 L116.2 219.8 Z"></path>
@@ -590,21 +555,21 @@ body{margin:0;background:#FBF8F3}
 </div>
 </div>
 <div class="lp-app-cat">
-<div class="lp-cat lp-on"><span class="lp-cat-ic" style="background:#E3ECE7"><svg viewBox="0 0 24 24"><rect x="3" y="10" width="18" height="7" rx="2" fill="#2A6352"></rect><rect x="5" y="6" width="14" height="6" rx="2" fill="#1F4D3F"></rect><rect x="5" y="17" width="2" height="2" fill="#5C6863"></rect><rect x="17" y="17" width="2" height="2" fill="#5C6863"></rect></svg></span><div><b>Canapea Oslo</b><small>220 cm · 2.490 lei</small></div></div>
-<div class="lp-cat"><span class="lp-cat-ic" style="background:#F6E3D8"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="6" rx="2" fill="#C9663C"></rect><rect x="7" y="5" width="10" height="8" rx="2.5" fill="#A4502C"></rect><rect x="7" y="17" width="2" height="2" fill="#5C6863"></rect><rect x="15" y="17" width="2" height="2" fill="#5C6863"></rect></svg></span><div><b>Fotoliu Lut</b><small>80 cm · 1.090 lei</small></div></div>
-<div class="lp-cat"><span class="lp-cat-ic" style="background:#F3EEE6"><svg viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="3" rx="1" fill="#C79A6B"></rect><rect x="5" y="12" width="2" height="7" fill="#A67447"></rect><rect x="17" y="12" width="2" height="7" fill="#A67447"></rect></svg></span><div><b>Măsuță Stejar</b><small>100 cm · 640 lei</small></div></div>
-<div class="lp-cat"><span class="lp-cat-ic" style="background:#F3EEE6"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1" fill="#BC8C5D"></rect><rect x="7" y="5" width="10" height="4" fill="#F3EEE6"></rect><rect x="7" y="11" width="10" height="4" fill="#F3EEE6"></rect><rect x="8" y="6" width="2" height="3" fill="#1F4D3F"></rect><rect x="11" y="12" width="2" height="3" fill="#C9663C"></rect></svg></span><div><b>Bibliotecă Nord</b><small>100 cm · 650 lei</small></div></div>
+<div class="lp-cat lp-on"><span class="lp-cat-ic" style="background:#E3ECE7"><svg viewBox="0 0 24 24"><rect x="3" y="10" width="18" height="7" rx="2" fill="#7C9A6D"></rect><rect x="5" y="6" width="14" height="6" rx="2" fill="#5F7D52"></rect><rect x="5" y="17" width="2" height="2" fill="#5C6863"></rect><rect x="17" y="17" width="2" height="2" fill="#5C6863"></rect></svg></span><div><b>Canapea Oslo</b><small>Nordhaus · 2.490 lei</small></div></div>
+<div class="lp-cat"><span class="lp-cat-ic" style="background:#F6E3D8"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="6" rx="2" fill="#C9663C"></rect><rect x="7" y="5" width="10" height="8" rx="2.5" fill="#A4502C"></rect><rect x="7" y="17" width="2" height="2" fill="#5C6863"></rect><rect x="15" y="17" width="2" height="2" fill="#5C6863"></rect></svg></span><div><b>Fotoliu Lut</b><small>Casa Moll · 1.090 lei</small></div></div>
+<div class="lp-cat"><span class="lp-cat-ic" style="background:#F3EEE6"><svg viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="3" rx="1" fill="#C79A6B"></rect><rect x="5" y="12" width="2" height="7" fill="#A67447"></rect><rect x="17" y="12" width="2" height="7" fill="#A67447"></rect></svg></span><div><b>Măsuță Stejar</b><small>Atelier Lemn · 640 lei</small></div></div>
+<div class="lp-cat"><span class="lp-cat-ic" style="background:#F3EEE6"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1" fill="#BC8C5D"></rect><rect x="7" y="5" width="10" height="4" fill="#F3EEE6"></rect><rect x="7" y="11" width="10" height="4" fill="#F3EEE6"></rect><rect x="8" y="6" width="2" height="3" fill="#5F7D52"></rect><rect x="11" y="12" width="2" height="3" fill="#C9663C"></rect></svg></span><div><b>Bibliotecă Nord</b><small>Forma Studio · 650 lei</small></div></div>
 </div>
 </div>
 
 <div class="lp-verdicts">
 <div class="lp-verdict lp-verdict--1"><div class="lp-verdict-in">
 <span class="lp-verdict-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>
-<div><b>Canapea, 220 cm</b><span class="lp-v-sub"><span class="lp-ok">Încape</span> · 70 cm de trecere</span></div>
+<div><b>Canapea Oslo</b><span class="lp-v-sub"><span class="lp-ok">A revenit pe stoc</span></span></div>
 </div></div>
 <div class="lp-verdict lp-verdict--2"><div class="lp-verdict-in">
-<span class="lp-verdict-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 21V3h10v18 M3 21h18 M13 12h.5"></path></svg></span>
-<div><b>Ușa de la intrare</b><span class="lp-v-sub"><span class="lp-ok">Piesa trece</span></span></div>
+<span class="lp-verdict-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H4 M14 6l6 6-6 6"></path></svg></span>
+<div><b>Fotoliu Lut</b><span class="lp-v-sub"><span class="lp-ok">−180 lei</span> · preț scăzut azi</span></div>
 </div></div>
 <div class="lp-verdict lp-verdict--3"><div class="lp-verdict-in">
 <span class="lp-verdict-ic lp-verdict-ic--tc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1 13H6z M9 8V6a3 3 0 016 0v2"></path></svg></span>
@@ -612,590 +577,1003 @@ body{margin:0;background:#FBF8F3}
 </div></div>
 </div>
 </div>
-</div>
-</section>
+    </div>
+  </section>
 
-<!-- 3. CIFRE DIN CERCETARE -->
-<section class="lp-stats" aria-labelledby="lp-h-stats">
-<div class="lp-wrap" data-lp-reveal="">
-<div class="lp-stats-top lp-st">
-<div>
-<p class="lp-eyebrow">Cercetare</p>
-<h2 class="lp-h2" id="lp-h-stats">Am întrebat oameni care și-au mobilat <em>recent</em> casa.</h2>
-</div>
-</div>
-<div class="lp-stat-grid">
-<div class="lp-stat lp-st">
-<div class="lp-stat-num"><span class="lp-count" data-to="14">14</span><span class="lp-of">din 35</span></div>
-<div class="lp-bar" aria-hidden="true"><div class="lp-bar-fill" style="width:40%"></div></div>
-<p>au returnat o piesă de mobilier care nu se potrivea.</p>
-</div>
-<div class="lp-stat lp-st">
-<div class="lp-stat-num"><span class="lp-count" data-to="21">21</span><span class="lp-of">din 24</span></div>
-<div class="lp-bar" aria-hidden="true"><div class="lp-bar-fill" style="width:87.5%"></div></div>
-<p>au verificat dacă mobila încape doar măsurând cu ruleta.</p>
-</div>
-<div class="lp-stat lp-st">
-<div class="lp-stat-num"><span class="lp-count" data-to="13">13</span><span class="lp-of">din 24</span></div>
-<div class="lp-bar" aria-hidden="true"><div class="lp-bar-fill" style="width:54.2%"></div></div>
-<p>au căutat mobilă două luni sau mai mult.</p>
-</div>
-</div>
-<p class="lp-source lp-st"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v6M12 7.5v.5"></path></svg>Sondaj realizat de Roomio cu 35 de respondenți, în toamna anului 2026.</p>
-</div>
-</section>
+  <!-- CUM FUNCȚIONEAZĂ / PAS CU PAS -->
+  <section class="section" id="cum-functioneaza" aria-labelledby="h-cum">
+    <div class="wrap">
+      <div class="head">
+        <h2 class="h2" id="h-cum">Pas cu pas</h2>
+      </div>
+      <div class="pcp">
+        <div class="pcp-stage" id="heroStage" aria-label="Animație: o cameră construită și mobilată pas cu pas">
+          <div class="cap cap-dims" id="capDims">Living, cu două coloane<b class="num">20 m², tavan 2,70 m</b></div>
+          <div class="cap cap-act" id="capAct"><span></span><b class="num"></b></div>
+          <div class="cap cap-fit" id="capFit"><i class="dot"></i><span></span></div>
+          <div class="hcover"></div>
+          <div class="hform" id="hForm"><h6>Cameră nouă: Living</h6>
+            <div class="hf" data-f="L"><span>Lungime</span><b></b><i class="ok">✓</i></div>
+            <div class="hf" data-f="l"><span>Lățime</span><b></b><i class="ok">✓</i></div>
+            <div class="hf" data-f="h"><span>Tavan</span><b></b><i class="ok">✓</i></div>
+            <div class="hsub">Imperfecțiuni ale pereților</div>
+            <div class="hf" data-f="g"><span>Coloană</span><b></b><i class="ok">✓</i></div>
+            <div class="hf pos" data-f="gp"><span>Poziție</span><b></b><i class="ok">✓</i></div>
+            <div class="hf" data-f="s"><span>Coloană</span><b></b><i class="ok">✓</i></div>
+            <div class="hf pos" data-f="sp"><span>Poziție</span><b></b><i class="ok">✓</i></div>
+            <div class="hhint" id="hHint">Trage pe plan sau scrie distanța. Merge oriunde pe perete, nu doar în colț.</div>
+            <div class="sumrow"><span class="faint">Suprafață utilă</span><b class="num" style="font-weight:500">20 m²</b></div>
+            <div class="cbtn">Confirmă forma</div>
+          </div>
+          <div class="cap cap-total" id="capTotal">7 piese de la 3 furnizori<b class="num">7.380 lei</b><span id="heroBtn">Vezi lista</span></div>
+          <div class="hlist" id="hList"></div>
+          <div class="hand" id="hand"><svg viewBox="0 0 24 24" fill="#fff" stroke="#2E5A1A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15V4a2 2 0 0 1 4 0v6a2 2 0 0 1 3 0 2 2 0 0 1 4 1z"/><path d="M11 10v1M14 10v1.5M18 11v1.5" fill="none"/></svg></div>
+          <div class="ecat" id="eCat">
+            <div class="esearch"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><input id="eSearch" type="text" placeholder="Caută mobilă" readonly></div>
+            <div class="ecats" id="eTabs">
+              <button class="on" data-cat="all">Toate</button>
+              <button data-cat="sofa">Canapele</button>
+              <button data-cat="table">Mese</button>
+              <button data-cat="shelf">Rafturi</button>
+              <button data-cat="rug">Covoare</button>
+              <button data-cat="lamp">Lămpi</button>
+              <button data-cat="plant">Plante</button>
+            </div>
+            <div class="elist" id="eList"></div>
+          </div>
+        </div>
+        <ol class="pcp-steps" id="steps">
+          <li data-step="0"><em>01</em><b>Introduci dimensiunile</b><i class="bar"></i></li>
+          <li data-step="1"><em>02</em><b>Prototipul 3D</b><i class="bar"></i></li>
+          <li data-step="2"><em>03</em><b>Mobilează camera</b><i class="bar"></i></li>
+          <li data-step="3"><em>04</em><b>Vezi lista</b><i class="bar"></i></li>
+        </ol>
+        <div class="pcp-ctl">
+          <button id="hPrev" aria-label="Pasul anterior" title="Pasul anterior"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+          <button id="hPlay" aria-label="Pauză" title="Pauză"></button>
+          <button id="hNext" aria-label="Pasul următor" title="Pasul următor"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+          <span id="hPos">Pasul 1 din 4</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- 4. PROBLEMA -->
-<section class="lp-section" aria-labelledby="lp-h-prob">
-<div class="lp-wrap" data-lp-reveal="">
-<div class="lp-prob-grid">
-<div class="lp-st">
-<p class="lp-eyebrow">Problema</p>
-<h2 class="lp-h2" id="lp-h-prob">Mobila se alege încă din poze și cu <em>ruleta</em>.</h2>
-<p class="lp-lead">Fișa unui produs spune cât de mare este piesa, dar nu și cum va arăta în camera ta.</p>
-</div>
-<div class="lp-sheet-wrap lp-st" role="img" aria-label="Fișa unei canapele de 220 cm deschisă într-unul din multe tab-uri, cu o ruletă dedesubt și întrebarea: încape lângă ușă?">
-<div class="lp-tabs" aria-hidden="true"><span>Masă extensibilă</span><span class="lp-on">Canapea Oslo</span><span>Fotoliu Lut</span><span>Covor 160×230</span><span>+ 9</span></div>
-<div class="lp-sheet" aria-hidden="true">
-<div class="lp-sheet-img">
-<svg viewBox="0 0 200 130"><ellipse cx="100" cy="116" rx="86" ry="6" fill="#E5DED2"></ellipse><rect x="22" y="40" width="156" height="46" rx="12" fill="#1F4D3F"></rect><rect x="14" y="64" width="30" height="42" rx="10" fill="#2A6352"></rect><rect x="156" y="64" width="30" height="42" rx="10" fill="#2A6352"></rect><rect x="38" y="72" width="62" height="30" rx="8" fill="#3B7D64"></rect><rect x="100" y="72" width="62" height="30" rx="8" fill="#3B7D64"></rect><rect x="30" y="106" width="6" height="9" rx="2" fill="#A67447"></rect><rect x="164" y="106" width="6" height="9" rx="2" fill="#A67447"></rect><path d="M14 20h172M14 15v10M186 15v10" stroke="#C9663C" stroke-width="1.5" fill="none"></path><rect x="76" y="11" width="48" height="18" rx="9" fill="#fff" stroke="#E5DED2"></rect><text x="100" y="24" font-size="11" font-weight="600" text-anchor="middle" fill="#17201D" font-family="Inter, sans-serif">220 cm</text></svg>
-</div>
-<div>
-<h3>Canapea Oslo, 3 locuri</h3>
-<div class="lp-stars"><i></i><i></i></div>
-<div class="lp-dimrow"><span>L 220 cm</span><span>A 92 cm</span><span>Î 84 cm</span></div>
-<p class="lp-price">2.490 lei</p>
-<span class="lp-fakebtn">Adaugă în coș</span>
-</div>
-</div>
-<div class="lp-ask" aria-hidden="true">Încape lângă ușă?</div>
-<div class="lp-ask lp-ask--2" aria-hidden="true">Merge cu fotoliul?</div>
-<div class="lp-ruler" aria-hidden="true">
-<svg viewBox="0 0 600 40" preserveAspectRatio="none"><rect x="0" y="6" width="600" height="28" rx="4" fill="#E9C46A" opacity=".0"></rect><rect x="0" y="6" width="600" height="28" rx="4" fill="#EBCB8B"></rect><path d="M20 6v14M40 6v8M60 6v8M80 6v8M100 6v14M120 6v8M140 6v8M160 6v8M180 6v8M200 6v14M220 6v8M240 6v8M260 6v8M280 6v8M300 6v14M320 6v8M340 6v8M360 6v8M380 6v8M400 6v14M420 6v8M440 6v8M460 6v8M480 6v8M500 6v14M520 6v8M540 6v8M560 6v8M580 6v8" stroke="#6B5530" stroke-width="1.4"></path></svg>
-</div>
-</div>
-</div>
-<div class="lp-cards3">
-<div class="lp-card lp-st">
-<span class="lp-num-tag">01</span>
-<span class="lp-ic lp-ic--tc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17L17 3l4 4L7 21z M7 13l2 2 M10 10l2 2 M13 7l2 2"></path></svg></span>
-<h3>Dimensiunile</h3>
-<p>Știi că o canapea are 220 cm, dar nu vezi dacă mai rămâne loc de trecere sau dacă se mai deschide ușa.</p>
-</div>
-<div class="lp-card lp-st">
-<span class="lp-num-tag">02</span>
-<span class="lp-ic lp-ic--tc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12V9a2 2 0 012-2h12a2 2 0 012 2v3 M2.5 12.5a1.5 1.5 0 013 0V15h13v-2.5a1.5 1.5 0 013 0V18h-19z M5 18v2 M19 18v2"></path></svg></span>
-<h3>Stilul</h3>
-<p>Piesa arată bine în poza magazinului, dar nu știi cum se potrivește cu restul camerei.</p>
-</div>
-<div class="lp-card lp-st">
-<span class="lp-num-tag">03</span>
-<span class="lp-ic lp-ic--tc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9h18v11H3z M3 9l1.5-4h6L12 9 M12 9l1.5-4h6L21 9"></path></svg></span>
-<h3>Comparația</h3>
-<p>Produsele de la mai mulți furnizori stau în zeci de tab-uri și nu pot fi văzute împreună.</p>
-</div>
-</div>
-</div>
-</section>
+  <!-- FUNCȚIONALITĂȚI -->
+  <section class="section" id="functionalitati" aria-labelledby="h-fn">
+    <div class="wrap">
+      <div class="head">
+        <h2 class="h2" id="h-fn">Funcționalități</h2>
+      </div>
+      <ul class="features">
+        <li class="card">
+          <div class="card-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M3 17h4M3 13h3"/></svg></div>
+          <h3>Dimensiuni la scară reală</h3>
+          <p>Fiecare piesă folosește dimensiunile exacte din fișa producătorului, iar verificările de spațiu sunt făcute la milimetru.</p>
+        </li>
+        <li class="card">
+          <div class="card-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7h16l-1.5 12h-13z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg></div>
+          <h3>Mai mulți vânzători, un singur proiect</h3>
+          <p>Combini piese de la furnizori diferiți în același aranjament, fără să treci dintr-un catalog în altul.</p>
+        </li>
+        <li class="card">
+          <div class="card-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><circle cx="7" cy="7" r="1.6"/></svg></div>
+          <h3>Stocuri și oferte actualizate</h3>
+          <p>Vezi disponibilitatea produselor, prețurile și promoțiile actuale ale magazinelor partenere, direct în Roomio.</p>
+        </li>
+        <li class="card">
+          <div class="card-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 12l10 5 10-5"/><path d="M2 17l10 5 10-5"/></svg></div>
+          <h3>Variante nelimitate</h3>
+          <p>Experimentezi cu diferite poziționări și combinații de mobilier, fără să pierzi proiectul inițial.</p>
+        </li>
+        <li class="card">
+          <div class="card-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20c1.6 0 2.8-.9 2.8-2.3 0-.8-.7-1.1-.7-1.9 0-.9.8-1.3 1.9-1.3H18a4 4 0 0 0 4-4A10 10 0 0 0 12 2z"/><circle cx="7.5" cy="10.5" r="1.3"/><circle cx="12" cy="7.5" r="1.3"/><circle cx="16.5" cy="10.5" r="1.3"/></svg></div>
+          <h3>Combinații tematice</h3>
+          <p>Explorezi combinații de produse selectate după stil, culoare și aspect, pe care le poți adăuga în camera ta.</p>
+        </li>
+        <li class="card">
+          <div class="card-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.5L3.5 7v10L12 21.5 20.5 17V7L12 2.5z"/><path d="M3.5 7L12 11.5 20.5 7"/><path d="M12 11.5v10"/></svg></div>
+          <h3>Vizualizare realistă</h3>
+          <p>Transformi ideea într-o reprezentare realistă, pentru a vedea cum va arăta camera după amenajare.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
 
-<!-- 5. CUM FUNCȚIONEAZĂ -->
-<section class="lp-section lp-section--sf" id="lp-cum" aria-labelledby="lp-h-cum">
-<div class="lp-wrap" data-lp-reveal="">
-<div class="lp-head lp-head--center lp-st">
-<p class="lp-eyebrow">Cum funcționează</p>
-<h2 class="lp-h2" id="lp-h-cum">Trei pași, de la cameră goală la <em>comandă</em>.</h2>
-</div>
-<ol class="lp-steps">
-<li class="lp-steps-line" aria-hidden="true"></li>
-<li class="lp-step lp-st">
-<span class="lp-step-n" aria-hidden="true">1</span>
-<div class="lp-step-card">
-<div class="lp-step-vis">
-<div class="lp-mini" role="img" aria-label="Formular cu dimensiunile camerei: lungime 4,20 m, lățime 3,60 m, înălțime 2,60 m, formă dreptunghiulară, o ușă și o fereastră.">
-<div class="lp-mini-h">Camera ta <small>Pasul 1 din 3</small></div>
-<div class="lp-fields">
-<div class="lp-field lp-on"><small>Lungime</small><b>4,20 m</b></div>
-<div class="lp-field"><small>Lățime</small><b>3,60 m</b></div>
-<div class="lp-field"><small>Înălțime</small><b>2,60 m</b></div>
-</div>
-<div class="lp-chips">
-<span class="lp-chip lp-on">Dreptunghi</span><span class="lp-chip">În L</span>
-<span class="lp-chip"><svg viewBox="0 0 24 24"><path d="M6 21V3h10v18M3 21h18"></path></svg>1 ușă</span>
-<span class="lp-chip"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4zM12 4v16M4 12h16"></path></svg>1 fereastră</span>
-</div>
-<svg class="lp-miniplan" viewBox="0 0 260 110">
-<rect x="40" y="14" width="180" height="82" fill="#fff" stroke="#17201D" stroke-width="4"></rect>
-<path d="M50 14h34" stroke="#fff" stroke-width="6"></path>
-<path d="M50 14v32" stroke="#17201D" stroke-width="1.5"></path>
-<path d="M84 14A34 34 0 0 1 50 48" fill="none" stroke="#C9663C" stroke-width="1.3" stroke-dasharray="3 3"></path>
-<rect x="36" y="44" width="8" height="30" fill="#fff" stroke="#17201D" stroke-width="1.2"></rect>
-<rect x="150" y="62" width="50" height="24" rx="3" fill="#E3ECE7" stroke="#2A6352" stroke-dasharray="3 2"></rect>
-<text x="175" y="78" font-size="9" text-anchor="middle" fill="#1F4D3F" font-family="Inter, sans-serif" font-weight="600">mobila ta</text>
-<path d="M40 6h180M40 3v6M220 3v6" stroke="#5C6863" stroke-width="1"></path>
-<path d="M28 14v82M25 14h6M25 96h6" stroke="#5C6863" stroke-width="1"></path>
-<text x="130" y="108" font-size="9" text-anchor="middle" fill="#5C6863" font-family="Inter, sans-serif">4,20 × 3,60 m</text>
-</svg>
-</div>
-</div>
-<div class="lp-step-txt"><h3>Construiești camera</h3><p>Introduci dimensiunile, forma, ușile și ferestrele. Poți adăuga și mobila pe care o ai deja.</p></div>
-</div>
-</li>
-<li class="lp-step lp-st">
-<span class="lp-step-n" aria-hidden="true">2</span>
-<div class="lp-step-card">
-<div class="lp-step-vis">
-<div class="lp-mini" role="img" aria-label="Planul camerei cu o canapea plasată la dimensiunea reală și verdictul: încape, 70 cm de trecere.">
-<div class="lp-mini-h">Living <small>Catalog · 3 furnizori</small></div>
-<svg class="lp-miniplan" viewBox="0 0 260 150">
-<rect x="20" y="12" width="220" height="126" fill="#F3E8D8" stroke="#17201D" stroke-width="4"></rect>
-<rect x="88" y="52" width="104" height="66" rx="4" fill="#EDC9B0"></rect>
-<rect x="24" y="30" width="44" height="96" rx="6" fill="#2A6352"></rect>
-<rect x="24" y="30" width="12" height="96" rx="4" fill="#1F4D3F"></rect>
-<rect x="104" y="66" width="56" height="38" rx="3" fill="#C79A6B"></rect>
-<rect x="186" y="18" width="46" height="40" rx="8" fill="#C9663C"></rect>
-<circle cx="214" cy="118" r="12" fill="#3F7A5A"></circle>
-<path d="M70 85h32M70 81v8M102 81v8" stroke="#C9663C" stroke-width="1.5"></path>
-<rect x="66" y="88" width="40" height="15" rx="7.5" fill="#fff" stroke="#E5DED2"></rect>
-<text x="86" y="99" font-size="9" text-anchor="middle" font-weight="600" fill="#17201D" font-family="Inter, sans-serif">70 cm</text>
-<rect x="21" y="27" width="50" height="102" rx="8" fill="none" stroke="#2A6352" stroke-width="1.5" stroke-dasharray="4 3"></rect>
-<g transform="translate(150 120)"><path d="M0 0l0 16 4.5-4 3 7 3-1.4-3-6.8 6-.3z" fill="#17201D" stroke="#fff" stroke-width="1.2"></path></g>
-</svg>
-<div class="lp-chips" style="margin-bottom:0">
-<span class="lp-chip lp-on"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Încape</span>
-<span class="lp-chip">Canapea Oslo · 220 cm</span>
-</div>
-</div>
-</div>
-<div class="lp-step-txt"><h3>Alegi piesele</h3><p>Pui în cameră piese de la mai mulți furnizori, la dimensiunile reale, și vezi imediat dacă încap.</p></div>
-</div>
-</li>
-<li class="lp-step lp-st">
-<span class="lp-step-n" aria-hidden="true">3</span>
-<div class="lp-step-card">
-<div class="lp-step-vis">
-<div class="lp-mini" role="img" aria-label="Lista de cumpărături grupată pe trei furnizori, cu un total de 4.870 lei; covorul și lampa pe care le ai deja nu intră în total.">
-<div class="lp-mini-h">Lista de cumpărături <small>3 furnizori</small></div>
-<div class="lp-vendor"><div class="lp-vendor-h">Atelier Nord <small>livrare 7 zile</small></div><div class="lp-li"><span>Canapea Oslo</span><b>2.490 lei</b></div></div>
-<div class="lp-vendor"><div class="lp-vendor-h">Casa Lemn <small>livrare 10 zile</small></div><div class="lp-li"><span>Măsuță Stejar</span><b>640 lei</b></div><div class="lp-li"><span>Bibliotecă Nord</span><b>650 lei</b></div></div>
-<div class="lp-vendor"><div class="lp-vendor-h">Studio Lut <small>livrare 5 zile</small></div><div class="lp-li"><span>Fotoliu Lut</span><b>1.090 lei</b></div></div>
-<div class="lp-vendor"><div class="lp-vendor-h">Mobila ta</div><div class="lp-li lp-li--own"><span>Covor, lampă</span><b>le ai deja</b></div></div>
-<div class="lp-mini-total"><span>Total</span><b>4.870 lei</b></div>
-<div class="lp-mini-btn">O singură comandă<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></div>
-</div>
-</div>
-<div class="lp-step-txt"><h3>Comanzi totul</h3><p>Plasezi o singură comandă din Roomio, iar fiecare furnizor livrează piesa lui.</p></div>
-</div>
-</li>
-</ol>
-</div>
-</section>
+  <!-- PREȚURI -->
+  <section class="section" id="preturi" aria-labelledby="h-pr">
+    <div class="wrap">
+      <div class="head">
+        <h2 class="h2" id="h-pr">Prețuri</h2>
+      </div>
 
-<!-- 6. ÎNAINTE ȘI DUPĂ -->
-<section class="lp-section" aria-labelledby="lp-h-ba">
-<div class="lp-wrap" data-lp-reveal="">
-<div class="lp-head lp-head--center lp-st">
-<p class="lp-eyebrow">Înainte și după</p>
-<h2 class="lp-h2" id="lp-h-ba">Din plan în cameră mobilată, în câteva <em>minute</em>.</h2>
-<p class="lp-lead">Aceeași cameră: întâi planul cu cote, apoi mobilată cu piese la dimensiunile reale.</p>
-</div>
-<div class="lp-ba lp-st" data-lp-ba="">
-<span class="lp-ba-tag lp-ba-tag--l" aria-hidden="true">Înainte · plan</span>
-<span class="lp-ba-tag lp-ba-tag--r" aria-hidden="true">După · mobilată</span>
-<div class="lp-ba-layer lp-ba-before">
-<svg class="lp-plan" viewBox="0 0 600 440" role="img" aria-label="Înainte: planul gol al camerei, 4,20 pe 3,60 metri, cu ușa de 80 cm și fereastra de 120 cm marcate.">
-<path class="lp-p-dim" d="M90 18H510M90 12v12M510 12v12"></path>
-<rect class="lp-p-pill" x="270" y="8" width="60" height="20" rx="10"></rect><text class="lp-p-t" x="300" y="22">4,20 m</text>
-<path class="lp-p-dim" d="M58 40V400M52 40h12M52 400h12"></path>
-<rect class="lp-p-pill" x="28" y="210" width="60" height="20" rx="10"></rect><text class="lp-p-t" x="58" y="224">3,60 m</text>
-<rect x="90" y="40" width="420" height="360" fill="rgba(255,255,255,.55)"></rect>
-<path class="lp-p-wall" d="M86 40H110M190 40H514M90 36V190M90 310V404M510 36V404M86 400H514"></path>
-<rect class="lp-p-win" x="85" y="190" width="10" height="120"></rect><path class="lp-p-winl" d="M90 190v120"></path>
-<path class="lp-p-door" d="M110 40v80"></path>
-<path class="lp-p-arc" d="M190 40A80 80 0 0 1 110 120"></path>
-<text class="lp-p-ts" x="150" y="144">ușă · 80 cm</text>
-<text class="lp-p-ts" x="122" y="254" transform="rotate(-90 122 250)">fereastră · 120 cm</text>
-<text class="lp-p-tl" x="300" y="226">Living</text>
-<text class="lp-p-ts" x="300" y="248">15,1 m² · înălțime 2,60 m</text>
-<path class="lp-p-dim" d="M400 370h80M400 365v10M440 367v6M480 365v10"></path>
-<text class="lp-p-ts" x="440" y="392">0 · 1 m</text>
-</svg>
-</div>
-<div class="lp-ba-layer lp-ba-after" aria-hidden="true">
-<svg class="lp-plan" viewBox="0 0 600 440">
-<path class="lp-p-dim" d="M90 18H510M90 12v12M510 12v12"></path>
-<rect class="lp-p-pill" x="270" y="8" width="60" height="20" rx="10"></rect><text class="lp-p-t" x="300" y="22">4,20 m</text>
-<path class="lp-p-dim" d="M58 40V400M52 40h12M52 400h12"></path>
-<rect class="lp-p-pill" x="28" y="210" width="60" height="20" rx="10"></rect><text class="lp-p-t" x="58" y="224">3,60 m</text>
-<rect class="lp-p-floor" x="90" y="40" width="420" height="360"></rect>
-<path class="lp-p-plank" d="M90 70H510M90 100H510M90 130H510M90 160H510M90 190H510M90 220H510M90 250H510M90 280H510M90 310H510M90 340H510M90 370H510"></path>
-<rect x="200" y="150" width="220" height="180" rx="6" fill="#EDC9B0"></rect>
-<rect x="212" y="162" width="196" height="156" rx="4" fill="none" stroke="#FBF1E7" stroke-width="2" stroke-dasharray="1 6" stroke-linecap="round"></rect>
-<rect x="90" y="120" width="88" height="220" rx="10" fill="#2A6352"></rect>
-<rect x="90" y="120" width="22" height="220" rx="6" fill="#1F4D3F"></rect>
-<rect x="90" y="120" width="88" height="18" rx="6" fill="#1F4D3F"></rect>
-<rect x="90" y="322" width="88" height="18" rx="6" fill="#1F4D3F"></rect>
-<rect x="114" y="140" width="62" height="88" rx="6" fill="#3B7D64"></rect>
-<rect x="114" y="232" width="62" height="88" rx="6" fill="#3B7D64"></rect>
-<rect x="96" y="150" width="14" height="36" rx="4" fill="#E9DFC9"></rect>
-<rect x="96" y="274" width="14" height="36" rx="4" fill="#E08A62"></rect>
-<rect x="250" y="190" width="100" height="80" rx="5" fill="#C79A6B"></rect>
-<path d="M258 206h84M262 226h70M258 248h80" stroke="#B48655" stroke-width="1.2" stroke-linecap="round"></path>
-<circle cx="326" cy="214" r="8" fill="#FBF8F3" stroke="#CDBFA8"></circle><circle cx="326" cy="214" r="4" fill="#5C9470"></circle>
-<rect x="220" y="40" width="100" height="36" rx="2" fill="#BC8C5D"></rect>
-<path d="M245 40v36M270 40v36M295 40v36" stroke="#94643B" stroke-width="2"></path>
-<rect x="226" y="46" width="6" height="22" fill="#1F4D3F"></rect><rect x="234" y="46" width="5" height="22" fill="#C9663C"></rect><rect x="276" y="46" width="7" height="22" fill="#2A6352"></rect><rect x="300" y="46" width="5" height="22" fill="#E3B48F"></rect>
-<rect x="380" y="70" width="80" height="80" rx="14" fill="#C9663C"></rect>
-<rect x="380" y="70" width="80" height="18" rx="8" fill="#A4502C"></rect>
-<rect x="380" y="70" width="15" height="80" rx="7" fill="#AE532D"></rect>
-<rect x="445" y="70" width="15" height="80" rx="7" fill="#AE532D"></rect>
-<rect x="398" y="92" width="44" height="54" rx="7" fill="#E3946E"></rect>
-<circle cx="487" cy="73" r="19" fill="#2A6352"></circle>
-<ellipse cx="480" cy="66" rx="10" ry="6" fill="#5C9470" transform="rotate(-30 480 66)"></ellipse>
-<ellipse cx="495" cy="80" rx="10" ry="6" fill="#3F7A5A" transform="rotate(40 495 80)"></ellipse>
-<ellipse cx="490" cy="62" rx="8" ry="5" fill="#3F7A5A" transform="rotate(60 490 62)"></ellipse>
-<circle cx="125" cy="368" r="16" fill="#F3E1BE" stroke="#D8C29A" stroke-width="1.5"></circle><circle cx="125" cy="368" r="4" fill="#3A3F3C"></circle>
-<path class="lp-p-wall" d="M86 40H110M190 40H514M90 36V190M90 310V404M510 36V404M86 400H514"></path>
-<rect class="lp-p-win" x="85" y="190" width="10" height="120"></rect><path class="lp-p-winl" d="M90 190v120"></path>
-<path class="lp-p-door" d="M110 40v80"></path>
-<path class="lp-p-arc" d="M190 40A80 80 0 0 1 110 120"></path>
-<path class="lp-p-dimtc" d="M180 230H248M180 224v12M248 224v12"></path>
-<rect x="190" y="236" width="48" height="18" rx="9" fill="#fff" stroke="#C9663C"></rect><text class="lp-p-labd" x="214" y="249">70 cm</text>
-<rect x="104" y="354" width="0" height="0"></rect>
-<text class="lp-p-lab" x="146" y="234" transform="rotate(-90 146 230)">Canapea · 220 cm</text>
-<text class="lp-p-labd" x="420" y="168">Fotoliu</text>
-<text class="lp-p-labd" x="300" y="292">Măsuță · 100 cm</text>
-<text class="lp-p-labd" x="270" y="92">Bibliotecă</text>
-<rect x="390" y="356" width="104" height="28" rx="14" fill="#1F4D3F"></rect>
-<text class="lp-p-lab" x="442" y="374">Total 4.870 lei</text>
-</svg>
-</div>
-<input class="lp-ba-range" type="range" min="0" max="100" step="1" aria-label="Compară planul gol cu camera mobilată" data-lp-range="">
-<div class="lp-ba-handle" aria-hidden="true"><span class="lp-ba-knob"><svg viewBox="0 0 24 24"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"></path></svg></span></div>
-</div>
-<p class="lp-ba-note lp-st">Trage de mâner sau folosește săgețile de pe tastatură ca să compari.</p>
-</div>
-</section>
+      <div class="plans">
+        <article class="plan" aria-labelledby="p-trial">
+          <h3 class="plan-name" id="p-trial">Probă gratuită</h3>
+          <p class="plan-for">Pentru a vedea dacă Roomio ți se potrivește.</p>
+          <p class="plan-price"><strong>0 lei</strong><span>/ 4h</span></p>
+          <p class="plan-note">Fără card bancar.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>1 cameră</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Catalog complet de mobilă</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Verificarea dimensiunilor</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Calcul de preț final</li>
+          </ul>
+          <button class="btn btn-outline btn-block" type="button" data-open-signup="trial">Solicită perioada de probă</button>
+        </article>
 
-<!-- 7. FUNCȚIONALITĂȚI -->
-<section class="lp-section lp-section--sf" id="lp-functii" aria-labelledby="lp-h-fn">
-<div class="lp-wrap" data-lp-reveal="">
-<div class="lp-head lp-st">
-<p class="lp-eyebrow">Funcționalități</p>
-<h2 class="lp-h2" id="lp-h-fn">Tot ce îți trebuie pentru o alegere <em>sigură</em>.</h2>
-</div>
-<div class="lp-feat-grid">
-<div class="lp-feat lp-st">
-<svg class="lp-feat-deco" viewBox="0 0 84 84" aria-hidden="true"><path d="M84 12H24M84 24H36M84 36H48M72 0v84M60 0v40M48 0v20" stroke="#E5DED2" stroke-width="1" fill="none"></path></svg>
-<span class="lp-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z M12 12l8-4.5 M12 12v9 M12 12L4 7.5"></path></svg></span>
-<h3>Camera ta, la scară</h3>
-<p>Fiecare piesă are dimensiunile produsului real, deci verificarea spațiului este corectă.</p>
-</div>
-<div class="lp-feat lp-st">
-<svg class="lp-feat-deco" viewBox="0 0 84 84" aria-hidden="true"><path d="M84 12H24M84 24H36M84 36H48M72 0v84M60 0v40M48 0v20" stroke="#E5DED2" stroke-width="1" fill="none"></path></svg>
-<span class="lp-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9l1.5-5h13L20 9 M4 9v11h16V9 M4 9h16 M9 20v-6h6v6"></path></svg></span>
-<h3>Mai mulți furnizori, împreună</h3>
-<p>O canapea de la un magazin și o masă de la altul, în aceeași cameră.</p>
-</div>
-<div class="lp-feat lp-st">
-<svg class="lp-feat-deco" viewBox="0 0 84 84" aria-hidden="true"><path d="M84 12H24M84 24H36M84 36H48M72 0v84M60 0v40M48 0v20" stroke="#E5DED2" stroke-width="1" fill="none"></path></svg>
-<span class="lp-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7 M5 10v10h14V10 M9 20v-4a3 3 0 016 0v4"></path></svg></span>
-<h3>Mobila pe care o ai deja</h3>
-<p>Adaugi piesele pe care le păstrezi și vezi cum se potrivesc cu cele noi.</p>
-</div>
-<div class="lp-feat lp-st">
-<svg class="lp-feat-deco" viewBox="0 0 84 84" aria-hidden="true"><path d="M84 12H24M84 24H36M84 36H48M72 0v84M60 0v40M48 0v20" stroke="#E5DED2" stroke-width="1" fill="none"></path></svg>
-<span class="lp-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z M9 8h6 M9 12h6 M9 16h3"></path></svg></span>
-<h3>Costul total, mereu la vedere</h3>
-<p>Suma se actualizează la fiecare piesă adăugată, față de bugetul tău.</p>
-</div>
-<div class="lp-feat lp-st">
-<svg class="lp-feat-deco" viewBox="0 0 84 84" aria-hidden="true"><path d="M84 12H24M84 24H36M84 36H48M72 0v84M60 0v40M48 0v20" stroke="#E5DED2" stroke-width="1" fill="none"></path></svg>
-<span class="lp-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V3h9v18 M2 21h20 M10 12h.5 M17 9.5l2-2.5 2 2.5 M17 14.5l2 2.5 2-2.5"></path></svg></span>
-<h3>Ușa și liftul, verificate</h3>
-<p>Afli înainte de comandă dacă piesa trece pe ușă și încape în lift.</p>
-</div>
-<div class="lp-feat lp-st">
-<svg class="lp-feat-deco" viewBox="0 0 84 84" aria-hidden="true"><path d="M84 12H24M84 24H36M84 36H48M72 0v84M60 0v40M48 0v20" stroke="#E5DED2" stroke-width="1" fill="none"></path></svg>
-<span class="lp-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1 13H6z M9 8V6a3 3 0 016 0v2"></path></svg></span>
-<h3>O singură comandă</h3>
-<p>Comanzi totul din Roomio, fără să cauți produsele pe fiecare site.</p>
-</div>
-</div>
-</div>
-</section>
+        <article class="plan plan--main" aria-labelledby="p-roomio">
+          <span class="plan-tag">Recomandat</span>
+          <h3 class="plan-name" id="p-roomio">Roomio</h3>
+          <p class="plan-for">Pentru cei care își mobilează casa.</p>
+          <p class="plan-price"><strong>29 lei</strong><span>/ lună</span></p>
+          <p class="plan-note">Facturat lunar.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Până la 5 camere</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Catalog complet de mobilă</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Căutare după descriere</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Alerte la scăderea prețului</li>
+          </ul>
+          <button class="btn btn-primary btn-block" type="button" data-open-signup="roomio">Cumpără</button>
+        </article>
 
-<!-- 8. DIFERENȚA -->
-<section class="lp-section" aria-labelledby="lp-h-dif">
-<div class="lp-wrap" data-lp-reveal="">
-<div class="lp-head lp-head--center lp-st">
-<p class="lp-eyebrow">Diferența</p>
-<h2 class="lp-h2" id="lp-h-dif">Mai puțin ghicit, mai puține <em>retururi</em>.</h2>
-</div>
-<div class="lp-table-box lp-st">
-<table class="lp-table">
-<caption class="lp-sr">Comparație între cum se alege mobila azi și cum o alegi cu Roomio</caption>
-<thead><tr><th scope="col">Azi</th><th scope="col">Cu Roomio</th></tr></thead>
-<tbody>
-<tr><td><span class="lp-cell lp-cell--x"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"></path></svg>Măsori cu ruleta și îți imaginezi restul</span></td><td><span class="lp-cell lp-cell--ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Vezi piesa în camera ta, la scară</span></td></tr>
-<tr><td><span class="lp-cell lp-cell--x"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"></path></svg>Compari produse în zeci de tab-uri</span></td><td><span class="lp-cell lp-cell--ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Toate piesele, în aceeași cameră</span></td></tr>
-<tr><td><span class="lp-cell lp-cell--x"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"></path></svg>Afli la livrare că piesa nu trece pe ușă</span></td><td><span class="lp-cell lp-cell--ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Afli înainte să comanzi</span></td></tr>
-<tr><td><span class="lp-cell lp-cell--x"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"></path></svg>Plasezi câte o comandă pe fiecare site</span></td><td><span class="lp-cell lp-cell--ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Plasezi o singură comandă</span></td></tr>
-</tbody>
-</table>
-</div>
-</div>
-</section>
+        <article class="plan" aria-labelledby="p-max">
+          <h3 class="plan-name" id="p-max">Roomio MAX</h3>
+          <p class="plan-for">Pentru designeri și proiecte mari.</p>
+          <p class="plan-price"><strong>59 lei</strong><span>/ lună</span></p>
+          <p class="plan-note">Facturat lunar.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Design automat</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Mod imersiv</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Camere nelimitate</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Spațiu de lucru colaborativ</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Export al camerei</li>
+          </ul>
+          <button class="btn btn-block" type="button" disabled>Temporar indisponibil</button>
+        </article>
+      </div>
 
-<!-- 9. PENTRU CINE -->
-<section class="lp-section lp-section--sf" aria-labelledby="lp-h-who">
-<div class="lp-wrap" data-lp-reveal="">
-<div class="lp-head lp-st">
-<p class="lp-eyebrow">Pentru cine</p>
-<h2 class="lp-h2" id="lp-h-who">Pentru oricine <em>mobilează</em> o cameră.</h2>
-</div>
-<div class="lp-who">
-<div class="lp-who-card lp-st">
-<div class="lp-who-vis"><svg viewBox="0 0 220 140" aria-hidden="true">
-<ellipse cx="110" cy="122" rx="88" ry="7" class="lp-ill-fill"></ellipse>
-<path class="lp-ill-fill2" d="M44 70h62v50H44z"></path>
-<path class="lp-ill" d="M44 70h62v50H44z M44 70l10-14h62l-10 14 M106 120l10-14V56"></path>
-<path class="lp-ill-tc" d="M66 70v14h18V70"></path>
-<path class="lp-ill-fill" d="M120 86h52v34h-52z"></path>
-<path class="lp-ill" d="M120 86h52v34h-52z M120 86l8-12h52l-8 12 M172 120l8-12V74 M138 98h16"></path>
-<path class="lp-ill" d="M150 30h34v28h-34z M150 30l17 12 17-12"></path>
-<path class="lp-ill-tc" d="M30 40l6 6M30 46l6-6 M190 92h10M195 87v10"></path>
-</svg></div>
-<div class="lp-who-txt"><h3>Tineri care se mută</h3><p>Mobilează prima locuință sau o chirie nouă, cu un buget limitat.</p></div>
-</div>
-<div class="lp-who-card lp-st">
-<div class="lp-who-vis"><svg viewBox="0 0 220 140" aria-hidden="true">
-<ellipse cx="110" cy="122" rx="88" ry="7" class="lp-ill-fill"></ellipse>
-<path class="lp-ill-fill" d="M40 84h140v26H40z"></path>
-<path class="lp-ill" d="M40 84h140v26H40z M52 84V62a8 8 0 018-8h100a8 8 0 018 8v22 M40 84a8 8 0 00-8 8v18h8 M180 84a8 8 0 018 8v18h-8 M52 110v8M168 110v8 M110 62v22"></path>
-<circle class="lp-ill-fill2" cx="84" cy="28" r="12"></circle>
-<circle class="lp-ill" cx="84" cy="28" r="12"></circle>
-<circle class="lp-ill" cx="136" cy="30" r="10"></circle>
-<circle class="lp-ill-tc" cx="110" cy="40" r="7"></circle>
-<path class="lp-ill-tc" d="M196 30c4-6 12-2 8 4l-8 8-8-8c-4-6 4-10 8-4z"></path>
-</svg></div>
-<div class="lp-who-txt"><h3>Familii care reamenajează</h3><p>Văd varianta finală a camerei și decid împreună înainte de comandă.</p></div>
-</div>
-<div class="lp-who-card lp-st">
-<div class="lp-who-vis"><svg viewBox="0 0 220 140" aria-hidden="true">
-<ellipse cx="110" cy="122" rx="88" ry="7" class="lp-ill-fill"></ellipse>
-<path class="lp-ill-fill" d="M50 26h100v86H50z"></path>
-<path class="lp-ill" d="M50 26h100v86H50z M50 70h46V26 M96 92h54 M120 92v20"></path>
-<path class="lp-ill-tc" d="M50 18h100M50 14v8M150 14v8 M160 26v86M156 26h8M156 112h8"></path>
-<path class="lp-ill" d="M64 40h18v16H64z M106 40a14 14 0 0114 14"></path>
-<circle class="lp-ill-fill2" cx="176" cy="58" r="12"></circle>
-<circle class="lp-ill" cx="176" cy="58" r="12"></circle>
-<path class="lp-ill" d="M176 70v40 M176 92h10 M176 102h7"></path>
-</svg></div>
-<div class="lp-who-txt"><h3>Proprietari și designeri</h3><p>Mobilează locuințe de închiriat sau arată clienților cum va arăta spațiul.</p></div>
-</div>
-</div>
-</div>
-</section>
+      <!-- FORMULAR (se deschide din prețuri) -->
+      <div class="signup" id="inscriere" tabindex="-1" aria-labelledby="h-signup">
+        <div class="signup-top">
+          <p class="kicker">Aproape gata</p>
+          <h3 id="h-signup">Mai avem puțin până la lansare.</h3>
+          <p>Lasă-ne emailul și îți scriem noi primii, imediat ce poți intra în aplicație. Fără spam, promitem.</p>
+          <form class="inline-form" data-form="notify" novalidate>
+            <label class="sr-only" for="notify-email">Adresa de email</label>
+            <input class="pill" id="notify-email" name="email" type="email" autocomplete="email" placeholder="nume@exemplu.ro" required>
+            <button class="btn btn-primary" type="submit">Anunță-mă</button>
+          </form>
+          <p class="form-msg" role="status" aria-live="polite" data-msg="notify"></p>
+          <p class="offer">Ai două minute? Răspunde la câteva întrebări mai jos și primești o lună de Roomio din partea noastră.</p>
+        </div>
 
-<!-- 10. PREȚURI -->
-<section class="lp-section" id="lp-preturi" aria-labelledby="lp-h-pr">
-<div class="lp-wrap" data-lp-reveal="">
-<div class="lp-head lp-head--center lp-st">
-<p class="lp-eyebrow">Prețuri</p>
-<h2 class="lp-h2" id="lp-h-pr">Planificarea camerei este <em>gratuită</em>.</h2>
-<p class="lp-lead">Roomio primește un comision de la furnizor când comanzi o piesă, deci prețul pentru tine rămâne același.</p>
-</div>
-<div class="lp-price-grid">
-<div class="lp-plan-card lp-plan-card--main lp-st">
-<p class="lp-plan-name">Gratuit</p>
-<p class="lp-plan-price"><b>0 lei</b><span>pentru totdeauna</span></p>
-<p class="lp-plan-for">Pentru oricine își mobilează casa.</p>
-<ul class="lp-plan-list">
-<li><span class="lp-tick"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>Camere nelimitate, la scară</li>
-<li><span class="lp-tick"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>Catalog cu piese de la toți furnizorii</li>
-<li><span class="lp-tick"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>Verificarea spațiului, a ușii și a liftului</li>
-<li><span class="lp-tick"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>Lista de cumpărături și comanda unică</li>
-</ul>
-<a class="lp-btn lp-btn--primary lp-btn--block" href="https://docs.google.com/forms/d/e/1FAIpQLSfvsAgB9XWx8_69c8-1mv8OSg-LZfZ_yZGdUaK9UfCxqXe7bg/viewform" target="_blank" rel="noopener">Intră în listă<span class="lp-sr"> (se deschide într-o filă nouă)</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
-</div>
-<div class="lp-plan-card lp-st">
-<p class="lp-plan-name">Roomio Pro</p>
-<p class="lp-plan-price lp-plan-price--sub"><b>Abonament lunar</b></p>
-<p class="lp-plan-for">Pentru designeri și arhitecți.</p>
-<ul class="lp-plan-list">
-<li><span class="lp-tick"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>Tot ce include planul Gratuit</li>
-<li><span class="lp-tick"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>Randări la calitate înaltă</li>
-<li><span class="lp-tick"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>Proiecte nelimitate pentru clienți</li>
-<li><span class="lp-tick"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>Export de planuri cotate</li>
-</ul>
-<a class="lp-btn lp-btn--ghost lp-btn--block" href="https://docs.google.com/forms/d/e/1FAIpQLSfvsAgB9XWx8_69c8-1mv8OSg-LZfZ_yZGdUaK9UfCxqXe7bg/viewform" target="_blank" rel="noopener">Intră în listă<span class="lp-sr"> (se deschide într-o filă nouă)</span></a>
-</div>
-</div>
-</div>
-</section>
+        <div class="signup-bottom">
+          <h4>O lună gratuită, pentru câteva răspunsuri</h4>
+          <p>Ne ajută să construim Roomio pentru felul în care chiar îți alegi mobila.</p>
+          <form class="grid-form" data-form="survey" novalidate>
+            <div class="field full">
+              <label for="s-name">Cum te cheamă?</label>
+              <input id="s-name" name="name" type="text" autocomplete="name" placeholder="Andreea" required>
+            </div>
+            <div class="field full">
+              <label for="s-email">Unde îți putem scrie?</label>
+              <input id="s-email" name="email" type="email" autocomplete="email" placeholder="andreea@exemplu.ro" required>
+            </div>
 
-<!-- 11. ÎNTREBĂRI FRECVENTE -->
-<section class="lp-section lp-section--sf" id="lp-intrebari" aria-labelledby="lp-h-faq">
-<div class="lp-wrap lp-faq-grid" data-lp-reveal="">
-<div class="lp-faq-side lp-st">
-<p class="lp-eyebrow">Întrebări frecvente</p>
-<h2 class="lp-h2" id="lp-h-faq">Ce vrei să știi înainte de <em>lansare</em>.</h2>
-</div>
-<div class="lp-faq lp-st">
-<details><summary>Cât de precisă este verificarea dimensiunilor?<span class="lp-faq-pm" aria-hidden="true"></span></summary><p class="lp-faq-a">Fiecare piesă are dimensiunile din fișa producătorului, iar camera folosește măsurătorile tale. Roomio verifică spațiul de trecere și zona în care se deschid ușile, nu doar dacă piesa încape pe perete.</p></details>
-<details><summary>Pot folosi mobila pe care o am deja?<span class="lp-faq-pm" aria-hidden="true"></span></summary><p class="lp-faq-a">Da. Adaugi piesele pe care le păstrezi cu dimensiunile lor, iar Roomio le ia în calcul la fiecare verificare. Ele nu intră în totalul de cumpărat.</p></details>
-<details><summary>Ce se întâmplă dacă o piesă nu trece pe ușă sau nu încape în lift?<span class="lp-faq-pm" aria-hidden="true"></span></summary><p class="lp-faq-a">Afli înainte de comandă și vezi exact câți centimetri depășesc. Poți alege o variantă mai mică sau o piesă care se livrează demontată.</p></details>
-<details><summary>Cum funcționează comanda de la mai mulți furnizori?<span class="lp-faq-pm" aria-hidden="true"></span></summary><p class="lp-faq-a">Plasezi o singură comandă în Roomio. Fiecare furnizor primește partea lui și livrează separat, cu propriul termen de livrare.</p></details>
-<details><summary>Cât costă?<span class="lp-faq-pm" aria-hidden="true"></span></summary><p class="lp-faq-a">Planificarea camerei este gratuită. Roomio primește un comision de la furnizor atunci când comanzi o piesă prin aplicație.</p></details>
-<details><summary>Când pot încerca aplicația?<span class="lp-faq-pm" aria-hidden="true"></span></summary><p class="lp-faq-a">În prezent testăm primul prototip. Cei înscriși pe lista de așteptare primesc primii acces la versiunea de test.</p></details>
-</div>
-</div>
-</section>
+            <div class="q-sec full">
+              <h5>Secțiunea 1 – Experiența ta</h5>
+            </div>
 
-<!-- 12. BANDA FINALĂ -->
-<section class="lp-final" aria-labelledby="lp-h-final">
-<div class="lp-wrap" data-lp-reveal="">
-<div class="lp-final-box lp-st">
-<svg class="lp-final-deco" viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-<path d="M-40 420C120 330 260 470 420 400S700 250 860 330 1120 470 1260 380" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="2"></path>
-<path d="M60 60H340M60 52v16M340 52v16" stroke="rgba(240,191,166,.35)" stroke-width="1.5"></path>
-<path d="M1140 120v260M1132 120h16M1132 380h16" stroke="rgba(240,191,166,.35)" stroke-width="1.5"></path>
-<circle cx="1040" cy="80" r="120" fill="rgba(255,255,255,.04)"></circle>
-<circle cx="140" cy="470" r="90" fill="rgba(201,102,60,.16)"></circle>
-<path d="M880 440h120v-70h70" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="2"></path>
-</svg>
-<div class="lp-final-in">
-<p class="lp-eyebrow">Lista de așteptare</p>
-<h2 class="lp-final-h" id="lp-h-final">Fii printre primii care încearcă <em>Roomio</em>.</h2>
-<p class="lp-final-p">Intră pe lista de așteptare și te anunțăm când poți mobila prima cameră.</p>
-<a class="lp-btn lp-btn--accent" href="https://docs.google.com/forms/d/e/1FAIpQLSfvsAgB9XWx8_69c8-1mv8OSg-LZfZ_yZGdUaK9UfCxqXe7bg/viewform" target="_blank" rel="noopener">Intră în listă<span class="lp-sr"> (se deschide într-o filă nouă)</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
-<p class="lp-final-note">Te anunțăm la lansare și, dacă vrei, te invităm să testezi aplicația.</p>
-</div>
-</div>
-</div>
-</section>
-</main><footer class="lp-foot">
-<div class="lp-wrap lp-foot-in">
-<div class="lp-foot-l">
-<span class="lp-logo"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="8" fill="#1F4D3F"></rect><path d="M10 23V10h13" fill="none" stroke="#FBF8F3" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path><rect x="16" y="16" width="7" height="7" rx="1.6" fill="#C9663C"></rect></svg><span>Roomio</span></span>
-<p class="lp-foot-slogan">Vezi mobila în camera ta înainte să o cumperi.</p>
-</div>
-<p class="lp-foot-copy">© 2026 Roomio. Toate drepturile rezervate.</p>
-</div>
+            <div class="field full">
+              <p class="q-title"><em>1.</em>Care este situația ta actuală?</p>
+              <div class="q-opts">
+                <label class="check"><input type="radio" name="q1" value="own"><span>Locuiesc în propria locuință.</span></label>
+                <label class="check"><input type="radio" name="q1" value="rent"><span>Locuiesc cu chirie.</span></label>
+                <label class="check"><input type="radio" name="q1" value="family"><span>Locuiesc cu familia.</span></label>
+                <label class="check"><input type="radio" name="q1" value="new-home"><span>Sunt în proces de amenajare a unei locuințe noi.</span></label>
+                <label class="check"><input type="radio" name="q1" value="other"><span>Altă situație.</span></label>
+              </div>
+            </div>
+
+            <div class="field full">
+              <p class="q-title"><em>2.</em>Ai cumpărat mobilier în ultimii 2 ani?</p>
+              <div class="q-opts">
+                <label class="check"><input type="radio" name="q2" value="yes"><span>Da.</span></label>
+                <label class="check"><input type="radio" name="q2" value="no"><span>Nu.</span></label>
+                <label class="check"><input type="radio" name="q2" value="soon"><span>Nu, dar intenționez să cumpăr în viitorul apropiat.</span></label>
+              </div>
+            </div>
+
+            <div class="field full">
+              <p class="q-title"><em>3.</em>Cât de des cauți sau cumperi mobilier?</p>
+              <div class="q-opts">
+                <label class="check"><input type="radio" name="q3" value="few-year"><span>De câteva ori pe an.</span></label>
+                <label class="check"><input type="radio" name="q3" value="once-year"><span>Aproximativ o dată pe an.</span></label>
+                <label class="check"><input type="radio" name="q3" value="rare-years"><span>O dată la câțiva ani.</span></label>
+                <label class="check"><input type="radio" name="q3" value="very-rare"><span>Foarte rar.</span></label>
+                <label class="check"><input type="radio" name="q3" value="need-only"><span>Doar atunci când am nevoie de ceva anume.</span></label>
+              </div>
+            </div>
+
+            <div class="field full">
+              <p class="q-title"><em>4.</em>Unde cauți de obicei mobilier? <span class="q-hint">(Poți selecta mai multe.)</span></p>
+              <div class="q-opts">
+                <label class="check"><input type="checkbox" name="q4" value="online"><span>Magazine online.</span></label>
+                <label class="check"><input type="checkbox" name="q4" value="physical"><span>Magazine fizice.</span></label>
+                <label class="check"><input type="checkbox" name="q4" value="marketplace"><span>Marketplace-uri (eMAG, OLX etc.).</span></label>
+                <label class="check"><input type="checkbox" name="q4" value="social"><span>Site-uri precum Pinterest sau Instagram.</span></label>
+                <label class="check"><input type="checkbox" name="q4" value="recommend"><span>Recomandări de la prieteni sau familie.</span></label>
+                <label class="check"><input type="checkbox" name="q4" value="other"><span>Alte surse.</span></label>
+              </div>
+            </div>
+
+            <div class="field full">
+              <p class="q-title"><em>5.</em>Câte magazine verifici, în medie, înainte să alegi o piesă de mobilier?</p>
+              <div class="q-opts">
+                <label class="check"><input type="radio" name="q5" value="1"><span>Un singur magazin.</span></label>
+                <label class="check"><input type="radio" name="q5" value="2-3"><span>2–3 magazine.</span></label>
+                <label class="check"><input type="radio" name="q5" value="4-5"><span>4–5 magazine.</span></label>
+                <label class="check"><input type="radio" name="q5" value="5+"><span>Mai mult de 5.</span></label>
+                <label class="check"><input type="radio" name="q5" value="depends"><span>Depinde de produs.</span></label>
+              </div>
+            </div>
+
+            <div class="q-sec full">
+              <h5>Secțiunea 2 – Probleme și dificultăți</h5>
+            </div>
+
+            <div class="field full">
+              <p class="q-title"><em>6.</em>Care este cea mai mare dificultate atunci când amenajezi o cameră?</p>
+              <div class="q-opts">
+                <label class="check"><input type="radio" name="q6" value="style"><span>Găsirea mobilierului potrivit stilului meu.</span></label>
+                <label class="check"><input type="radio" name="q6" value="dims"><span>Găsirea mobilierului cu dimensiunile potrivite.</span></label>
+                <label class="check"><input type="radio" name="q6" value="imagine"><span>Imaginarea modului în care va arăta mobilierul în cameră.</span></label>
+                <label class="check"><input type="radio" name="q6" value="match"><span>Găsirea pieselor care se potrivesc între ele.</span></label>
+                <label class="check"><input type="radio" name="q6" value="prices"><span>Compararea prețurilor, verificarea stocurilor și încadrarea în buget.</span></label>
+                <label class="check"><input type="radio" name="q6" value="other"><span>Nu întâmpin dificultăți deosebite / Altceva.</span></label>
+              </div>
+            </div>
+
+            <div class="field full">
+              <p class="q-title"><em>7.</em>Ai cumpărat vreodată o piesă de mobilier care nu arăta sau nu se potrivea în realitate așa cum te așteptai?</p>
+              <div class="q-opts">
+                <label class="check"><input type="radio" name="q7" value="yes"><span>Da.</span></label>
+                <label class="check"><input type="radio" name="q7" value="no"><span>Nu.</span></label>
+                <label class="check"><input type="radio" name="q7" value="unsure"><span>Nu sunt sigur(ă).</span></label>
+              </div>
+            </div>
+
+            <div class="field full">
+              <p class="q-title"><em>8.</em>Cum verifici dacă o piesă de mobilier se potrivește în camera ta?</p>
+              <div class="q-opts">
+                <label class="check"><input type="radio" name="q8" value="manual"><span>Măsor camera și compar dimensiunile manual.</span></label>
+                <label class="check"><input type="radio" name="q8" value="sketch"><span>Folosesc schițe sau planuri ale camerei.</span></label>
+                <label class="check"><input type="radio" name="q8" value="imagine"><span>Încerc să îmi imaginez cum va arăta.</span></label>
+                <label class="check"><input type="radio" name="q8" value="designer"><span>Cer ajutorul unui designer sau al unui specialist.</span></label>
+                <label class="check"><input type="radio" name="q8" value="none"><span>Nu verific în mod special.</span></label>
+                <label class="check"><input type="radio" name="q8" value="other"><span>Altă metodă.</span></label>
+              </div>
+            </div>
+
+            <div class="field full">
+              <p class="q-title"><em>9.</em>Cât de dificil îți este să îți imaginezi cum va arăta o piesă de mobilier în propria cameră înainte să o cumperi?</p>
+              <div class="q-opts">
+                <label class="check"><input type="radio" name="q9" value="very-easy"><span>Foarte ușor.</span></label>
+                <label class="check"><input type="radio" name="q9" value="easy"><span>Destul de ușor.</span></label>
+                <label class="check"><input type="radio" name="q9" value="neutral"><span>Nici ușor, nici dificil.</span></label>
+                <label class="check"><input type="radio" name="q9" value="hard"><span>Destul de dificil.</span></label>
+                <label class="check"><input type="radio" name="q9" value="very-hard"><span>Foarte dificil.</span></label>
+              </div>
+            </div>
+
+            <div class="field full">
+              <label for="s-q10"><em>10.</em>Ce te nemulțumește cel mai mult în procesul actual de căutare și cumpărare a mobilierului? <span class="q-hint">(Răspuns scurt, opțional.)</span></label>
+              <textarea id="s-q10" name="q10" placeholder="Scrie liber…"></textarea>
+            </div>
+
+            <div class="q-sec full">
+              <h5>Secțiunea 3 – Despre Roomio</h5>
+              <p>Roomio este o aplicație prin care îți poți construi camera într-un spațiu 3D, folosind dimensiunile reale ale încăperii.</p>
+              <p>Poți alege mobilier real din mai multe magazine, îl poți integra în propria cameră și poți vedea cum arată împreună.</p>
+              <p>Aplicația centralizează informații despre produse, prețuri și disponibilitate, iar tu poți urmări costul estimat al întregii amenajări înainte să cumperi.</p>
+            </div>
+
+            <div class="field full">
+              <p class="q-title"><em>11.</em>Cât de utilă ți s-ar părea o astfel de aplicație?</p>
+              <div class="q-opts">
+                <label class="check"><input type="radio" name="q11" value="very"><span>Foarte utilă.</span></label>
+                <label class="check"><input type="radio" name="q11" value="useful"><span>Utilă.</span></label>
+                <label class="check"><input type="radio" name="q11" value="neutral"><span>Nici utilă, nici inutilă.</span></label>
+                <label class="check"><input type="radio" name="q11" value="little"><span>Puțin utilă.</span></label>
+                <label class="check"><input type="radio" name="q11" value="not"><span>Deloc utilă.</span></label>
+              </div>
+            </div>
+
+            <div class="field full">
+              <p class="q-title"><em>12.</em>Care dintre următoarele funcționalități ți-ar fi utile? <span class="q-hint">(Poți selecta mai multe.)</span></p>
+              <div class="q-opts">
+                <label class="check"><input type="checkbox" name="q12" value="3d"><span>Construirea unei camere 3D folosind dimensiunile reale.</span></label>
+                <label class="check"><input type="checkbox" name="q12" value="view"><span>Vizualizarea mobilierului real în propria cameră.</span></label>
+                <label class="check"><input type="checkbox" name="q12" value="combine"><span>Alegerea și combinarea mobilierului din mai multe magazine.</span></label>
+                <label class="check"><input type="checkbox" name="q12" value="dim-check"><span>Verificarea dimensiunilor și a potrivirii mobilierului.</span></label>
+                <label class="check"><input type="checkbox" name="q12" value="info"><span>Informații actualizate despre prețuri, stocuri și oferte.</span></label>
+                <label class="check"><input type="checkbox" name="q12" value="budget"><span>Calcularea costului total și gestionarea bugetului amenajării.</span></label>
+              </div>
+            </div>
+
+            <div class="field full">
+              <p class="q-title"><em>13.</em>Care dintre următoarele funcționalități ți s-ar părea cele mai interesante? <span class="q-hint">(Alege maximum 3.)</span></p>
+              <div class="q-opts">
+                <label class="check"><input type="checkbox" name="q13" value="interactive"><span><b>Mod interactiv:</b> Explorezi camera din interior și te poți deplasa virtual prin ea.</span></label>
+                <label class="check"><input type="checkbox" name="q13" value="ai"><span><b>Amenajare automată cu AI:</b> Roomio propune o amenajare completă pe baza dimensiunilor camerei, stilului și bugetului tău.</span></label>
+                <label class="check"><input type="checkbox" name="q13" value="price-alert"><span><b>Alerte de preț:</b> Primești notificări când un produs salvat se ieftinește sau intră la reducere.</span></label>
+                <label class="check"><input type="checkbox" name="q13" value="price-history"><span><b>Istoric prețuri:</b> Vezi cum a evoluat prețul unui produs în timp, sub forma unui grafic.</span></label>
+                <label class="check"><input type="checkbox" name="q13" value="multi-vendor"><span><b>Același produs, mai mulți vânzători:</b> Găsești aceeași piesă de mobilier la magazine diferite și compari ofertele.</span></label>
+                <label class="check"><input type="checkbox" name="q13" value="similar"><span><b>Căutare de produse similare:</b> Descoperi alternative apropiate ca aspect, stil, dimensiuni sau preț.</span></label>
+              </div>
+            </div>
+
+            <div class="field full">
+              <p class="q-title"><em>14.</em>Cât de important este pentru tine ca informațiile despre prețuri și disponibilitatea produselor să fie actualizate?</p>
+              <div class="q-opts">
+                <label class="check"><input type="radio" name="q14" value="very"><span>Foarte important.</span></label>
+                <label class="check"><input type="radio" name="q14" value="important"><span>Important.</span></label>
+                <label class="check"><input type="radio" name="q14" value="moderate"><span>Moderat important.</span></label>
+                <label class="check"><input type="radio" name="q14" value="little"><span>Puțin important.</span></label>
+                <label class="check"><input type="radio" name="q14" value="not"><span>Deloc important.</span></label>
+              </div>
+            </div>
+
+            <div class="q-sec full">
+              <h5>Secțiunea 4 – Interes și disponibilitate</h5>
+            </div>
+
+            <div class="field full">
+              <p class="q-title"><em>15.</em>Ai încerca Roomio atunci când va fi disponibil?</p>
+              <div class="q-opts">
+                <label class="check"><input type="radio" name="q15" value="yes"><span>Da.</span></label>
+                <label class="check"><input type="radio" name="q15" value="maybe"><span>Poate.</span></label>
+                <label class="check"><input type="radio" name="q15" value="no"><span>Nu.</span></label>
+              </div>
+            </div>
+
+            <div class="field full">
+              <p class="q-title"><em>16.</em>În ce situație crezi că ai folosi Roomio?</p>
+              <div class="q-opts">
+                <label class="check"><input type="radio" name="q16" value="each"><span>De fiecare dată când cumpăr mobilier.</span></label>
+                <label class="check"><input type="radio" name="q16" value="full-room"><span>Când amenajez o cameră întreagă.</span></label>
+                <label class="check"><input type="radio" name="q16" value="move"><span>Când mă mut într-o locuință nouă.</span></label>
+                <label class="check"><input type="radio" name="q16" value="change"><span>Când vreau să schimb mobilierul existent.</span></label>
+                <label class="check"><input type="radio" name="q16" value="inspire"><span>Doar pentru inspirație și idei.</span></label>
+                <label class="check"><input type="radio" name="q16" value="no"><span>Probabil nu l-aș folosi.</span></label>
+              </div>
+            </div>
+
+            <div class="field full">
+              <p class="q-title"><em>17.</em>Ce te-ar putea face să nu folosești Roomio? <span class="q-hint">(Poți selecta mai multe.)</span></p>
+              <div class="q-opts">
+                <label class="check"><input type="checkbox" name="q17" value="complex"><span>Mi se pare prea complicat de utilizat.</span></label>
+                <label class="check"><input type="checkbox" name="q17" value="stores"><span>Nu găsesc mobilierul din magazinele mele preferate.</span></label>
+                <label class="check"><input type="checkbox" name="q17" value="info"><span>Informațiile despre prețuri și stocuri nu sunt suficient de precise.</span></label>
+                <label class="check"><input type="checkbox" name="q17" value="time"><span>Nu am suficient timp să construiesc camera.</span></label>
+                <label class="check"><input type="checkbox" name="q17" value="direct"><span>Prefer să caut direct pe site-urile magazinelor sau nu consider că am nevoie de o astfel de aplicație.</span></label>
+                <label class="check"><input type="checkbox" name="q17" value="cost"><span>Costul unui abonament / Alt motiv.</span></label>
+              </div>
+            </div>
+
+            <div class="field full">
+              <p class="q-title"><em>18.</em>Cât de probabil este să folosești Roomio la următoarea amenajare a unei camere?</p>
+              <div class="q-opts">
+                <label class="check"><input type="radio" name="q18" value="very-likely"><span>Foarte probabil.</span></label>
+                <label class="check"><input type="radio" name="q18" value="likely"><span>Probabil.</span></label>
+                <label class="check"><input type="radio" name="q18" value="unsure"><span>Nu sunt sigur(ă).</span></label>
+                <label class="check"><input type="radio" name="q18" value="unlikely"><span>Puțin probabil.</span></label>
+                <label class="check"><input type="radio" name="q18" value="not-at-all"><span>Deloc probabil.</span></label>
+              </div>
+            </div>
+
+            <div class="field full">
+              <p class="q-title"><em>19.</em>Pe ce dispozitiv ai prefera să folosești Roomio?</p>
+              <div class="q-opts">
+                <label class="check"><input type="radio" name="q19" value="desktop"><span>Calculator sau laptop.</span></label>
+                <label class="check"><input type="radio" name="q19" value="phone"><span>Telefon.</span></label>
+                <label class="check"><input type="radio" name="q19" value="tablet"><span>Tabletă.</span></label>
+                <label class="check"><input type="radio" name="q19" value="all"><span>Toate, în funcție de situație.</span></label>
+              </div>
+            </div>
+
+            <div class="field full">
+              <p class="q-title"><em>20.</em>Ai plăti pentru un abonament care îți oferă acces la funcționalitățile Roomio?</p>
+              <div class="q-opts">
+                <label class="check"><input type="radio" name="q20" value="free-only"><span>Nu, aș folosi doar o versiune gratuită.</span></label>
+                <label class="check"><input type="radio" name="q20" value="if-cheap"><span>Da, dacă prețul este accesibil.</span></label>
+                <label class="check"><input type="radio" name="q20" value="if-saves"><span>Da, dacă aplicația îmi economisește timp și bani.</span></label>
+                <label class="check"><input type="radio" name="q20" value="unsure"><span>Nu sunt sigur(ă).</span></label>
+              </div>
+            </div>
+
+            <div class="field full">
+              <p class="q-title"><em>21.</em>Ce preț lunar ți s-ar părea rezonabil pentru o astfel de aplicație?</p>
+              <div class="q-opts">
+                <label class="check"><input type="radio" name="q21" value="free"><span>Aș prefera să fie gratuită.</span></label>
+                <label class="check"><input type="radio" name="q21" value="under-15"><span>Sub 15 lei.</span></label>
+                <label class="check"><input type="radio" name="q21" value="15-29"><span>15–29 lei.</span></label>
+                <label class="check"><input type="radio" name="q21" value="30-59"><span>30–59 lei.</span></label>
+                <label class="check"><input type="radio" name="q21" value="60+"><span>60 lei sau mai mult.</span></label>
+                <label class="check"><input type="radio" name="q21" value="unsure"><span>Nu știu încă.</span></label>
+              </div>
+            </div>
+
+            <div class="field full">
+              <label for="s-q22"><em>22.</em>Ai vreo sugestie, funcționalitate sau idee care crezi că ar face Roomio mai util? <span class="q-hint">Orice observație este binevenită. (Răspuns opțional.)</span></label>
+              <textarea id="s-q22" name="q22" placeholder="Scrie liber…"></textarea>
+            </div>
+
+            <div class="q-sec q-sec--thanks full">
+              <h5>Mulțumim!</h5>
+            </div>
+
+            <div class="full">
+              <button class="btn btn-primary" type="submit">Trimite răspunsurile</button>
+              <p class="form-msg" role="status" aria-live="polite" data-msg="survey"></p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÎNTREBĂRI -->
+  <section class="section" id="intrebari" aria-labelledby="h-faq">
+    <div class="wrap faq-grid">
+      <div>
+        <h2 class="h2" id="h-faq">Întrebări frecvente</h2>
+      </div>
+      <div class="faq">
+        <details><summary>De unde provine mobila din catalog?</summary><p>Lucrăm cu magazine partenere din România și cu producători locali. Fiecare piesă are dimensiunile și prețul verificate, iar atunci când decizi să comanzi, linkul te trimite direct către vânzător — Roomio nu intermediază tranzacția.</p></details>
+        <details><summary>Cât de precisă este verificarea dimensiunilor?</summary><p>Fiecare piesă din Roomio folosește dimensiunile exacte din fișa producătorului, iar camera ta este reconstruită la milimetru pe baza măsurătorilor tale. Îți arătăm spațiile de trecere și zonele libere din jurul mobilierului.</p></details>
+        <details><summary>Care sunt avantajele Roomio MAX?</summary><p>Roomio MAX adaugă două instrumente esențiale: <b>designul automat</b>, care generează aranjamentul camerei pornind de la o descriere în cuvinte, și <b>modul imersiv</b>, prin care explorezi camera la scară reală, din interior. În plus, primești camere nelimitate, spațiu de lucru colaborativ și export al proiectului.</p></details>
+        <details><summary>Când pot încerca aplicația?</summary><p>În prezent testăm primul prototip, iar cei înscriși primesc primii acces la versiunea de test. Roomio rulează direct în browser, așa că îl poți deschide de pe orice calculator, tabletă sau telefon, de oriunde, fără instalare.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="#" aria-label="Roomio, mergi la începutul paginii">
+          <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="8" fill="#1F4D3F"/><path d="M10 23V10h13" fill="none" stroke="#FBF8F3" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><rect x="16" y="16" width="7" height="7" rx="1.6" fill="#C9663C"/></svg>
+          <span>Roomio</span>
+        </a>
+        <p class="foot-about">Tot mobilierul. Toate combinațiile. Un singur loc. Proiectat și dezvoltat în România.</p>
+      </div>
+      <div>
+        <h4>Produs</h4>
+        <ul>
+          <li><a href="#cum-functioneaza">Pas cu pas</a></li>
+          <li><a href="#functionalitati">Funcționalități</a></li>
+          <li><a href="#preturi">Prețuri</a></li>
+          <li><a href="#intrebari">Întrebări frecvente</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:contact@roomio.ro">contact@roomio.ro</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Roomio. Toate drepturile rezervate.</span>
+      <span>Prețurile sunt orientative până la lansare.</span>
+    </div>
+  </div>
 </footer>
-</div>
+
 <script>
-// animațiile, cifrele, bara de sus, linkurile interne și comparația înainte/după
-(function lpInit(root) {
-      if (!root) return function () {};
-      var win = root.ownerDocument.defaultView || window;
-      var doc = root.ownerDocument;
-      var cleanups = [];
-      var reduced = !!(win.matchMedia && win.matchMedia('(prefers-reduced-motion: reduce)').matches);
-      var hasIO = 'IntersectionObserver' in win;
+/* ================= Pas cu pas: animation engine ================= */
+(function(){
+const SPEED=1.5;
+const root=document.querySelector('.pcp');
+if(!root)return;
+const $=(s,r=root)=>r.querySelector(s), $$=(s,r=root)=>[...r.querySelectorAll(s)];
+function el(tag,cls,parent,style){const e=document.createElement(tag);if(cls)e.className=cls;if(style)Object.assign(e.style,style);if(parent)parent.appendChild(e);return e}
+const L=(c,p=14)=>`color-mix(in srgb, ${c}, #fff ${p}%)`;
+const D=(c,p=20)=>p?`color-mix(in srgb, ${c}, #000 ${p}%)`:c;
+const lei=n=>n.toLocaleString('ro-RO')+' lei';
+const wait=ms=>new Promise(r=>setTimeout(r,ms));
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-      /* 1. animația de intrare */
-      if (!reduced && hasIO) {
-        root.classList.add('lp-anim');
-        win.requestAnimationFrame(function () { win.requestAnimationFrame(function () { root.classList.add('lp-go'); }); });
+const CAT={
+ lund:{name:'Canapea Lund',sup:'Nordhaus',price:3290,m:'sofa',w:210,d:90,h:80,c:'#9BA3A9'},
+ oslo:{name:'Canapea Oslo',sup:'Nordhaus',price:2490,m:'sofa',w:190,d:88,h:82,c:'#7D9A6F'},
+ sand:{name:'Canapea Sand',sup:'Casa Moll',price:2890,m:'sofa',w:200,d:86,h:80,c:'#C9B499'},
+ vera:{name:'Fotoliu Vera',sup:'Casa Moll',price:1190,m:'sofa',w:85,d:85,h:80,c:'#B9A389'},
+ arin:{name:'Măsuță Arin',sup:'Casa Moll',price:640,m:'table',w:110,d:60,h:45,c:'#C4A27A'},
+ fag:{name:'Masă Fagus',sup:'Atelier Lemn',price:1890,m:'table',w:160,d:85,h:76,c:'#B08858'},
+ rond:{name:'Măsuță Rond',sup:'Forma Studio',price:490,m:'table',w:70,d:70,h:42,c:'#DBC79F'},
+ raft160:{name:'Bibliotecă Rafturi 160',sup:'Forma Studio',price:1480,m:'shelf',w:160,d:35,h:190,c:'#ECEAE6'},
+ raft120:{name:'Bibliotecă Rafturi 120',sup:'Forma Studio',price:1150,m:'shelf',w:120,d:35,h:190,c:'#ECEAE6'},
+ ask80:{name:'Raft Ask 80',sup:'Nordhaus',price:720,m:'shelf',w:80,d:32,h:150,c:'#B98D64'},
+ dune:{name:'Covor Dune',sup:'Nordhaus',price:520,m:'rug',w:170,d:230,h:1,c:'#E6E0D6',flat:true},
+ lin:{name:'Covor Linea',sup:'Casa Moll',price:390,m:'rug',w:160,d:220,h:1,c:'#D5C8B6',flat:true},
+ halo:{name:'Lampadar Halo',sup:'Casa Moll',price:380,m:'lamp',w:40,d:40,h:172,c:'#2F3236',small:true},
+ pod:{name:'Lampă Pod',sup:'Forma Studio',price:210,m:'lamp',w:30,d:30,h:140,c:'#555558',small:true},
+ ficus:{name:'Ficus în ghiveci',sup:'Nordhaus',price:210,m:'plant',w:50,d:50,h:92,c:'#D8D3CA',small:true},
+ monst:{name:'Monstera în ghiveci',sup:'Casa Moll',price:260,m:'plant',w:55,d:55,h:100,c:'#C4BEB2',small:true}
+};
+function cub(p,x,y,z,w,d,h,c,o={}){
+  const g=el('div','cub',p);g.style.transform=`translate3d(${x}px,${y}px,${z}px)`;
+  const F=(st,col)=>{const e=el('div','f',g,st);e.style.background=col;return e};
+  return{
+    top:F({width:w+'px',height:d+'px',transform:`translateZ(${h}px)`},o.top||c),
+    fr:F({width:w+'px',height:h+'px',top:d+'px',transform:'rotateX(90deg)'},D(c,7)),
+    bk:F({width:w+'px',height:h+'px',transform:'rotateX(90deg)'},D(c,7)),
+    lf:F({width:h+'px',height:d+'px',transform:'rotateY(-90deg)'},D(c,15)),
+    rt:F({width:h+'px',height:d+'px',left:w+'px',transform:'rotateY(-90deg)'},D(c,15))
+  };
+}
+const MODELS={
+ sofa(b,{w,d,c}){const a=w<120?14:20;b(0,0,0,w,18,78,c);b(0,18,0,a,d-18,56,c);b(w-a,18,0,a,d-18,56,c);b(a,18,0,w-2*a,d-18,38,c);
+   const n=w>150?2:1,g=2,cw=(w-2*a-g*(n+1))/n;for(let i=0;i<n;i++)b(a+g+i*(cw+g),20,38,cw,d-22,9,L(c))},
+ table(b,{w,d,h,c}){b(0,0,h-4,w,d,4,c);[[3,3],[w-7,3],[3,d-7],[w-7,d-7]].forEach(([x,y])=>b(x,y,0,4,4,h-4,D(c,12)))},
+ shelf(b,{w,d,h,c}){b(0,0,0,2,d,h,c);b(w-2,0,0,2,d,h,c);b(2,0,0,w-4,1.5,h,D(c,6));const lv=[0,46,92,138,h-2];lv.forEach(z=>b(2,1.5,z,w-4,d-1.5,2,c));
+   const BK=['#B9B3A9','#8F8A83','#D2CCC2','#6E6A65','#A9A398'];
+   [0,1,2].forEach(k=>{const z=lv[k]+2;let x=6,i=k*2;while(x<w-28){const bw=9+(i*7%3)*3,bh=26+(i*5%4)*4;b(x,8,z,bw,22,bh,BK[i%5]);x+=bw+1;i++;if(i%5==0)x+=22}})},
+ lamp(b,{w,c}){b(w/2-12,w/2-12,0,24,24,2,c);b(w/2-1,w/2-1,2,2,2,140,c);b(4,4,140,w-8,w-8,30,'#EFEBE3')},
+ plant(b,{c}){b(12,12,0,26,26,30,c);b(5,5,30,40,40,34,'#7F9A7C');b(13,13,64,24,24,24,'#8EA88A')},
+ rug(b,it,host,s){el('div','f rug',host,{width:it.w*s+'px',height:it.d*s+'px',background:it.c,transform:'translateZ(2px)'})}
+};
+const EPS=.35;
+function buildModel(host,it,s){const b=(x,y,z,w,d,h,c)=>cub(host,(x+EPS)*s,(y+EPS)*s,z*s,Math.max(.3,w-2*EPS)*s,Math.max(.3,d-2*EPS)*s,Math.max(.3,h-EPS)*s,c);MODELS[it.m](b,it,host,s)}
+
+class Room{
+  constructor(host,o){
+    Object.assign(this,{W:420,H:360,wallH:270,t:10,doors:[],winsN:[],winsW:[],k:0,wallMode:'cut'},o);
+    this.items=[];this.bbs=[];this.openings=[];
+    const {W,H,wallH,t}=this,[bw,bh]=o.fit;
+    this.s=o.s||Math.min(bw/((W+H)*.707*1.2),bh/(((W+H)*.354+wallH*.866)*1.24));
+    const s=this.s;
+    this.cam=el('div','cam',host);
+    this.fl=el('div','floor',this.cam,{width:W*s+'px',height:H*s+'px'});
+    this.oy=wallH*s*.866*.42;
+    this.base=el('div','fsurf',this.fl);
+    this.surf=el('div','fplank',this.base,{backgroundImage:`repeating-linear-gradient(90deg,transparent 0 ${20*s}px,rgba(60,40,15,.07) ${20*s}px ${20.6*s}px)`});
+    this.doors.forEach(d=>this.openings.push(el('div','darc',this.base,{left:d.x0*s+'px',top:0,width:(d.x1-d.x0)*s+'px',height:(d.x1-d.x0)*s+'px'})));
+    const mk=(x,y,w,d)=>{const g=el('div','wall',this.fl);const c=cub(g,x*s,y*s,0,w*s,d*s,wallH*s,'var(--p-wall)',{top:'var(--p-wall-top)'});return{g,c}};
+    this.walls={n:mk(0,-t,W,t),w:mk(-t,-t,t,H+2*t),s:mk(0,H,W,t),e:mk(W,-t,t,H+2*t)};
+    this.blocks=o.blocks||[];
+    this.blocks.forEach(b=>{const x0=b.x0<=0?-2:b.x0,x1=b.x1>=W?W+2:b.x1,y0=b.y0<=0?-2:b.y0,y1=b.y1>=H?H+2:b.y1;
+      cub(this.walls[b.wall].g,x0*s,y0*s,0,(x1-x0)*s,(y1-y0)*s,(wallH-.6)*s,'var(--p-wall)',{top:'var(--p-wall-top)'})});
+    this.doors.forEach(d=>this.openings.push(el('div','door',this.walls.n.c.fr,{left:d.x0*s+'px',top:0,width:(d.x1-d.x0)*s+'px',height:210*s+'px'})));
+    this.winsN.forEach(w=>this.openings.push(el('div','win',this.walls.n.c.fr,{left:w.x0*s+'px',top:w.sill*s+'px',width:(w.x1-w.x0)*s+'px',height:w.h*s+'px'})));
+    this.winsW.forEach(w=>this.openings.push(el('div','win',this.walls.w.c.rt,{left:w.sill*s+'px',top:(w.y0+t)*s+'px',width:w.h*s+'px',height:(w.y1-w.y0)*s+'px'})));
+    this.host=host;this.pins=[];this.ovl=el('div','ovl',host);
+    const S=100*s,mkp=(x,y,z)=>el('div','mk',this.fl,{transform:`translate3d(${x}px,${y}px,${z}px)`});
+    this.mk=[mkp(0,0,0),mkp(S,0,0),mkp(0,S,0),mkp(0,0,S)];
+    this.setCam(this.k);
+  }
+  basis(){const r=this.mk.map(e=>e.getBoundingClientRect()),o=[r[0].left,r[0].top],v=i=>[(r[i].left-o[0])/100,(r[i].top-o[1])/100];return{o,ex:v(1),ey:v(2),ez:v(3)}}
+  toScreen(x,y,z,B=this.basis()){return[B.o[0]+x*B.ex[0]+y*B.ey[0]+z*B.ez[0],B.o[1]+x*B.ex[1]+y*B.ey[1]+z*B.ez[1]]}
+  pin(x,y,z,html){const e=el('div','opin',this.ovl);e.innerHTML=html;e._p=[x,y,z];this.pins.push(e);this.updatePins();return e}
+  dropPin(e,fade){this.pins=this.pins.filter(p=>p!==e);if(!fade){e.remove();return}e.classList.add('out');setTimeout(()=>e.remove(),220)}
+  updatePins(){if(!this.pins.length)return;const B=this.basis(),hr=this.host.getBoundingClientRect(),hs=hr.width/this.host.offsetWidth||1;
+    this.pins.forEach(e=>{const[sx,sy]=this.toScreen(...e._p,B);e.style.transform=`translate(${(sx-hr.left)/hs}px,${(sy-hr.top)/hs}px) translate(-50%,-100%)`})}
+  followPins(ms=400){const t0=performance.now(),f=()=>{this.updatePins();if(performance.now()-t0<ms)requestAnimationFrame(f)};requestAnimationFrame(f)}
+  get theta(){return 45+90*this.k}
+  setCam(k){this.k=k;this.fl.style.transform=`translate(-50%,-50%) translateY(${this.oy}px) rotateX(60deg) rotateZ(${this.theta}deg)`;this.applyWalls();this.bbs.forEach(b=>this.placeBB(b));if(this.pins)this.updatePins()}
+  frontWalls(){const a=((this.theta%360)+360)%360;return a===45?['s','e']:a===135?['n','e']:a===225?['n','w']:['s','w']}
+  setWall(key,v){const g=this.walls[key].g;g.style.visibility='';g.style.transform=`scale3d(1,1,${v})`}
+  applyWalls(mode=this.wallMode){
+    this.wallMode=mode;const fw=this.frontWalls();
+    for(const key of Object.keys(this.walls)){
+      let v=1;if(mode==='hidden')v=.01;else if(mode==='down')v=.05;else if(mode==='cut'&&fw.includes(key))v=.05;
+      this.setWall(key,v);
+      if(mode==='hidden')this.walls[key].g.style.visibility='hidden';
+    }
+  }
+  bb(x,y,z,html){const e=el('div','bb',this.fl);e.innerHTML=`<span>${html}</span>`;e._p=[x,y,z];this.bbs.push(e);this.placeBB(e);return e}
+  placeBB(e){const[x,y,z]=e._p,s=this.s;e.style.transform=`translate3d(${x*s}px,${y*s}px,${z*s}px) rotateZ(${-this.theta}deg) rotateX(-60deg)`}
+  add(key,cx,cy,rot=0,o={}){
+    const it={key,...CAT[key],...o,cx,cy,rot};const s=this.s;
+    if(it.flat)it.el=el('div','item rugd',this.base,{width:it.w*s+'px',height:it.d*s+'px',background:it.c});
+    else{it.el=el('div','item',this.fl,{width:it.w*s+'px',height:it.d*s+'px'});buildModel(it.el,it,s)}
+    it.el._it=it;
+    it.fpEl=el('div','fp',this.base,{width:it.w*s+4+'px',height:it.d*s+4+'px'});
+    this.items.push(it);
+    if(o.grow){if(it.flat)it.el.style.opacity=0;else{it.sz=.04;it.el.style.visibility='hidden'}}
+    this.place(it);
+    return it;
+  }
+  ghost(it){const a=this.footprint(it),s=this.s;return el('div','ghost',this.base,{left:a.x0*s+'px',top:a.y0*s+'px',width:(a.x1-a.x0)*s+'px',height:(a.y1-a.y0)*s+'px'})}
+  land(it){if(it.flat){requestAnimationFrame(()=>{it.el.style.opacity=1;this.place(it)});return}it.el.style.visibility='';requestAnimationFrame(()=>requestAnimationFrame(()=>{it.sz=1;this.place(it)}))}
+  shrink(it){it.sz=.04;this.place(it)}
+  place(it,z=0){const s=this.s,tx=(it.cx-it.w/2)*s,ty=(it.cy-it.d/2)*s;
+    it.el.style.transform=it.flat?`translate(${tx}px,${ty}px) rotate(${it.rot}deg)`:`translate3d(${tx}px,${ty}px,${z*s}px) rotateZ(${it.rot}deg) scale3d(1,1,${it.sz??1})`;
+    it.fpEl.style.transform=`translate(${tx-2}px,${ty-2}px) rotate(${it.rot}deg)`}
+  remove(it){it.el.remove();it.fpEl.remove();this.items=this.items.filter(i=>i!==it)}
+  footprint(it){const r=((it.rot%360)+360)%360,sw=r%180!==0,w=sw?it.d:it.w,d=sw?it.w:it.d;return{x0:it.cx-w/2,x1:it.cx+w/2,y0:it.cy-d/2,y1:it.cy+d/2}}
+}
+function thumb(host,key,o={}){
+  host.innerHTML='';host.classList.add('stage');
+  const it={key,...CAT[key],...o};const bw=o.bw||host.clientWidth||200,bh=o.bh||host.clientHeight||150;
+  const s=Math.min(bw*.66/((it.w+it.d)*.707),bh*.72/((it.w+it.d)*.354+it.h*.866));
+  const cam=el('div','cam',host);const oy=it.h*s*.866*.5;
+  const fl=el('div','floor',cam,{width:it.w*s+'px',height:it.d*s+'px'});
+  fl.style.transform=`translate(-50%,-50%) translateY(${oy}px) rotateX(60deg) rotateZ(45deg)`;
+  el('div','shadow',fl);buildModel(fl,it,s);return fl;
+}
+
+const IMPERF={
+  ghena:{name:'Coloană',where:'colț nord-est',wall:'n',x0:420,x1:500,y0:0,y1:70},
+  stalp:{name:'Coloană',where:'vest, la 3,00 m',wall:'w',x0:0,x1:25,y0:300,y1:330}
+};
+const LIVING_BLOCKS=[IMPERF.ghena,IMPERF.stalp];
+const LIVING_ROOM={W:500,H:400,doors:[{x0:200,x1:290}],winsW:[{y0:105,y1:275,sill:90,h:130}]};
+const HERO_ITEMS=[['dune',215,225,0],['lund',55,170,-90],['vera',365,255,90],['arin',215,245,90],['halo',45,45,0]];
+const HERO_DECOR=[['ficus',460,370,0]];
+const CATALOG=[
+  {k:'oslo',cat:'sofa'},{k:'lund',cat:'sofa'},{k:'sand',cat:'sofa'},{k:'vera',cat:'sofa'},
+  {k:'fag',cat:'table'},{k:'arin',cat:'table'},{k:'rond',cat:'table'},
+  {k:'ask80',cat:'shelf'},{k:'raft120',cat:'shelf'},{k:'raft160',cat:'shelf'},
+  {k:'lin',cat:'rug'},{k:'dune',cat:'rug'},
+  {k:'pod',cat:'lamp'},{k:'halo',cat:'lamp'},
+  {k:'monst',cat:'plant'},{k:'ficus',cat:'plant'}
+];
+const KEY_CAT=Object.fromEntries(CATALOG.map(c=>[c.k,c.cat]));
+const SHOPPING=[['Nordhaus','Livrare gratuită',['lund','dune','ficus']],['Forma Studio','Livrare gratuită',['raft120']],['Casa Moll','Livrare 149 lei',['vera','arin','halo']]];
+
+const hero={};
+let eCurrentTab='all',eSearchText='';
+const H={i:0,token:0,paused:false,once:-1};
+const STEP_MS=[16700,5900,32100,16650].map(x=>x/SPEED);
+
+async function hw(ms,tok){ms=ms/SPEED;let left=ms;while(left>0){if(tok!==H.token)return false;await wait(50);if(!H.paused||H.once===H.i)left-=50}return tok===H.token}
+
+function populateCatalog(){
+  const list=$('#eList');list.innerHTML='';
+  CATALOG.forEach(({k,cat})=>{
+    const row=el('div','erow',list);row.dataset.key=k;row.dataset.cat=cat;
+    row.innerHTML=`<div class="st"></div><div class="t"><b>${CAT[k].name}</b><small>${CAT[k].w} × ${CAT[k].d} cm · ${lei(CAT[k].price)}</small></div>`;
+    thumb(row.querySelector('.st'),k,{bw:54,bh:42});
+  });
+}
+function filterCatalog(){
+  const text=eSearchText.toLowerCase();
+  $$('.erow').forEach(row=>{
+    const key=row.dataset.key,cat=row.dataset.cat,name=CAT[key].name.toLowerCase();
+    const matches=(eCurrentTab==='all'||cat===eCurrentTab)&&(!text||name.includes(text));
+    row.style.display=matches?'':'none';
+  });
+}
+function catReset(){
+  eCurrentTab='all';eSearchText='';
+  $('#eSearch').value='';
+  $('.esearch').classList.remove('act');
+  $$('#eTabs button').forEach(b=>b.classList.toggle('on',b.dataset.cat==='all'));
+  $$('.erow').forEach(r=>{r.classList.remove('hl','press');r.style.display=''});
+  $('#eCat').classList.remove('show');
+}
+async function eSwitchTab(cat,tok){
+  if(eCurrentTab===cat)return true;
+  $$('#eTabs button').forEach(b=>b.classList.toggle('on',b.dataset.cat===cat));
+  eCurrentTab=cat;filterCatalog();
+  return hw(450,tok);
+}
+async function eTypeSearch(text,tok){
+  const input=$('#eSearch');$('.esearch').classList.add('act');
+  for(let i=1;i<=text.length;i++){input.value=text.slice(0,i);eSearchText=text.slice(0,i);filterCatalog();if(!await hw(110,tok))return false}
+  if(!await hw(350,tok))return false;
+  $('.esearch').classList.remove('act');
+  return true;
+}
+async function eClearSearch(tok){$('#eSearch').value='';eSearchText='';filterCatalog();return hw(200,tok)}
+async function eClickRow(k,tok){
+  const row=$(`.erow[data-key="${k}"]`);if(!row)return true;
+  row.classList.add('hl');if(!await hw(280,tok))return false;
+  row.classList.add('press');if(!await hw(170,tok))return false;
+  row.classList.remove('press');if(!await hw(180,tok))return false;
+  row.classList.remove('hl');return true;
+}
+
+const HF=[['L','5,00 m',[0,2]],['l','4,00 m',[1,3]],['h','2,70 m',[]],['g','80 × 70 cm',[]],['gp','colț nord-est',[]],['s','30 × 25 cm',[]]];
+function heroSetup(){
+  const st=$('#heroStage');const r=st.getBoundingClientRect();hero.base=[r.width,r.height];
+  const R=new Room(st,{...LIVING_ROOM,fit:[r.width,r.height],blocks:LIVING_BLOCKS});
+  hero.R=R;const s=R.s;
+  hero.edges=[];
+  const OUT=[[[0,0],[500,0]],[[500,0],[500,400]],[[500,400],[0,400]],[[0,400],[0,0]]];
+  for(const [[x1,y1],[x2,y2]] of OUT){const horiz=y1===y2;
+    const e=el('div','edge',R.base,{left:Math.min(x1,x2)*s+'px',top:Math.min(y1,y2)*s+'px',width:horiz?Math.abs(x2-x1)*s+'px':'1.5px',height:horiz?'1.5px':Math.abs(y2-y1)*s+'px',
+      transformOrigin:horiz?(x2<x1?'100% 0':'0 0'):(y2<y1?'0 100%':'0 0')});
+    e._h=horiz;hero.edges.push(e);
+  }
+  hero.pline=el('div','pline',R.base,{left:-18*s+'px',top:0,width:'1.5px',height:300*s+'px',transformOrigin:'0 0'});
+  hero.sfoot=el('div','sfoot',R.base,{width:25*s+'px',height:30*s+'px'});
+  hero.gfoot=el('div','sfoot',R.base,{width:80*s+'px',height:70*s+'px',left:420*s+'px',top:0,transform:'scale(0)',transformOrigin:'100% 0%',transition:'opacity .3s,transform .4s cubic-bezier(.3,0,.2,1)'});
+  hero.dims=[R.bb(250,440,0,'<span class="dimtag num">5,00 m</span>'),R.bb(540,210,0,'<span class="dimtag num">4,00 m</span>'),
+             R.bb(460,35,10,'<span class="dimtag num">coloană 80 × 70</span>'),R.bb(75,318,10,'<span class="dimtag num">coloană 30 × 25</span>'),
+             R.bb(-10,-10,295,'<span class="dimtag num">2,70 m</span>'),R.bb(-50,150,0,'<span class="dimtag num">3,00 m de colț</span>')];
+  const list=$('#hList');
+  list.innerHTML='<header><b>Lista ta</b><span class="faint" style="font-size:12.5px">Living, 7 piese de la 3 furnizori</span></header>';
+  SHOPPING.forEach(([sup,del,keys])=>{
+    const g=el('div','grp',list);const sum=keys.reduce((a,k)=>a+CAT[k].price,0);
+    g.innerHTML=`<div class="gh"><b>${sup}</b><span class="faint num">${keys.length} ${keys.length>1?'produse':'produs'}, ${lei(sum)}</span></div>`;
+    keys.forEach(k=>{const r=el('div','it',g);r.innerHTML=`<div class="st"></div><span>${CAT[k].name}</span><span class="num">${lei(CAT[k].price)}</span>`;thumb(r.querySelector('.st'),k,{bw:40,bh:30})});
+  });
+  el('footer','',list).innerHTML='<span class="faint">Total</span><b class="num">7.380 lei</b>';
+  hero.k=1;hero.shift=0;R.cam.style.transition='transform .5s cubic-bezier(.3,.7,.2,1)';
+  populateCatalog();
+  window.addEventListener('resize',()=>{const b=st.getBoundingClientRect();hero.k=Math.min(b.width/hero.base[0],b.height/hero.base[1]);heroCam()});
+}
+function heroCam(shift=hero.shift){hero.shift=shift;const st=$('#heroStage');hero.R.cam.style.transform=`translateX(${shift*st.clientWidth}px) scale(${hero.k})`;hero.R.followPins(600)}
+function act(label,val){const c=$('#capAct');c.querySelector('span').textContent=label;c.querySelector('b').textContent=val;c.classList.add('show')}
+function edgeScale(e,v){e.style.transform=`${e._h?'scaleX':'scaleY'}(${v})`}
+function fitMsg(cls,txt){const o=$('#capFit');o.querySelector('.dot').className='dot '+cls;o.querySelector('span').textContent=txt;o.classList.add('show')}
+function handHome(){const h=$('#hand'),st=$('#heroStage');h.classList.add('notr');h.style.opacity=0;h.classList.remove('press');
+  h.style.transform=`translate(${st.clientWidth*.62}px,-50px)`;h.offsetWidth;h.classList.remove('notr')}
+function setFoot(y){const s=hero.R.s,m=(y/100).toLocaleString('ro-RO',{minimumFractionDigits:2});hero.sfoot.style.transform=`translate(0px,${y*s}px)`;hero.pline.style.height=y*s+'px';
+  hero.dims[5]._p=[-50,y/2,0];hero.R.placeBB(hero.dims[5]);hero.dims[5].querySelector('span').innerHTML=`<span class="dimtag num">${m} m de colț</span>`;
+  $('#hForm [data-f="sp"] b').textContent=`perete vestic, ${m} m`}
+function handTo(x,y,z,instant){const st=$('#heroStage'),sr=st.getBoundingClientRect(),k=st.clientWidth/sr.width,[sx,sy]=hero.R.toScreen(x,y,z),h=$('#hand');
+  h.classList.toggle('notr',!!instant);h.style.opacity=1;h.style.transform=`translate(${(sx-sr.left)*k-13}px,${(sy-sr.top)*k-3}px)`}
+async function dragPillar(tok){
+  const row=$('#hForm [data-f="sp"]');act('Poziționare','Mută coloana unde e în realitate');
+  setFoot(330);hero.sfoot.style.opacity=1;hero.pline.style.opacity=1;hero.dims[5].style.opacity=1;row.classList.add('act');$('#hHint').classList.add('show');
+  if(!await hw(700,tok))return false;
+  handTo(12,345,0);if(!await hw(1400,tok))return false;
+  $('#hand').classList.add('press');if(!await hw(250,tok))return false;
+  for(let y=330;y>=230;y-=3){setFoot(y);handTo(12,y+15,0,true);if(!await hw(40,tok))return false}
+  if(!await hw(250,tok))return false;
+  for(let y=230;y<=300;y+=3){setFoot(Math.min(y,300));handTo(12,Math.min(y,300)+15,0,true);if(!await hw(40,tok))return false}
+  setFoot(300);$('#hand').classList.remove('press');if(!await hw(300,tok))return false;
+  handHome();row.classList.remove('act');hero.dims[3].style.opacity=1;act('Poziționare','Coloană la 3,00 m de colțul nordic');
+  return hw(900,tok);
+}
+async function dragColoana(tok){
+  act('Poziționare','Așezi coloana în colțul nord-est');
+  if(!await hw(300,tok))return false;
+  handTo(475,25,0);
+  if(!await hw(1100,tok))return false;
+  $('#hand').classList.add('press');
+  if(!await hw(180,tok))return false;
+  hero.gfoot.style.opacity=1;hero.gfoot.style.transform='scale(1)';
+  if(!await hw(420,tok))return false;
+  $('#hand').classList.remove('press');
+  hero.dims[2].style.opacity=1;
+  if(!await hw(250,tok))return false;
+  handHome();
+  act('Poziționare','Coloană în colțul nord-est');
+  return hw(450,tok);
+}
+function formReset(){const f=$('#hForm');f.classList.remove('show');$$('.hf',f).forEach(r=>{r.className='hf';r.querySelector('b').textContent=''});$$('.sumrow,.cbtn',f).forEach(x=>x.classList.remove('show','press'))}
+function heroReset(){
+  const R=hero.R;R.items.slice().forEach(it=>R.remove(it));(hero.tags||[]).forEach(t=>R.dropPin(t));hero.tags=[];$$('.darc',R.base).forEach(d=>d.classList.remove('hot'));
+  $$('.ghost',R.base).forEach(g=>g.remove());$$('.ripple').forEach(g=>g.remove());
+  R.applyWalls('hidden');R.surf.style.clipPath='inset(0 100% 0 0)';
+  R.openings.forEach(o=>o.style.opacity=0);
+  hero.edges.forEach(e=>{e.style.opacity=1;edgeScale(e,0)});
+  hero.dims.forEach(d=>d.style.opacity=0);hero.pline.style.opacity=0;hero.sfoot.style.opacity=0;hero.gfoot.style.opacity=0;hero.gfoot.style.transform='scale(0)';$('#hHint').classList.remove('show');$$('.cap').forEach(o=>o.classList.remove('show'));formReset();
+  $('#hList').classList.remove('show');$('#heroBtn').classList.remove('pressed');handHome();catReset();heroCam(0);
+}
+async function placePiece(tok,k,x,y,r){
+  const R=hero.R,it=R.add(k,x,y,r,{grow:true}),g=R.ghost(it);act(it.sup,it.name);
+  if(!await hw(650,tok))return false;
+  R.land(it);if(!await hw(500,tok))return false;
+  g.style.opacity=0;setTimeout(()=>g.remove(),400);
+  return hw(350,tok);
+}
+const STEPS=[
+  async tok=>{
+    act('Cameră nouă','Dimensiunile');heroCam(.13);$('#hForm').classList.add('show');if(!await hw(700,tok))return false;
+    for(const [f,val,edges] of HF){
+      const row=$(`#hForm [data-f="${f}"]`),b=row.querySelector('b');row.classList.add('act');
+      for(let i=1;i<=val.length;i++){b.textContent=val.slice(0,i);if(!await hw(90,tok))return false}
+      row.classList.remove('act');edges.forEach(i=>edgeScale(hero.edges[i],1));
+      if(f==='L')hero.dims[0].style.opacity=1;
+      if(f==='l')hero.dims[1].style.opacity=1;
+      if(f==='gp'){if(!await dragColoana(tok))return false;continue}
+      if(!await hw(450,tok))return false;
+    }
+    if(!await dragPillar(tok))return false;
+    return hw(700,tok);
+  },
+  async tok=>{
+    const R=hero.R;$('#hForm').classList.remove('show');heroCam(0);$('#capFit').classList.remove('show');
+    if(!await hw(500,tok))return false;
+    hero.dims.forEach(d=>d.style.opacity=0);hero.pline.style.opacity=0;hero.sfoot.style.opacity=0;hero.gfoot.style.opacity=0;$('#capDims').classList.add('show');
+    act('Prototip 3D','Pardoseală');R.surf.style.clipPath='inset(0 0 0 0)';if(!await hw(1300,tok))return false;
+    hero.edges.forEach(e=>e.style.opacity=0);
+    act('Prototip 3D','Perete nord și coloană');R.setWall('n',1);if(!await hw(1200,tok))return false;
+    act('Prototip 3D','Perete vest și coloană');R.setWall('w',1);hero.dims[4].style.opacity=1;if(!await hw(1200,tok))return false;
+    R.setWall('s',.05);R.setWall('e',.05);if(!await hw(700,tok))return false;
+    act('Prototip 3D','Ușă și fereastră');R.openings.forEach(o=>o.style.opacity=1);return hw(1500,tok);
+  },
+  async tok=>{
+    hero.dims.forEach(d=>d.style.opacity=0);
+    heroCam(.13);$('#eCat').classList.add('show');
+    act('Mobilează','Alegi din catalog');
+    if(!await hw(650,tok))return false;
+    // Let the viewer take in the catalog before anything is clicked
+    if(!await hw(3000,tok))return false;
+    // 1. Place main furniture items from the catalog
+    for(let i=0;i<HERO_ITEMS.length;i++){
+      const [k,x,y,r]=HERO_ITEMS[i];const cat=KEY_CAT[k];
+      if(i===0){
+        if(!await eTypeSearch('covor',tok))return false;
+        if(!await eClickRow(k,tok))return false;
+        if(!await placePiece(tok,k,x,y,r))return false;
+        if(!await eClearSearch(tok))return false;
+      }else{
+        if(cat!==eCurrentTab&&!await eSwitchTab(cat,tok))return false;
+        if(!await eClickRow(k,tok))return false;
+        if(!await placePiece(tok,k,x,y,r))return false;
       }
+    }
+    act('Mobilare','Camera e completă');
+    if(!await hw(1500,tok))return false;
+    // 2. Verifici că încape: raft160 clash → raft120 fits
+    const R=hero.R;
+    if(!await eSwitchTab('shelf',tok))return false;
+    if(!await eClickRow('raft160',tok))return false;
+    let sh=R.add('raft160',135,18,0,{grow:true});let g=R.ghost(sh);act(sh.sup,sh.name);
+    if(!await hw(650,tok))return false;
+    R.land(sh);sh.el.classList.add('showfp');sh.fpEl.className='fp clash';g.remove();
+    if(!await hw(800,tok))return false;
+    const t1=R.pin(135,18,215,'<span class="tag clash">160 cm în 145 cm liberi: lipsesc 15 cm</span>');hero.tags.push(t1);$$('.darc',R.base).forEach(d=>d.classList.add('hot'));
+    fitMsg('clash','Bibliotecă 160 cm: blochează ușa');
+    if(!await hw(1900,tok))return false;
+    R.dropPin(t1,true);$$('.darc',R.base).forEach(d=>d.classList.remove('hot'));R.shrink(sh);if(!await hw(700,tok))return false;R.remove(sh);
+    if(!await eClickRow('raft120',tok))return false;
+    sh=R.add('raft120',120,18,0,{grow:true});g=R.ghost(sh);act(sh.sup,sh.name);
+    if(!await hw(650,tok))return false;
+    R.land(sh);sh.el.classList.add('showfp');sh.fpEl.className='fp fit';g.remove();
+    if(!await hw(800,tok))return false;
+    hero.tags.push(R.pin(120,18,215,'<span class="tag fit">120 cm în 145 cm liberi: încape</span>'));
+    fitMsg('','Bibliotecă 120 cm: încape, ușa se deschide liber');
+    if(!await hw(1800,tok))return false;
+    // 3. Decorațiuni
+    $('#capFit').classList.remove('show');hero.tags.forEach(t=>hero.R.dropPin(t,true));hero.tags=[];
+    if(!await eSwitchTab('plant',tok))return false;
+    for(const [k,x,y,r] of HERO_DECOR){
+      if(!await eClickRow(k,tok))return false;
+      if(!await placePiece(tok,k,x,y,r))return false;
+    }
+    act('Gata','Camera e mobilată');fitMsg('','Totul încape. Camera e gata.');
+    return hw(800,tok);
+  },
+  async tok=>{
+    $('#capFit').classList.remove('show');
+    $('#eCat').classList.remove('show');heroCam(0);
+    if(!await hw(650,tok))return false;
+    const R=hero.R;act('Camera ta','Prezentare 3D');
+    // Lower all walls so the flyover reads as a top-down preview
+    R.applyWalls('down');
+    if(!await hw(800,tok))return false;
+    const rotMs=2000/SPEED;
+    R.fl.style.transition=`transform ${rotMs}ms cubic-bezier(.4,0,.2,1)`;
+    R.setCam(2);
+    if(!await hw(2050,tok))return false;
+    R.setCam(0);
+    if(!await hw(2050,tok))return false;
+    R.fl.style.transition='';
+    // Restore walls to the normal cut view
+    R.applyWalls('cut');
+    if(!await hw(850,tok))return false;
+    $('#capAct').classList.remove('show');
+    if(!await hw(250,tok))return false;
+    $('#capTotal').classList.add('show');
+    if(!await hw(700,tok))return false;
+    const st=$('#heroStage'),b=$('#heroBtn').getBoundingClientRect(),sr=st.getBoundingClientRect(),k=st.clientWidth/sr.width;
+    const x=(b.left-sr.left+b.width*.5)*k,y=(b.top-sr.top+b.height*.6)*k;
+    const h=$('#hand');h.style.opacity=1;h.style.transform=`translate(${x-13}px,${y-3}px)`;
+    if(!await hw(1500,tok))return false;
+    h.classList.add('press');$('#heroBtn').classList.add('pressed');el('div','ripple',st,{left:x+'px',top:y+'px'});
+    if(!await hw(250,tok))return false;
+    h.classList.remove('press');$('#heroBtn').classList.remove('pressed');
+    if(!await hw(200,tok))return false;
+    $('#hList').classList.add('show');$('#capTotal').classList.remove('show');h.style.opacity=0;
+    return hw(7000,tok);
+  }
+];
+const FINALS=[
+  ()=>{heroCam(.13);$('#hForm').classList.add('show');HF.forEach(([f,val])=>$(`#hForm [data-f="${f}"] b`).textContent=val);hero.edges.forEach(e=>edgeScale(e,1));setFoot(300);hero.sfoot.style.opacity=1;hero.gfoot.style.opacity=1;hero.gfoot.style.transform='scale(1)';hero.dims.forEach((d,i)=>d.style.opacity=i===4?0:1);hero.pline.style.opacity=1;$('#hHint').classList.add('show')},
+  ()=>{const R=hero.R;formReset();heroCam(0);$('#capFit').classList.remove('show');$('#capDims').classList.add('show');R.surf.style.clipPath='inset(0 0 0 0)';hero.edges.forEach(e=>e.style.opacity=0);
+       R.setWall('n',1);R.setWall('w',1);R.setWall('s',.05);R.setWall('e',.05);R.openings.forEach(o=>o.style.opacity=1);hero.pline.style.opacity=0;hero.sfoot.style.opacity=0;hero.gfoot.style.opacity=0;hero.dims.forEach((d,i)=>d.style.opacity=i===4?1:0)},
+  ()=>{hero.dims.forEach(d=>d.style.opacity=0);$('#eCat').classList.add('show');heroCam(.13);eCurrentTab='plant';$$('#eTabs button').forEach(b=>b.classList.toggle('on',b.dataset.cat==='plant'));filterCatalog();HERO_ITEMS.forEach(([k,x,y,r])=>hero.R.add(k,x,y,r));const sh=hero.R.add('raft120',120,18,0);sh.el.classList.add('showfp');sh.fpEl.className='fp fit';HERO_DECOR.forEach(([k,x,y,r])=>hero.R.add(k,x,y,r));act('Gata','Camera e mobilată');fitMsg('','Totul încape. Camera e gata.')},
+  ()=>{$('#eCat').classList.remove('show');heroCam(0)}
+];
+const ICON_PAUSE='<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5v14M15 5v14"/></svg>',ICON_PLAY='<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4.5v15l12-7.5z"/></svg>';
+function setStep(i){$$('#steps li').forEach((li,j)=>{li.classList.toggle('on',j===i);li.classList.toggle('done',j<i);li.style.setProperty('--d',STEP_MS[j]+'ms');const b=li.querySelector('.bar');b.style.animation='none';b.offsetWidth;b.style.animation=''})}
+function updCtl(){
+  $('#hPlay').innerHTML=H.paused?ICON_PLAY:ICON_PAUSE;$('#hPlay').setAttribute('aria-label',H.paused?'Pornește':'Pauză');$('#hPlay').title=H.paused?'Pornește':'Pauză';
+  $('#steps').classList.toggle('paused',H.paused&&H.once!==H.i);
+  $('#hPrev').disabled=H.i===0;$('#hNext').disabled=H.i===STEPS.length-1;
+  $('#hPos').textContent=`Pasul ${H.i+1} din ${STEPS.length}`;
+}
+async function heroGo(n){
+  const tok=++H.token;const st=$('#heroStage');
+  st.classList.remove('fade');st.classList.add('instant');heroReset();for(let k=0;k<n;k++)FINALS[k]();
+  hero.R.updatePins();st.offsetWidth;
+  await new Promise(r=>requestAnimationFrame(()=>{st.classList.remove('instant');requestAnimationFrame(()=>requestAnimationFrame(r))}));if(tok!==H.token)return;
+  H.i=n;H.once=H.paused?n:-1;
+  while(true){
+    setStep(H.i);updCtl();
+    if(!await STEPS[H.i](tok))return;
+    H.once=-1;updCtl();
+    while(H.paused){if(tok!==H.token)return;await wait(100)}
+    if(tok!==H.token)return;
+    if(H.i===STEPS.length-1){
+      st.classList.add('fade');await wait(500);if(tok!==H.token)return;
+      st.classList.add('instant');heroReset();hero.R.updatePins();st.offsetWidth;
+      await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));st.classList.remove('instant');
+      H.i=0;st.classList.remove('fade');await wait(450);if(tok!==H.token)return}
+    else H.i++;
+  }
+}
+function heroControls(){
+  $('#hPlay').onclick=()=>{H.paused=!H.paused;updCtl()};
+  $('#hNext').onclick=()=>{if(H.i<STEPS.length-1)heroGo(H.i+1)};
+  $('#hPrev').onclick=()=>{if(H.i>0)heroGo(H.i-1)};
+  $$('#steps li').forEach(li=>li.onclick=()=>heroGo(+li.dataset.step));
+}
+function init(){heroSetup();heroControls();if(reduced)H.paused=true;heroGo(0)}
+(document.fonts?document.fonts.ready:Promise.resolve()).then(init);
+})();
 
-      /* 2. cifre care cresc de la 0 */
-      function countUp(el) {
-        var to = parseInt(el.getAttribute('data-to'), 10) || 0;
-        if (reduced) { el.textContent = String(to); return; }
-        var start = null, dur = 1500;
-        el.textContent = '0';
-        function step(t) {
-          if (start === null) start = t;
-          var p = Math.min(1, (t - start) / dur);
-          var e = 1 - Math.pow(1 - p, 3);
-          el.textContent = String(Math.round(to * e));
-          if (p < 1) win.requestAnimationFrame(step);
+(function(){
+  var menuBtn=document.querySelector('.menu-btn');
+  var nav=document.getElementById('nav');
+  menuBtn.addEventListener('click',function(){
+    var open=nav.classList.toggle('is-open');
+    menuBtn.setAttribute('aria-expanded',open);
+    menuBtn.setAttribute('aria-label',open?'Închide meniul':'Deschide meniul');
+  });
+  nav.addEventListener('click',function(e){
+    if(e.target.tagName==='A'){nav.classList.remove('is-open');menuBtn.setAttribute('aria-expanded','false');}
+  });
+
+  var signup=document.getElementById('inscriere');
+  document.querySelectorAll('[data-open-signup]').forEach(function(b){
+    b.setAttribute('aria-controls','inscriere');
+    b.setAttribute('aria-expanded','false');
+    b.addEventListener('click',function(){
+      signup.classList.add('is-open');
+      document.querySelectorAll('[data-open-signup]').forEach(function(x){x.setAttribute('aria-expanded','true')});
+      signup.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
+      signup.focus({preventScroll:true});
+    });
+  });
+
+  var emailOk=function(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)};
+  document.querySelectorAll('form[data-form]').forEach(function(f){
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var key=f.getAttribute('data-form');
+      var msg=document.querySelector('[data-msg="'+key+'"]');
+      var email=f.querySelector('input[type=email]');
+      if(!emailOk(email.value.trim())){msg.textContent='Te rugăm să introduci o adresă de email validă.';email.focus();return;}
+      var consent=f.querySelector('input[name=consent]');
+      if(consent&&!consent.checked){msg.textContent='Te rugăm să bifezi acordul pentru a continua.';consent.focus();return;}
+      msg.textContent=key==='notify'?'Mulțumim! Te anunțăm la lansare.':'Mulțumim! Am primit răspunsurile tale și revenim pe email.';
+      f.reset();
+    });
+  });
+
+  var links=[].slice.call(document.querySelectorAll('.nav a'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          links.forEach(function(l){l.classList.toggle('is-active',l.getAttribute('href')==='#'+en.target.id)});
         }
-        win.requestAnimationFrame(step);
-      }
-
-      /* 3. secțiunile apar la derulare */
-      var blocks = root.querySelectorAll('[data-lp-reveal]');
-      Array.prototype.forEach.call(blocks, function (b) {
-        Array.prototype.forEach.call(b.querySelectorAll('.lp-st'), function (el, i) {
-          el.style.transitionDelay = Math.min(i, 8) * 90 + 'ms';
-        });
       });
-      function reveal(b) {
-        if (b.classList.contains('lp-in')) return;
-        b.classList.add('lp-in');
-        Array.prototype.forEach.call(b.querySelectorAll('.lp-count'), countUp);
-      }
-      if (root.classList.contains('lp-anim')) {
-        var io = new win.IntersectionObserver(function (entries) {
-          entries.forEach(function (en) { if (en.isIntersecting) { reveal(en.target); io.unobserve(en.target); } });
-        }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-        Array.prototype.forEach.call(blocks, function (b) { io.observe(b); });
-        cleanups.push(function () { io.disconnect(); });
-      } else {
-        Array.prototype.forEach.call(blocks, function (b) { b.classList.add('lp-in'); });
-      }
-
-      /* 4. bara de sus: umbră și secțiunea curentă */
-      var nav = root.querySelector('[data-lp-nav]');
-      function onScroll() {
-        var y = win.pageYOffset || doc.documentElement.scrollTop || 0;
-        if (nav) nav.classList.toggle('lp-nav--scrolled', y > 8);
-      }
-      win.addEventListener('scroll', onScroll, { passive: true });
-      onScroll();
-      cleanups.push(function () { win.removeEventListener('scroll', onScroll); });
-
-      var navLinks = root.querySelectorAll('.lp-nav-link');
-      if (hasIO && navLinks.length) {
-        var map = {};
-        Array.prototype.forEach.call(navLinks, function (a) { map[a.getAttribute('data-lp-scroll')] = a; });
-        var spy = new win.IntersectionObserver(function (entries) {
-          entries.forEach(function (en) {
-            if (!en.isIntersecting) return;
-            Array.prototype.forEach.call(navLinks, function (a) { a.classList.remove('lp-is-active'); a.removeAttribute('aria-current'); });
-            var a = map[en.target.id];
-            if (a) { a.classList.add('lp-is-active'); a.setAttribute('aria-current', 'true'); }
-          });
-        }, { rootMargin: '-45% 0px -50% 0px' });
-        Array.prototype.forEach.call(root.querySelectorAll('section[id]'), function (s) { spy.observe(s); });
-        cleanups.push(function () { spy.disconnect(); });
-      }
-
-      /* 5. linkuri interne: scrollIntoView, fără schimbarea adresei */
-      function onClick(ev) {
-        var a = ev.target.closest ? ev.target.closest('[data-lp-scroll], .lp-skip') : null;
-        if (!a || !root.contains(a)) return;
-        var id = a.getAttribute('data-lp-scroll') || (a.getAttribute('href') || '').replace('#', '');
-        var target = id ? doc.getElementById(id) : null;
-        if (!target) return;
-        ev.preventDefault();
-        target.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
-        if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
-        try { target.focus({ preventScroll: true }); } catch (e) {}
-      }
-      root.addEventListener('click', onClick);
-      cleanups.push(function () { root.removeEventListener('click', onClick); });
-
-      /* 6. înainte / după */
-      Array.prototype.forEach.call(root.querySelectorAll('[data-lp-ba]'), function (box) {
-        var range = box.querySelector('[data-lp-range]');
-        if (!range) return;
-        function set() {
-          var v = range.value;
-          box.style.setProperty('--lp-pos', v + '%');
-          range.setAttribute('aria-valuetext', (100 - v) + '% din cameră arătată mobilată');
-        }
-        range.value = 50;
-        set();
-        range.addEventListener('input', set);
-        cleanups.push(function () { range.removeEventListener('input', set); });
-      });
-
-      return function () { cleanups.forEach(function (fn) { fn(); }); };
-    })(document.querySelector('.lp'));
+    },{rootMargin:'-45% 0px -50% 0px'});
+    links.forEach(function(l){var s=document.querySelector(l.getAttribute('href'));if(s)io.observe(s)});
+  }
+})();
 </script>
 </body>
 </html>
