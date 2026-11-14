@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { M1Page } from "../milestones/m1-idea/M1Page.jsx";
 import { M2Page } from "../milestones/m2-validation/M2Page.jsx";
 import { M3Page } from "../milestones/m3-wireframe-landing/M3Page.jsx";
+import { M4Page } from "../milestones/m4-ux/M4Page.jsx";
 import { MILESTONES, PARTS, fromHash, partFromHash } from "./navigation.js";
 import { ThemeToggle, useTheme } from "./ThemeToggle.jsx";
 
@@ -56,6 +57,7 @@ export default function App() {
       {ms === "m1" && <M1Page />}
       {ms === "m2" && <M2Page part={part} onPart={openPart} />}
       {ms === "m3" && <M3Page part={part} onPart={openPart} />}
+      {ms === "m4" && <M4Page part={part} onPart={openPart} />}
 
       <footer className="wrap foot">
         <span className="logo">Roomio</span>
