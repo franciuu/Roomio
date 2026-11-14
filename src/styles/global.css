@@ -61,7 +61,7 @@ main section{padding-block:clamp(64px,8vw,112px)}
 .metrics li{border-top:1px solid var(--ink);padding-top:18px}
 .foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:36px;color:var(--muted);font-size:13.5px;border-top:1px solid var(--line)}
 .foot .logo{font-size:15px}
-.hero-m2{padding-block:clamp(48px,7vw,104px)}
+.hero-m2{padding-block:clamp(48px,7vw,104px) clamp(32px,4vw,48px)}
 .hero-m2 h1{font-size:clamp(48px,7.5vw,92px);line-height:1;letter-spacing:-.045em;margin-bottom:24px}
 .hero-m2 .lead{max-width:48ch}
 .wrap>.num{margin-bottom:12px}
@@ -70,6 +70,7 @@ main section{padding-block:clamp(64px,8vw,112px)}
 .parts{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:clamp(40px,5vw,56px);scroll-margin-top:110px}
 .part-card{display:grid;gap:8px;justify-items:start;text-align:left;font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:22px 24px;cursor:pointer;transition:border-color .25s,background .25s,transform .25s}
 .part-card:hover{transform:translateY(-2px);border-color:var(--muted)}
+.part-card:disabled{cursor:default;transform:none;border-color:var(--line)}
 .part-card[aria-selected="true"]{background:var(--wood-soft);border-color:var(--wood)}
 .part-num{font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .part-card b{font-size:clamp(21px,2.3vw,27px);font-weight:500;letter-spacing:-.02em;line-height:1.2}
@@ -79,6 +80,8 @@ main section{padding-block:clamp(64px,8vw,112px)}
 .part-status.next::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--wood);animation:pulse 1.8s ease-in-out infinite}
 @keyframes pulse{50%{opacity:.25}}
 .part-in{animation:fade .5s ease both}
+/* prima secțiune a unei părți, pe același fundal ca antetul: fără spațiul dublu de sus */
+.part-in>section:first-child:not(.band){padding-top:clamp(8px,1.5vw,16px)}
 .checks{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:12px}
 .checks li,.cols2 .checks li{position:relative;padding:0 0 0 26px;border:0;color:var(--muted)}
 .checks li::before{position:absolute;left:0;top:0;font-weight:600}

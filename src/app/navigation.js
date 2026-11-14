@@ -20,5 +20,5 @@ export const partFromHash = () => {
   const [ms, sub] = window.location.hash.slice(1).split("-");
   const parts = PARTS[ms];
   if (!parts) return null;
-  return parts.some((p) => p.id === sub) ? sub : parts[0].id;
+  return parts.some((p) => p.id === sub && !p.locked) ? sub : parts[0].id;
 };

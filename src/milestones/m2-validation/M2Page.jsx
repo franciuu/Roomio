@@ -23,7 +23,7 @@ export function M2Page({ part, onPart }) {
 
         <div id="parti" className="parts" role="tablist" aria-label="Părțile din M2">
           {M2_PARTS.map((p, i) => (
-            <button key={p.id} role="tab" aria-selected={part === p.id} className="part-card" onClick={() => onPart(p.id)}>
+            <button key={p.id} role="tab" aria-selected={part === p.id} className="part-card" disabled={p.locked} onClick={() => onPart(p.id)}>
               <span className="part-num">Partea {i + 1}</span>
               <b>{p.label}</b>
               <span className={`part-status ${p.state}`}>{p.status}</span>
@@ -33,7 +33,7 @@ export function M2Page({ part, onPart }) {
         </div>
       </section>
 
-      {part === "problema" ? <ProblemPart onPart={onPart} /> : <SolutionPart />}
+      {part === "solutie" ? <SolutionPart /> : <ProblemPart />}
     </>
   );
 }

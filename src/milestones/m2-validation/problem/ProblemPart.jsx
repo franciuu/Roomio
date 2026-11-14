@@ -5,7 +5,7 @@ import { PasswordGate } from "./components/PasswordGate.jsx";
 import { ResearchStory } from "./components/ResearchStory.jsx";
 import { DIFFICULTIES, FINDINGS, FUNNEL, HYPOTHESES, IMPACT, NEXT, NOT_VALIDATED, PLAN, PROCESS, QUOTES, Q_SCREEN, Q_STORY, SCREEN, VALIDATED } from "./problem-content.js";
 
-export function ProblemPart({ onPart }) {
+export function ProblemPart() {
   return (
     <>
       <section className="wrap p1-stats part-in">
@@ -128,7 +128,6 @@ export function ProblemPart({ onPart }) {
                 <ul className="checks next">{NOT_VALIDATED.map((v) => <li key={v}>{v}</li>)}</ul>
               </div>
             </div>
-            <button className="go" onClick={() => onPart("solutie")}>Vezi validarea soluției →</button>
             <h3 className="sub-h">Pașii următori</h3>
             <ol className="plain steps">
               {NEXT.map(([t, d], i) => <li key={t}><span className="num">{String(i + 1).padStart(2, "0")}</span><h3>{t}</h3><p>{d}</p></li>)}
