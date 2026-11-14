@@ -1,4 +1,4 @@
-/* Camera izometrică animată, folosită în M1 și pe landing page */
+/* Camera izometrică animată, folosită în M1 */
 .room svg{width:100%;height:auto;display:block;overflow:visible}
 /* intro cameră: plan (0–1s) → pereți (0.8s) → mobilă (1.3–2.8s) → lumină (2.7s) */
 .room{transition:opacity .6s ease}

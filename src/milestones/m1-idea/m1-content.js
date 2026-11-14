@@ -1,9 +1,9 @@
-// Datele din M1: echipa, problema, piața, concurența, metricile, costurile și veniturile
+// Datele din M1: echipa, problema, piața, concurența, metricile, costurile și veniturile, pașii produsului
 export const TEAM = [
   { name: "Stan Ariana-Maria", role: "AI & 3D", task: "Piesele 3D generate cu AI și datele.", mail: "ariana_maria.stan@stud.acs.upb.ro", photo: `${import.meta.env.BASE_URL}team/ariana.jpeg` },
   { name: "Ruse Teodor", role: "Developer", task: "Aplicația web și editorul de camere.", mail: "teodor.ruse@stud.acs.upb.ro", photo: `${import.meta.env.BASE_URL}team/teodor.jpeg` },
   { name: "Balint Franceska", role: "UI/UX Designer", task: "Interfața și testarea cu utilizatori.", mail: "franceska.balint@stud.acs.upb.ro", photo: `${import.meta.env.BASE_URL}team/franceska.png` },
-  { name: "Păștinică Costinela-Beatrice", role: "Marketing & Comunicare", task: "Promovarea și relația cu furnizorii.", mail: "costinela.pastinica@stud.acs.upb.ro", photo: `${import.meta.env.BASE_URL}team/beatrice.PNG` },
+  { name: "Păștinică Costinela-Beatrice", role: "Marketing & Comunicare", task: "Promovarea și relația cu furnizorii.", mail: "costinela.pastinica@stud.acs.upb.ro", photo: `${import.meta.env.BASE_URL}team/beatrice.png` },
 ];
 
 export const PROBLEMS = [
@@ -54,4 +54,11 @@ export const REVENUE = [
   ["Promovare pentru furnizori", "Furnizorii pot plăti ca produsele lor să apară evidențiate sau mai sus în căutare."],
   ["Roomio Pro", "Abonament cu randări de calitate mai bună, proiecte nelimitate și export de planuri. Gândit pentru cei care fac des randări, cum sunt designerii și arhitecții de interior."],
   ["Camere de prezentare pentru furnizori", "Furnizorii plătesc un abonament ca să afișeze în Roomio camere mobilate complet cu produsele lor. Utilizatorii le pot folosi ca inspirație sau ca punct de plecare pentru propria cameră."],
+];
+
+// pașii produsului: Design it, See it, Live it
+export const STEPS = [
+  ["Design it", "Introduci dimensiunile camerei și poziția ușilor și a ferestrelor. Poți adăuga și mobila pe care o ai deja și vrei s-o păstrezi."],
+  ["See it", "Alegi piese din cataloagele furnizorilor. Fiecare piesă 3D are dimensiunile produsului real, așa că vezi exact cât spațiu ocupă."],
+  ["Live it", "Când ești mulțumit de cameră, comanzi piesele direct din Roomio. Comanda este plasată direct la furnizorii lor."],
 ];

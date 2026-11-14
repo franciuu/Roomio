@@ -1,6 +1,6 @@
 // planul de sus din secțiunea Problema
 /* ---------- plan: canapeaua blochează ușa ---------- */
-export function Plan() {
+export function SofaDoorPlan() {
   return (
     <svg className="plan" viewBox="0 0 320 236" role="img" aria-label="Plan de sus: perete de 290 cm, canapea de 220 cm în colț și o ușă care are nevoie de 80 cm ca să se deschidă; se suprapun 10 cm">
       <g className="dim">

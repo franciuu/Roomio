@@ -1,4 +1,4 @@
-import "./room.css";
+import "./isometric-room.css";
 
 // camera izometrică animată: în M1 și pe landing page
 export const STYLES = {
@@ -144,7 +144,7 @@ function Lamp({ s }) {
   );
 }
 
-export function Room({ s }) {
+export function IsometricRoom({ s }) {
   const floor = [iso(0, 0), iso(6, 0), iso(6, 6), iso(0, 6)];
   const wallL = [iso(0, 6), iso(0, 0), iso(0, 0, 120), iso(0, 6, 120)];
   const wallR = [iso(0, 0), iso(6, 0), iso(6, 0, 120), iso(0, 0, 120)];

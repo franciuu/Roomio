@@ -1,11 +1,5 @@
-// Datele din M2: părțile paginii, întrebările din formular, rezultatele și dovezile
-// M2 are două părți, fiecare cu secțiunile ei
-export const M2_PARTS = [
-  { id: "problema", label: "Confirmarea problemei", status: "Finalizată", state: "done", sub: "35 de răspunsuri analizate", sections: [["problema", "Problema"], ["solutia", "Soluția"], ["plan", "Planul"], ["proces", "Procesul"], ["rezultate", "Rezultate"], ["impact", "Impact"], ["concluzie", "Concluzie"], ["dovezi", "Dovezi"]] },
-  { id: "solutie", label: "Validarea soluției", status: "În curs", state: "next", sub: "6 funcții testate într-un formular nou", sections: [["s-teste", "Ce testăm"], ["s-metoda", "Metoda"], ["s-masuram", "Ce măsurăm"], ["s-rezultate", "Rezultate"]] },
-];
+// Partea 1 din M2: întrebările din formular, rezultatele, concluziile și dovezile
 
-/* ---------- date M2 ---------- */
 export const Q_SCREEN = [
   "Te-ai mutat într-o locuință nouă în ultimii 2 ani?",
   "Ți-ai luat vreodată mobilă pe comandă?",
@@ -28,40 +22,6 @@ export const Q_STORY = [
   "Dacă ai mai cumpărat mobilier după aceea, ce ai făcut altfel?",
 ];
 
-// [etapă, dată, stare]
-export const PROGRESS = [
-  ["Ipoteze", "M1", "done"],
-  ["Formular: problema", "31 oct", "done"],
-  ["35 de răspunsuri", "31 oct – 2 nov", "done"],
-  ["Problema confirmată", "nov", "done"],
-  ["Formular: soluția", "în curs", "next"],
-  ["Interviuri cu prototip", "urmează", "todo"],
-  ["Customer Validation", "după validare", "todo"],
-];
-
-// partea 2: [ce am aflat în partea 1, funcția testată, întrebarea din formular]
-export const SOLUTION_TESTS = [
-  ["21 din 24 au măsurat cu ruleta", "Camera ta, la scară", "Înainte să comanzi o piesă, ai folosi o copie la scară a camerei tale ca să vezi dacă încape?"],
-  ["Doar 5 din 24 au văzut piesele în cameră înainte să cumpere", "Piese de la mai mulți furnizori, împreună", "Ți-ar fi util să vezi împreună, în aceeași cameră, piese de la magazine diferite?"],
-  ["Bugetul a fost cea mai mare dificultate pentru 5 din 24", "Costul total al camerei", "Ai vrea să vezi costul total al camerei pe măsură ce adaugi piese?"],
-  ["Pentru 3 din 24, problema a fost transportul", "Ușa și liftul, verificate", "Ar conta pentru tine să afli înainte de comandă dacă piesa trece prin ușa de la intrare și încape în lift?"],
-  ["13 din 24 au căutat mobilă două luni sau mai mult", "O singură comandă", "Ai comanda toate piesele dintr-un singur loc, chiar dacă vin de la magazine sau producători diferiți?"],
-  ["Mai mulți au ales piese după mobila pe care o aveau deja", "Mobila ta, în aceeași cameră", "Ai vrea să adaugi în aceeași cameră și mobila pe care o ai deja, ca să vezi cum se potrivește cu piesele noi?"],
-];
-
-export const SOLUTION_METHOD = [
-  ["Formularul 2", "Situații concrete, cu Da / Nu și „de ce”, fără să prezentăm Roomio. Păstrăm aceeași informare GDPR.", "în curs"],
-  ["Interviuri cu prototip", "Cei 8 respondenți care au acceptat o discuție mobilează o cameră într-un prototip.", "urmează"],
-  ["Lista de testeri", "Cei care vor să testeze primii aplicația își lasă datele de contact.", "urmează"],
-];
-
-export const SOLUTION_MEASURE = [
-  ["Câți spun Da", "La fiecare dintre cele 6 situații."],
-  ["De ce spun Nu", "Ce funcții nu interesează și de ce."],
-  ["Câți vor să testeze", "Câți își lasă datele de contact pentru testare."],
-  ["Cât ar plăti", "Ca să evite o greșeală la cumpărarea mobilei."],
-];
-
 // experiența de la care a pornit ideea
 export const STORY = [
   ["O bucătărie nouă", "Am vrut să-mi schimb complet bucătăria: gresia, mobila, tot. O schimbare radicală, nu doar câteva piese."],
@@ -70,6 +30,7 @@ export const STORY = [
   ["Restul casei", "Mi-a lipsit să pot face la fel și pentru celelalte camere."],
   ["Nu doar IKEA", "Apoi mi-am dat seama că vreau să păstrez unele piese pe care le am deja și să cumpăr mobilă și de la alte magazine."],
 ];
+
 export const STORY_END = "De aici a pornit Roomio: un singur loc în care îți proiectezi de acasă orice cameră, cu mobila pe care o ai deja și cu piese de la mai mulți furnizori.";
 
 // [ipoteză, ce a ieșit din formular]
@@ -160,7 +121,9 @@ export const NEXT = [
 
 // capturi din Google Forms; răspunsurile individuale doar de la cei care au fost de acord să apară
 export const shot = (f) => `${import.meta.env.BASE_URL}m2/${f}`;
+
 export const CHARTS = ["mutat", "comanda", "retur", "designer", "mobilat", "cauta", "varsta", "acord"];
+
 // [prenume, vârstă, ce reiese din răspuns, capturi]
 export const PEOPLE = [
   ["Mihai", "25–34", "Nu a mai cumpărat piesele de care nu era sigur", ["mihai-1", "mihai-2"]],

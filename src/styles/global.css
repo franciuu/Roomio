@@ -1,5 +1,5 @@
 /* Stilurile comune: culori, temă, bara de sus, tipografie, secțiuni și părțile unui milestone */
-@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600&family=Patrick+Hand&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap');
 /* layout: o coloană aerisită, secțiuni alternate perete/in, titluri = cerințele milestone-ului */
 /* paletă: interior minimalist — perete alb cald, gri, negru mat, stejar deschis ca singur accent */
 :root{
@@ -105,3 +105,6 @@ main section{padding-block:clamp(64px,8vw,112px)}
 @media(prefers-reduced-motion:reduce){
  html{scroll-behavior:auto}
 }
+/* conținut scalat la lățimea containerului (ScaledFrame) */
+.scaled-frame{position:relative;width:100%;max-width:100%;overflow:hidden}
+.scaled-frame>div{position:absolute;top:0;left:0;transform-origin:0 0}

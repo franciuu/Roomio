@@ -1,113 +1,11 @@
-import "./m2.css";
-import { Bars, Locked, Proof, Story } from "./components.jsx";
-import { DIFFICULTIES, FINDINGS, FUNNEL, HYPOTHESES, IMPACT, M2_PARTS, NEXT, NOT_VALIDATED, PLAN, PROCESS, PROGRESS, QUOTES, Q_SCREEN, Q_STORY, SCREEN, SOLUTION_MEASURE, SOLUTION_METHOD, SOLUTION_TESTS, VALIDATED } from "./data.js";
+// Partea 1 din M2: confirmarea problemei
+import { BarChart } from "./components/BarChart.jsx";
+import { EvidenceGallery } from "./components/EvidenceGallery.jsx";
+import { PasswordGate } from "./components/PasswordGate.jsx";
+import { ResearchStory } from "./components/ResearchStory.jsx";
+import { DIFFICULTIES, FINDINGS, FUNNEL, HYPOTHESES, IMPACT, NEXT, NOT_VALIDATED, PLAN, PROCESS, QUOTES, Q_SCREEN, Q_STORY, SCREEN, VALIDATED } from "./problem-content.js";
 
-export function M2({ part, onPart }) {
-  const done = PROGRESS.filter((p) => p[2] === "done").length;
-  return (
-    <>
-      <section id="top" className="hero-m2 wrap">
-        <p className="eyebrow">Milestone 2 · Customer Discovery</p>
-        <h1>Validarea ideii</h1>
-        <p className="lead">Am verificat întâi dacă problema pe care vrea s-o rezolve Roomio există cu adevărat. Acum verificăm dacă soluția noastră o rezolvă.</p>
-
-        <div className="progress" style={{ "--done": `${((done - 0.5) / (PROGRESS.length - 1)) * 100}%`, "--n": PROGRESS.length }}>
-          <ol className="plain">
-            {PROGRESS.map(([t, d, st]) => (
-              <li key={t} className={st}><i aria-hidden="true" /><b>{t}</b><span>{d}</span></li>
-            ))}
-          </ol>
-        </div>
-
-        <div id="parti" className="parts" role="tablist" aria-label="Părțile din M2">
-          {M2_PARTS.map((p, i) => (
-            <button key={p.id} role="tab" aria-selected={part === p.id} className="part-card" onClick={() => onPart(p.id)}>
-              <span className="part-num">Partea {i + 1}</span>
-              <b>{p.label}</b>
-              <span className={`part-status ${p.state}`}>{p.status}</span>
-              <small>{p.sub}</small>
-            </button>
-          ))}
-        </div>
-      </section>
-
-      {part === "problema" ? <M2Problem onPart={onPart} /> : <M2Solution />}
-    </>
-  );
-}
-
-function M2Solution() {
-  return (
-    <main className="part-in">
-      <section id="s-teste" className="band">
-        <div className="wrap">
-          <span className="num">01</span>
-          <h2>Ce testăm</h2>
-          <p className="intro">Pentru fiecare problemă confirmată în partea 1 am ales o funcție a soluției. În formular nu prezentăm Roomio: întrebăm despre o situație concretă în care funcția ar ajuta.</p>
-          <ol className="plain tests">
-            {SOLUTION_TESTS.map(([ev, feat, q], i) => (
-              <li key={feat} className="test">
-                <span className="test-label">Problema confirmată</span>
-                <p className="test-ev">{ev}</p>
-                <span className="test-arrow" aria-hidden="true">↓</span>
-                <span className="test-label">Funcția testată · {String(i + 1).padStart(2, "0")}</span>
-                <h3>{feat}</h3>
-                <p className="test-q">„{q}”</p>
-                <span className="part-status next">în așteptare</span>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      <section id="s-metoda">
-        <div className="wrap">
-          <span className="num">02</span>
-          <h2>Metoda</h2>
-          <ol className="plain steps">
-            {SOLUTION_METHOD.map(([t, d, st], i) => (
-              <li key={t}>
-                <span className="num">{String(i + 1).padStart(2, "0")}</span>
-                <h3>{t}</h3>
-                <p>{d}</p>
-                <span className={`part-status ${st === "în curs" ? "next" : "todo"}`}>{st}</span>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      <section id="s-masuram" className="band">
-        <div className="wrap">
-          <span className="num">03</span>
-          <h2>Ce măsurăm</h2>
-          <ul className="plain metrics">
-            {SOLUTION_MEASURE.map(([t, d]) => <li key={t}><h3>{t}</h3><p>{d}</p></li>)}
-          </ul>
-        </div>
-      </section>
-
-      <section id="s-rezultate">
-        <div className="wrap">
-          <span className="num">04</span>
-          <h2>Rezultate</h2>
-          <p className="intro">Formularul este deschis. Rezultatele apar aici după ce îl închidem și analizăm răspunsurile.</p>
-          <ul className="plain bars pending" aria-label="Rezultate în așteptare">
-            {SOLUTION_TESTS.map(([, feat]) => (
-              <li key={feat}>
-                <span className="bar-label">{feat}</span>
-                <span className="bar-track"><i /></span>
-                <span className="bar-val">–</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-    </main>
-  );
-}
-
-function M2Problem({ onPart }) {
+export function ProblemPart({ onPart }) {
   return (
     <>
       <section className="wrap p1-stats part-in">
@@ -125,7 +23,7 @@ function M2Problem({ onPart }) {
             <span className="num">01</span>
             <h2>Cum am identificat problema</h2>
             <p className="intro">Totul a pornit de la o experiență personală.</p>
-            <Story />
+            <ResearchStory />
             <div className="split2 hyp-wrap">
               <div>
                 <h3>Ce am dedus</h3>
@@ -191,11 +89,11 @@ function M2Problem({ onPart }) {
             <div className="cols2 charts">
               <div>
                 <h3 className="sub-h">Răspunsurile da / nu</h3>
-                <Bars items={SCREEN} />
+                <BarChart items={SCREEN} />
               </div>
               <div>
                 <h3 className="sub-h">Cea mai mare dificultate</h3>
-                <Bars items={DIFFICULTIES.map(([l, n]) => [l, n, 24])} />
+                <BarChart items={DIFFICULTIES.map(([l, n]) => [l, n, 24])} />
               </div>
             </div>
             <ul className="plain quotes">
@@ -243,7 +141,7 @@ function M2Problem({ onPart }) {
             <span className="num">08</span>
             <h2>Dovezi</h2>
             <p className="intro">Capturi din Google Forms. Răspunsurile individuale sunt doar de la persoane care au fost de acord să apară cu prenumele și vârsta.</p>
-            <Locked><Proof /></Locked>
+            <PasswordGate><EvidenceGallery /></PasswordGate>
           </div>
         </section>
       </main>

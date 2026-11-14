@@ -1,16 +1,15 @@
 import "./m1.css";
 import { useState, useEffect, useRef } from "react";
-import { Plan } from "./Plan.jsx";
-import { ADVANTAGES, COMPETITORS, COSTS, METRICS, PROBLEMS, REVENUE, SEGMENTS, TEAM } from "./data.js";
-import { Room, STYLES } from "../../shared/Room.jsx";
-import { reducedMotion } from "../../shared/motion.js";
-import { STEPS } from "../../shared/product.js";
+import { SofaDoorPlan } from "./components/SofaDoorPlan.jsx";
+import { ADVANTAGES, COMPETITORS, COSTS, METRICS, PROBLEMS, REVENUE, SEGMENTS, STEPS, TEAM } from "./m1-content.js";
+import { IsometricRoom, STYLES } from "../../shared/IsometricRoom.jsx";
+import { reducedMotion } from "../../shared/reducedMotion.js";
 
 /* ---------- M1 ---------- */
 const STYLE_ORDER = Object.keys(STYLES);
 const PHASES = ["Design it", "See it", "Live it"];
 
-export function M1() {
+export function M1Page() {
   const [style, setStyle] = useState("Scandinav");
   const [phase, setPhase] = useState(0);
   const [cycle, setCycle] = useState(0);
@@ -46,7 +45,7 @@ export function M1() {
           <p className="phase" aria-label="Design it. See it. Live it.">
             {PHASES.map((p, i) => <span key={p} className={i === phase ? "on" : i < phase ? "done" : ""}>{p}</span>)}
           </p>
-          <div className={`room${out ? " out" : ""}`}><Room key={cycle} s={STYLES[style]} /></div>
+          <div className={`room${out ? " out" : ""}`}><IsometricRoom key={cycle} s={STYLES[style]} /></div>
           <div className="toggle" role="group" aria-label="Alege stilul camerei">
             {STYLE_ORDER.map((k) => (
               <button key={k} onClick={() => pick(k)} aria-pressed={style === k}>{k}</button>
@@ -84,7 +83,7 @@ export function M1() {
                 {PROBLEMS.map(([t, d]) => <li key={t}><h3>{t}</h3><p>{d}</p></li>)}
               </ul>
               <figure className="plan-card">
-                <Plan />
+                <SofaDoorPlan />
                 <figcaption>Peretele are 290 cm. Canapeaua are 220 cm, iar ușa are nevoie de 80 cm ca să se deschidă. Împreună au nevoie de 300 cm, deci lipsesc 10 cm și ușa lovește canapeaua. Din fișa produsului nu ai cum să vezi asta.</figcaption>
               </figure>
             </div>

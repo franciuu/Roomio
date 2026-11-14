@@ -1,9 +1,5 @@
-// Datele din M3: părțile paginii și textele landing page-ului
-export const M3_PARTS = [
-  { id: "wireframe", label: "Wireframe", sub: "Ecranele aplicației și legăturile dintre ele", sections: [["w-ecran", "Ecranele, pe rând"], ["w-harta", "Harta ecranelor"], ["w-ecrane", "Toate ecranele"]] },
-  { id: "landing", label: "Landing page", sub: "Prezentarea Roomio pentru viitorii utilizatori", sections: [["l-link", "Landing page"], ["l-structura", "Structura"], ["l-masuram", "Indicatori"]] },
-];
-
+// Landing page-ul: adresa, structura și indicatorii extrași din formular
+export const LANDING_HREF = `${import.meta.env.BASE_URL}landing.html`;
 export const LANDING_URL = "https://franciuu.github.io/Roomio/landing.html";
 export const LANDING_PARTS = [
   ["Prima secțiune", "Propunerea de valoare, butonul de înscriere și imaginea produsului."],

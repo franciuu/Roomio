@@ -19,21 +19,19 @@
 .flow .nt{font:500 14px var(--font);fill:var(--ink)}
 
 /* ---------- rama și scalarea ---------- */
-.wf-fit{position:relative;width:100%;max-width:100%;overflow:hidden}
-.wf-fit>div{position:absolute;top:0;left:0;transform-origin:0 0}
 .wf{--ink:#2B2A28;--paper:#FFFFFF;--fill:#EEECE8;--fill2:#F7F6F3;--mute:#8A867F;--pin:#B08D62;
- width:100%;height:100%;display:flex;flex-direction:column;background:var(--paper);color:var(--ink);font-family:'Patrick Hand','Comic Sans MS',var(--font);font-size:17px;line-height:1.25;border:2px solid var(--ink);border-radius:8px;overflow:hidden}
+ width:100%;height:100%;display:flex;flex-direction:column;background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;font-size:15px;line-height:1.3;border:2px solid var(--ink);border-radius:8px;overflow:hidden}
 .wf *{box-sizing:border-box}
 .wf-chrome{display:flex;align-items:center;gap:6px;height:34px;flex:none;padding:0 12px;border-bottom:2px solid var(--ink);background:var(--fill)}
 .wf-chrome i{width:11px;height:11px;border-radius:50%;border:1.5px solid var(--ink)}
 .wf-chrome span{margin-left:12px;width:420px;padding:2px 12px;border:1.5px solid var(--ink);border-radius:99px;background:var(--paper);font-size:15px}
 .wf-page{flex:1;min-height:0;display:flex;flex-direction:column}
-.wf h4{margin:0;font-size:28px;font-weight:400}
-.wf h5{margin:0;font-size:23px;font-weight:400}
-.wf h6{margin:10px 0 0;font-size:19px;font-weight:400;display:flex;align-items:center;gap:8px;border-bottom:1.5px solid var(--ink);padding-bottom:3px}
-.wf h6.flat{border:0;margin:0;font-size:22px;padding:0}
-.wf small{font-size:15px;color:var(--mute)}
-.wf b{font-weight:400}
+.wf h4{margin:0;font-size:24px;font-weight:600;letter-spacing:-.01em}
+.wf h5{margin:0;font-size:19px;font-weight:600}
+.wf h6{margin:10px 0 0;font-size:16px;font-weight:600;display:flex;align-items:center;gap:8px;border-bottom:1.5px solid var(--ink);padding-bottom:3px}
+.wf h6.flat{border:0;margin:0;font-size:18px;padding:0}
+.wf small{font-size:13px;color:var(--mute)}
+.wf b{font-weight:600}
 
 /* elementele de bază */
 .wf-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
@@ -191,8 +189,8 @@
 .wf-room div{display:flex;flex-direction:column;line-height:1.15}
 .wf-room>b{font-size:18px}
 .wf-sec{padding-left:78px;font-size:14px!important}
-.wf-item{display:grid;grid-template-columns:46px 1fr 120px 150px 90px;align-items:center;gap:14px;padding:2px 0 2px 78px;font-size:16px}
-.wf-item b{text-align:right}
+.wf-item{display:grid;grid-template-columns:46px 1fr 120px 150px 120px;align-items:center;gap:14px;padding:2px 0 2px 78px;font-size:15px}
+.wf-item b{text-align:right;white-space:nowrap}
 .wf-item.own{color:var(--mute)}
 .wf-tag{align-self:flex-start;padding:2px 10px;border:1.5px solid var(--ink);border-radius:4px;font-size:14px}
 .wf-sup{display:flex;flex-direction:column;gap:2px;padding:7px 0;border-bottom:1.5px dashed var(--mute);font-size:16px}
@@ -204,8 +202,8 @@
 .wf-plan .p-block{fill:url(#wfHatch);stroke:var(--ink);stroke-width:2}
 .wf-plan pattern line{stroke:var(--ink);stroke-width:1.2}
 .wf-plan .p-dim{stroke:var(--mute);stroke-width:1.2}
-.wf-plan .p-dimt{font:16px 'Patrick Hand',sans-serif;fill:var(--ink);text-anchor:middle}
-.wf-plan .p-lbl{font:15px 'Patrick Hand',sans-serif;fill:var(--ink);text-anchor:middle}
+.wf-plan .p-dimt{font:16px 'Inter',system-ui,sans-serif;fill:var(--ink);text-anchor:middle}
+.wf-plan .p-lbl{font:15px 'Inter',system-ui,sans-serif;fill:var(--ink);text-anchor:middle}
 .wf-plan .p-lbl.big{font-size:22px}
 .wf-plan .p-rug{fill:none;stroke:var(--mute);stroke-width:1.5;stroke-dasharray:3 4}
 .wf-plan .p-item{fill:var(--fill);stroke:var(--ink);stroke-width:2}
@@ -215,7 +213,7 @@
 .wf-plan pattern path{stroke:var(--mute);stroke-width:1}
 .wf-plan .p-item.own{fill:var(--paper);stroke-dasharray:3 4}
 .wf-plan .p-meas{stroke:var(--ink);stroke-width:1.2;stroke-dasharray:4 3}
-.wf-plan .p-mt{font:14px 'Patrick Hand',sans-serif;fill:var(--ink);text-anchor:middle}
+.wf-plan .p-mt{font:14px 'Inter',system-ui,sans-serif;fill:var(--ink);text-anchor:middle}
 
 /* elementele explicate sub ecran: contur punctat și număr, care apar pe rând */
 .wf-hl{position:relative}
