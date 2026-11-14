@@ -1,5 +1,5 @@
 // Partea 3 din M4: user stories, cazurile de utilizare și fluxurile
-import { Placeholder } from "../components/Placeholder.jsx";
+import { Placeholder } from "../../../shared/Placeholder.jsx";
 import { USE_CASES, USER_FLOWS, USER_STORIES } from "./stories-and-flows-content.js";
 
 export function StoriesAndFlowsPart() {

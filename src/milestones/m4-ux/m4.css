@@ -1,6 +1,4 @@
 /* M4: interviuri, persona, user stories, fluxuri și wireframe-ul actualizat */
-/* câmp necompletat: indiciul, discret, subliniat punctat */
-.slot{color:var(--muted);font-style:italic;font-weight:400;text-decoration:underline dotted var(--line);text-underline-offset:4px}
 
 /* piese comune */
 .fiki .m4-sub{font-size:21px;margin:clamp(48px,6vw,72px) 0 20px}

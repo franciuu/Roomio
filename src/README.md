@@ -4,7 +4,7 @@
 src/
   main.jsx                 pornește aplicația
   app/                     layout-ul: bara de sus, navigarea între milestone-uri, tema
-  shared/                  componente folosite de mai multe milestone-uri
+  shared/                  componente folosite de mai multe milestone-uri (ex. Placeholder: câmp de completat)
   styles/global.css        culorile, tipografia și stilurile comune
   milestones/
     m1-idea/               M1: ideea, echipa, piața, modelul de business

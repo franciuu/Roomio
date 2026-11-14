@@ -1,5 +1,5 @@
 // Partea 2 din M4: persona principală, construită din interviuri
-import { Placeholder } from "../components/Placeholder.jsx";
+import { Placeholder } from "../../../shared/Placeholder.jsx";
 import { PERSONA as P } from "./persona-content.js";
 
 // [cheie, titlu, indiciu, stilul listei]

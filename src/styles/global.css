@@ -111,3 +111,5 @@ main section{padding-block:clamp(64px,8vw,112px)}
 /* conținut scalat la lățimea containerului (ScaledFrame) */
 .scaled-frame{position:relative;width:100%;max-width:100%;overflow:hidden}
 .scaled-frame>div{position:absolute;top:0;left:0;transform-origin:0 0}
+/* câmp necompletat din fișierele de texte (Placeholder): indiciul, discret, subliniat punctat */
+.slot{color:var(--muted);font-style:italic;font-weight:400;text-decoration:underline dotted var(--line);text-underline-offset:4px}

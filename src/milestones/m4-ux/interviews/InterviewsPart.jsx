@@ -1,5 +1,5 @@
 // Partea 1 din M4: interviurile, documentate, și concluziile lor
-import { Placeholder } from "../components/Placeholder.jsx";
+import { Placeholder } from "../../../shared/Placeholder.jsx";
 import { INTERVIEWS, INTERVIEW_CONCLUSIONS, INTERVIEW_GUIDE, INTERVIEW_PLAN, INTERVIEW_STATS, SCREENER, WISHES } from "./interviews-content.js";
 
 // un interviu e făcut când are cel puțin vârsta participantului
