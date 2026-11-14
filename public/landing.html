@@ -387,6 +387,35 @@ input:focus,select:focus,textarea:focus{outline:none;background:#fff;border-colo
 .q-opts .check input[type="radio"],.q-opts .check input[type="checkbox"]{width:19px;height:19px;margin-top:0}
 .field label em{font-style:normal;color:var(--ink-3);font-weight:500;margin-right:6px;font-variant-numeric:tabular-nums}
 .form-msg{font-size:16px;font-weight:600;color:var(--green);margin-top:12px;min-height:1.4em}
+.form-msg.is-error{color:#A6412B}
+.survey-thanks{text-align:center;padding:36px 24px;border:1px solid var(--sand);border-radius:10px;background:#FBF9F5;margin-top:10px}
+.survey-thanks h4{font-family:var(--serif);font-size:28px;font-weight:600;color:var(--btn);margin:0 0 10px}
+.survey-thanks p{color:var(--ink-2);font-size:17px;margin:0}
+.q-req{color:#A6412B;margin-left:4px;font-weight:700}
+.link-btn{background:none;border:0;padding:0;font:inherit;color:var(--green);text-decoration:underline;text-underline-offset:3px;cursor:pointer;font-weight:600}
+.link-btn:hover{color:var(--btn-h)}
+
+/* GDPR modal */
+.gdpr-modal{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:20px}
+.gdpr-modal[hidden]{display:none}
+.gdpr-modal__backdrop{position:absolute;inset:0;background:rgba(34,29,28,.55);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px)}
+.gdpr-modal__card{position:relative;max-width:640px;width:100%;max-height:min(84vh,760px);background:var(--paper);border:1px solid var(--sand);border-radius:12px;box-shadow:0 30px 60px -20px rgba(34,29,28,.45);display:flex;flex-direction:column;overflow:hidden}
+.gdpr-modal__head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;padding:22px 24px 14px;border-bottom:1px solid var(--sand)}
+.gdpr-modal__title{font-family:var(--serif);font-size:22px;font-weight:600;line-height:1.3;margin:0}
+.gdpr-modal__close{flex:none;width:36px;height:36px;border-radius:50%;border:1px solid var(--sand);background:#FBF9F5;font-size:22px;line-height:1;cursor:pointer;color:var(--ink);transition:background-color .15s ease,border-color .15s ease}
+.gdpr-modal__close:hover{background:#fff;border-color:var(--btn)}
+.gdpr-modal__body{padding:18px 24px 26px;overflow-y:auto;font-size:15.5px;line-height:1.55;color:var(--ink)}
+.gdpr-modal__body p{margin:0 0 12px}
+.gdpr-modal__body p:last-child{margin-bottom:0}
+.gdpr-modal__foot{padding:14px 24px 20px;border-top:1px solid var(--sand);display:flex;justify-content:flex-end}
+@media (max-width:520px){
+  .gdpr-modal{padding:12px}
+  .gdpr-modal__card{max-height:92vh}
+  .gdpr-modal__head{padding:18px 18px 12px}
+  .gdpr-modal__body{padding:14px 18px 20px;font-size:15px}
+  .gdpr-modal__foot{padding:12px 18px 16px}
+  .gdpr-modal__title{font-size:19px}
+}
 
 /* FAQ */
 .faq-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:48px}
@@ -737,7 +766,7 @@ input:focus,select:focus,textarea:focus{outline:none;background:#fff;border-colo
         <div class="signup-top">
           <p class="kicker">Aproape gata</p>
           <h3 id="h-signup">Mai avem puțin până la lansare.</h3>
-          <p>Lasă-ne emailul și îți scriem noi primii, imediat ce poți intra în aplicație. Fără spam, promitem.</p>
+          <p>Lasă-ne emailul și îți scriem noi primii, imediat ce poți intra în aplicație. Vei primi și actualizări periodice despre Roomio. Fără spam, promitem.</p>
           <form class="inline-form" data-form="notify" novalidate>
             <label class="sr-only" for="notify-email">Adresa de email</label>
             <input class="pill" id="notify-email" name="email" type="email" autocomplete="email" placeholder="nume@exemplu.ro" required>
@@ -751,12 +780,29 @@ input:focus,select:focus,textarea:focus{outline:none;background:#fff;border-colo
           <h4>O lună gratuită, pentru câteva răspunsuri</h4>
           <p>Ne ajută să construim Roomio pentru felul în care chiar îți alegi mobila.</p>
           <form class="grid-form" data-form="survey" novalidate>
-            <div class="field full">
-              <label for="s-name">Cum te cheamă?</label>
-              <input id="s-name" name="name" type="text" autocomplete="name" placeholder="Andreea" required>
+            <div class="q-sec full">
+              <h5>Informare privind protecția datelor (GDPR)</h5>
+              <p>Înainte de a răspunde, te rugăm să parcurgi informarea privind prelucrarea datelor și să confirmi câteva lucruri. <button type="button" class="link-btn" data-open-gdpr aria-haspopup="dialog" aria-controls="gdprModal">Termeni și condiții</button></p>
             </div>
+
             <div class="field full">
-              <label for="s-email">Unde îți putem scrie?</label>
+              <p class="q-title">Confirm că am cel puțin 18 ani. <span class="q-req" aria-hidden="true">*</span></p>
+              <div class="q-opts">
+                <label class="check"><input type="radio" name="q23_age" value="yes" required><span>Da, am cel puțin 18 ani.</span></label>
+                <label class="check"><input type="radio" name="q23_age" value="no"><span>Nu, am sub 18 ani.</span></label>
+              </div>
+            </div>
+
+            <div class="field full">
+              <p class="q-title">Am citit informarea de mai sus și sunt de acord cu prelucrarea datelor mele în scopul descris. <span class="q-req" aria-hidden="true">*</span></p>
+              <div class="q-opts">
+                <label class="check"><input type="radio" name="q24_consent" value="yes" required><span>Da, sunt de acord.</span></label>
+                <label class="check"><input type="radio" name="q24_consent" value="no"><span>Nu sunt de acord.</span></label>
+              </div>
+            </div>
+
+            <div class="field full">
+              <label for="s-email">Date de contact – e-mail <span class="q-hint">(Le folosim doar pentru a te contacta în legătură cu proiectul Roomio. Îți trimitem luna gratuită și actualizări periodice.)</span></label>
               <input id="s-email" name="email" type="email" autocomplete="email" placeholder="andreea@exemplu.ro" required>
             </div>
 
@@ -1018,6 +1064,11 @@ input:focus,select:focus,textarea:focus{outline:none;background:#fff;border-colo
               <p class="form-msg" role="status" aria-live="polite" data-msg="survey"></p>
             </div>
           </form>
+          <div class="survey-thanks" id="surveyThanks" hidden>
+            <h4>Mulțumim pentru răspunsuri!</h4>
+            <p>Răspunsurile tale au fost înregistrate. Ne ajută enorm să construim Roomio pe gustul tău.</p>
+          </div>
+          <iframe name="gforms-iframe" id="gforms-iframe" title="Trimitere formular" style="display:none" aria-hidden="true"></iframe>
         </div>
       </div>
     </div>
@@ -1038,6 +1089,30 @@ input:focus,select:focus,textarea:focus{outline:none;background:#fff;border-colo
     </div>
   </section>
 </main>
+
+<div class="gdpr-modal" id="gdprModal" role="dialog" aria-modal="true" aria-labelledby="gdprModalTitle" hidden>
+  <div class="gdpr-modal__backdrop" data-close-gdpr></div>
+  <div class="gdpr-modal__card">
+    <div class="gdpr-modal__head">
+      <h3 class="gdpr-modal__title" id="gdprModalTitle">Termeni și condiții – informare privind prelucrarea datelor</h3>
+      <button type="button" class="gdpr-modal__close" aria-label="Închide" data-close-gdpr>×</button>
+    </div>
+    <div class="gdpr-modal__body">
+      <p><b>Cine colectează datele:</b> echipa Roomio, studenți la Facultatea de Automatică și Calculatoare din cadrul Universității Naționale de Știință și Tehnologie POLITEHNICA București, în cadrul cursului „Inginerie aplicată în startupuri”.</p>
+      <p><b>Cine poate participa:</b> doar persoanele care au cel puțin 18 ani.</p>
+      <p><b>Scop:</b> cercetare academică despre felul în care oamenii își mobilează locuința. Datele nu sunt folosite în scop comercial și nu sunt vândute.</p>
+      <p><b>Ce date colectăm:</b> răspunsurile tale și datele de contact.</p>
+      <p><b>Cum le folosim:</b> rezultatele apar în prezentarea proiectului doar agregat sau anonimizat. Nu luăm decizii automate pe baza răspunsurilor tale.</p>
+      <p><b>Cine are acces:</b> doar membrii echipei și cadrele didactice ale cursului. Datele sunt stocate în Google Forms, serviciu oferit de Google, care poate transfera datele și în afara Uniunii Europene, cu garanțiile prevăzute de GDPR.</p>
+      <p><b>Cât le păstrăm:</b> până la finalul proiectului, cel târziu 31 octombrie 2027, după care le ștergem.</p>
+      <p><b>Drepturile tale:</b> ai dreptul de acces, rectificare, ștergere, restricționare a prelucrării și portabilitate a datelor.</p>
+      <p><b>Temei legal:</b> consimțământul tău (art. 6 alin. 1 lit. a din Regulamentul (UE) 2016/679 – GDPR). Participarea este voluntară și te poți opri oricând.</p>
+    </div>
+    <div class="gdpr-modal__foot">
+      <button type="button" class="btn btn-primary" data-close-gdpr>Am înțeles</button>
+    </div>
+  </div>
+</div>
 
 <footer class="foot">
   <div class="wrap">
@@ -1548,19 +1623,168 @@ function init(){heroSetup();heroControls();if(reduced)H.paused=true;heroGo(0)}
   });
 
   var emailOk=function(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)};
+
+  var GOOGLE_FORM_URL='https://docs.google.com/forms/d/e/1FAIpQLSexN9tyy6MRjwqFeu36i-ovzFLCXzf4cY2sVW-dFO7Y0F988A/formResponse';
+  var ANSWER_MAP={
+    q1:{entry:'entry.491879739',values:{'own':'Locuiesc în propria locuință.','rent':'Locuiesc cu chirie.','family':'Locuiesc cu familia.','new-home':'Sunt în proces de amenajare a unei locuințe noi.','other':'Altă situație.'}},
+    q2:{entry:'entry.1999505542',values:{'yes':'Da.','no':'Nu.','soon':'Nu, dar intenționez să cumpăr în viitorul apropiat.'}},
+    q3:{entry:'entry.673410662',values:{'few-year':'De câteva ori pe an.','once-year':'Aproximativ o dată pe an.','rare-years':'O dată la câțiva ani.','very-rare':'Foarte rar.','need-only':'Doar atunci când am nevoie de ceva anume.'}},
+    q4:{entry:'entry.243529317',multi:true,values:{'online':'Magazine online.','physical':'Magazine fizice.','marketplace':'Marketplace-uri (eMAG, OLX etc.).','social':'Site-uri precum Pinterest sau Instagram.','recommend':'Recomandări de la prieteni sau familie.','other':'Alte surse.'}},
+    q5:{entry:'entry.237764783',values:{'1':'Un singur magazin.','2-3':'2–3 magazine.','4-5':'4–5 magazine.','5+':'Mai mult de 5.','depends':'Depinde de produs.'}},
+    q6:{entry:'entry.1821063253',values:{'style':'Găsirea mobilierului potrivit stilului meu.','dims':'Găsirea mobilierului cu dimensiunile potrivite.','imagine':'Imaginarea modului în care va arăta mobilierul în cameră.','match':'Găsirea pieselor care se potrivesc între ele.','prices':'Compararea prețurilor, verificarea stocurilor și încadrarea în buget.','other':'Nu întâmpin dificultăți deosebite / Altceva.'}},
+    q7:{entry:'entry.874804791',values:{'yes':'Da.','no':'Nu.','unsure':'Nu sunt sigur(ă).'}},
+    q8:{entry:'entry.1994515186',values:{'manual':'Măsor camera și compar dimensiunile manual.','sketch':'Folosesc schițe sau planuri ale camerei.','imagine':'Încerc să îmi imaginez cum va arăta.','designer':'Cer ajutorul unui designer sau al unui specialist.','none':'Nu verific în mod special.','other':'Altă metodă.'}},
+    q9:{entry:'entry.2084282727',values:{'very-easy':'Foarte ușor.','easy':'Destul de ușor.','neutral':'Nici ușor, nici dificil.','hard':'Destul de dificil.','very-hard':'Foarte dificil.'}},
+    q10:{entry:'entry.502597596',text:true},
+    q11:{entry:'entry.1835604974',values:{'very':'Foarte utilă.','useful':'Utilă.','neutral':'Nici utilă, nici inutilă.','little':'Puțin utilă.','not':'Deloc utilă.'}},
+    q12:{entry:'entry.1345139667',multi:true,values:{'3d':'Construirea unei camere 3D folosind dimensiunile reale.','view':'Vizualizarea mobilierului real în propria cameră.','combine':'Alegerea și combinarea mobilierului din mai multe magazine.','dim-check':'Verificarea dimensiunilor și a potrivirii mobilierului.','info':'Informații actualizate despre prețuri, stocuri și oferte.','budget':'Calcularea costului total și gestionarea bugetului amenajării.'}},
+    q13:{entry:'entry.1324697692',multi:true,values:{'interactive':'Mod interactiv: Explorezi camera din interior și te poți deplasa virtual prin ea.','ai':'Amenajare automată cu AI: Roomio propune o amenajare completă pe baza dimensiunilor camerei, stilului și bugetului tău.','price-alert':'Alerte de preț: Primești notificări când un produs salvat se ieftinește sau intră la reducere.','price-history':'Istoric prețuri: Vezi cum a evoluat prețul unui produs în timp, sub forma unui grafic.','multi-vendor':'Același produs, mai mulți vânzători: Găsești aceeași piesă de mobilier la magazine diferite și compari ofertele.','similar':'Căutare de produse similare: Descoperi alternative apropiate ca aspect, stil, dimensiuni sau preț.'}},
+    q14:{entry:'entry.763098833',values:{'very':'Foarte important.','important':'Important.','moderate':'Moderat important.','little':'Puțin important.','not':'Deloc important.'}},
+    q15:{entry:'entry.776476676',values:{'yes':'Da.','maybe':'Poate.','no':'Nu.'}},
+    q16:{entry:'entry.26410176',values:{'each':'De fiecare dată când cumpăr mobilier.','full-room':'Când amenajez o cameră întreagă.','move':'Când mă mut într-o locuință nouă.','change':'Când vreau să schimb mobilierul existent.','inspire':'Doar pentru inspirație și idei.','no':'Probabil nu l-aș folosi.'}},
+    q17:{entry:'entry.2071423908',multi:true,values:{'complex':'Mi se pare prea complicat de utilizat.','stores':'Nu găsesc mobilierul din magazinele mele preferate.','info':'Informațiile despre prețuri și stocuri nu sunt suficient de precise.','time':'Nu am suficient timp să construiesc camera.','direct':'Prefer să caut direct pe site-urile magazinelor sau nu consider că am nevoie de o astfel de aplicație.','cost':'Costul unui abonament / Alt motiv.'}},
+    q18:{entry:'entry.864281376',values:{'very-likely':'Foarte probabil.','likely':'Probabil.','unsure':'Nu sunt sigur(ă).','unlikely':'Puțin probabil.','not-at-all':'Deloc probabil.'}},
+    q19:{entry:'entry.1430766278',values:{'desktop':'Calculator sau laptop.','phone':'Telefon.','tablet':'Tabletă.','all':'Toate, în funcție de situație.'}},
+    q20:{entry:'entry.134804754',values:{'free-only':'Nu, aș folosi doar o versiune gratuită.','if-cheap':'Da, dacă prețul este accesibil.','if-saves':'Da, dacă aplicația îmi economisește timp și bani.','unsure':'Nu sunt sigur(ă).'}},
+    q21:{entry:'entry.241578403',values:{'free':'Aș prefera să fie gratuită.','under-15':'Sub 15 lei.','15-29':'15–29 lei.','30-59':'30–59 lei.','60+':'60 lei sau mai mult.','unsure':'Nu știu încă.'}},
+    q22:{entry:'entry.2066251238',text:true},
+    email:{entry:'entry.1274048757',text:true},
+    q23_age:{entry:'entry.1594884233',values:{'yes':'Da, am cel puțin 18 ani.','no':'Nu, am sub 18 ani.'}},
+    q24_consent:{entry:'entry.424341626',values:{'yes':'Da, sunt de acord.','no':'Nu sunt de acord.'}}
+  };
+
+  function appendHidden(form,name,value){
+    var i=document.createElement('input');
+    i.type='hidden';i.name=name;i.value=value;
+    form.appendChild(i);
+  }
+
+  function submitSurveyToGoogle(sourceForm){
+    var hidden=document.createElement('form');
+    hidden.method='POST';
+    hidden.action=GOOGLE_FORM_URL;
+    hidden.target='gforms-iframe';
+    hidden.style.display='none';
+    appendHidden(hidden,'fvv','1');
+    appendHidden(hidden,'pageHistory','0,1,2,3,4');
+    appendHidden(hidden,'fbzx','0');
+    Object.keys(ANSWER_MAP).forEach(function(qName){
+      var cfg=ANSWER_MAP[qName];
+      if(cfg.text){
+        var ta=sourceForm.querySelector('[name="'+qName+'"]');
+        if(ta&&ta.value.trim())appendHidden(hidden,cfg.entry,ta.value);
+      }else if(cfg.multi){
+        sourceForm.querySelectorAll('input[name="'+qName+'"]:checked').forEach(function(c){
+          var v=cfg.values[c.value];if(v)appendHidden(hidden,cfg.entry,v);
+        });
+      }else{
+        var sel=sourceForm.querySelector('input[name="'+qName+'"]:checked');
+        if(sel){var v=cfg.values[sel.value];if(v)appendHidden(hidden,cfg.entry,v);}
+      }
+    });
+    document.body.appendChild(hidden);
+    hidden.submit();
+    setTimeout(function(){hidden.remove();},200);
+  }
+
+  function submitNotifyToGoogle(emailValue){
+    var hidden=document.createElement('form');
+    hidden.method='POST';
+    hidden.action=GOOGLE_FORM_URL;
+    hidden.target='gforms-iframe';
+    hidden.style.display='none';
+    appendHidden(hidden,'fvv','1');
+    appendHidden(hidden,'pageHistory','0,1,2,3,4');
+    appendHidden(hidden,'fbzx','0');
+    appendHidden(hidden,'entry.1274048757',emailValue);
+    document.body.appendChild(hidden);
+    hidden.submit();
+    setTimeout(function(){hidden.remove();},200);
+  }
+
+  var pendingSubmit=null;
+  var surveyIframe=document.getElementById('gforms-iframe');
+  var surveyThanks=document.getElementById('surveyThanks');
+  if(surveyIframe){
+    surveyIframe.addEventListener('load',function(){
+      if(!pendingSubmit)return;
+      var key=pendingSubmit;
+      pendingSubmit=null;
+      if(key==='survey'){
+        var surveyForm=document.querySelector('form[data-form="survey"]');
+        if(surveyForm)surveyForm.hidden=true;
+        if(surveyThanks){
+          surveyThanks.hidden=false;
+          surveyThanks.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});
+        }
+      }else if(key==='notify'){
+        var notifyForm=document.querySelector('form[data-form="notify"]');
+        var notifyMsg=document.querySelector('[data-msg="notify"]');
+        if(notifyMsg){notifyMsg.classList.remove('is-error');notifyMsg.textContent='Mulțumim! Te anunțăm imediat ce putem.';}
+        if(notifyForm){
+          notifyForm.reset();
+          var btn=notifyForm.querySelector('button[type="submit"]');
+          if(btn){btn.disabled=false;btn.textContent='Anunță-mă';}
+        }
+      }
+    });
+  }
+
   document.querySelectorAll('form[data-form]').forEach(function(f){
     f.addEventListener('submit',function(e){
       e.preventDefault();
       var key=f.getAttribute('data-form');
       var msg=document.querySelector('[data-msg="'+key+'"]');
+      var setError=function(text,focusEl){msg.classList.add('is-error');msg.textContent=text;if(focusEl)focusEl.focus();};
+      msg.classList.remove('is-error');
       var email=f.querySelector('input[type=email]');
-      if(!emailOk(email.value.trim())){msg.textContent='Te rugăm să introduci o adresă de email validă.';email.focus();return;}
-      var consent=f.querySelector('input[name=consent]');
-      if(consent&&!consent.checked){msg.textContent='Te rugăm să bifezi acordul pentru a continua.';consent.focus();return;}
-      msg.textContent=key==='notify'?'Mulțumim! Te anunțăm la lansare.':'Mulțumim! Am primit răspunsurile tale și revenim pe email.';
-      f.reset();
+      if(email&&!emailOk(email.value.trim())){setError('Te rugăm să introduci o adresă de email validă.',email);return;}
+      if(key==='survey'){
+        var age=f.querySelector('input[name=q23_age]:checked');
+        if(!age){setError('Te rugăm să confirmi că ai cel puțin 18 ani.',f.querySelector('input[name=q23_age]'));return;}
+        if(age.value==='no'){setError('Ne pare rău, chestionarul este destinat persoanelor de cel puțin 18 ani.');return;}
+        var dataConsent=f.querySelector('input[name=q24_consent]:checked');
+        if(!dataConsent){setError('Te rugăm să confirmi că ești de acord cu prelucrarea datelor.',f.querySelector('input[name=q24_consent]'));return;}
+        if(dataConsent.value==='no'){setError('Fără acordul tău pentru prelucrarea datelor nu putem înregistra răspunsurile. Mulțumim pentru timp.');return;}
+        var submitBtn=f.querySelector('button[type="submit"]');
+        if(submitBtn){submitBtn.disabled=true;submitBtn.textContent='Se trimite…';}
+        msg.textContent='Trimitem răspunsurile tale…';
+        pendingSubmit='survey';
+        submitSurveyToGoogle(f);
+        return;
+      }
+      if(key==='notify'){
+        var notifyBtn=f.querySelector('button[type="submit"]');
+        if(notifyBtn){notifyBtn.disabled=true;notifyBtn.textContent='Se trimite…';}
+        msg.textContent='Te înscriem pentru notificări…';
+        pendingSubmit='notify';
+        submitNotifyToGoogle(email.value.trim());
+        return;
+      }
     });
   });
+
+  (function(){
+    var modal=document.getElementById('gdprModal');
+    if(!modal)return;
+    var lastFocus=null;
+    function openModal(e){
+      if(e)e.preventDefault();
+      lastFocus=document.activeElement;
+      modal.hidden=false;
+      document.body.style.overflow='hidden';
+      var closeBtn=modal.querySelector('.gdpr-modal__close');
+      if(closeBtn)closeBtn.focus();
+    }
+    function closeModal(){
+      modal.hidden=true;
+      document.body.style.overflow='';
+      if(lastFocus&&typeof lastFocus.focus==='function')lastFocus.focus();
+    }
+    document.querySelectorAll('[data-open-gdpr]').forEach(function(b){b.addEventListener('click',openModal)});
+    modal.querySelectorAll('[data-close-gdpr]').forEach(function(b){b.addEventListener('click',closeModal)});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)closeModal();});
+  })();
 
   var links=[].slice.call(document.querySelectorAll('.nav a'));
   if('IntersectionObserver' in window){
