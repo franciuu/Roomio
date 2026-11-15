@@ -27,6 +27,7 @@ export const PERSONA = {
     "Să vadă camera completă, cu piese de la magazine diferite.",
     "Să potrivească piesele noi cu mobila pe care o are deja.",
     "Să se încadreze în buget și să termine mai repede căutarea.",
+    "Să poată folosi camera după ce o mobilează, nu doar să încapă piesele.",
   ],
   frustrations: [
     "Dimensiunile de pe site nu-i spun dacă piesa chiar încape sau trece pe ușă.",
@@ -34,16 +35,18 @@ export const PERSONA = {
     "Culorile și nuanțele nu se potrivesc între magazine.",
     "Un retur o costă timp și bani.",
     "Magazinele nu spun clar dacă piesa e în stoc și când ajunge.",
+    "În poze, piesele arată altfel decât acasă.",
   ],
   habits: [
     "Măsoară cu ruleta și compară cu dimensiunile de pe site.",
     "Caută pe mai multe site-uri și compară întâi prețul.",
     "Pornește de la culorile camerei și se inspiră de pe Pinterest.",
     "Cere părerea altor persoane când nu e sigură.",
+    "După ce vede multă mobilă online, se hotărăște uneori din impuls.",
   ],
   tools: [
     "Site-uri de mobilă: IKEA, Dedeman, Favi, OLX",
-    "Pinterest, pentru inspirație",
+    "Pinterest, YouTube și Reddit, pentru inspirație",
     "Magazinele fizice, ca să vadă piesele",
     "Ruleta",
   ],

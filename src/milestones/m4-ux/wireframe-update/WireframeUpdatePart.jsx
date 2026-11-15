@@ -75,6 +75,12 @@ export function WireframeUpdatePart() {
                 </li>
               ))}
             </ol>
+            {s.note && (
+              <aside className="m4-wf-obs">
+                <span className="m4-label">Observație</span>
+                <p><b>{s.note[0]}.</b> {s.note[1]} <span className="m4-src">{s.note[2]}</span></p>
+              </aside>
+            )}
           </div>
         </div>
       </section>

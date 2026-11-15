@@ -115,7 +115,7 @@ export function InterviewsPart() {
           <ol className="plain m4-conclusions">
             {INTERVIEW_CONCLUSIONS.map(([t, d], i) => (
               <li key={i}>
-                <span className="m4-tag">C{i + 1}</span>
+                <span className="m4-tag">Concluzia {i + 1}</span>
                 <Placeholder as="h3" v={t} hint={`Concluzia ${i + 1}`} />
                 <Placeholder as="p" v={d} hint="Pe scurt" />
               </li>

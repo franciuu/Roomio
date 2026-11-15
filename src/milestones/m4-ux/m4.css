@@ -158,3 +158,18 @@
 .fiki .m4-proof-link{font-size:18px;font-weight:500;color:var(--wood);text-decoration:none}
 .fiki .m4-proof-link:hover{text-decoration:underline}
 .fiki .m4-proof p{margin:0;color:var(--muted);font-size:15px}
+
+/* wireframe M4: spațiul de deschidere al ușilor, desenat ca un sfert de cerc */
+.wf-legend i.swing{border-style:dashed;border-radius:0 100% 0 0;background:transparent}
+.wf-legend .wf-hl{display:flex}
+
+/* observație sub ecranul din wireframe (o funcție viitoare, nedesenată) */
+.m4-wf-obs{display:grid;gap:6px;margin-top:22px;padding:16px 20px;border-left:3px solid var(--wood);background:var(--surface);border-radius:0 10px 10px 0}
+.fiki .m4-wf-obs p{margin:0;font-size:15.5px}
+
+/* fluxul alternativ din cazurile de utilizare e propus de echipă, nu vine din interviuri */
+.m4-alt{display:grid;gap:8px;padding:14px 16px;border:1px dashed var(--line);border-radius:10px}
+.m4-alt-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.m4-alt-head .m4-label{margin:0}
+.fiki .m4-alt p{margin:0;font-size:15px;line-height:1.5}
+.m4-team{display:inline-flex;align-items:center;height:22px;padding:0 9px;border-radius:99px;background:var(--wood-soft);color:var(--wood);font-size:12px;font-weight:600;white-space:nowrap}

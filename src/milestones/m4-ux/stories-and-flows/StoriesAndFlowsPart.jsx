@@ -14,8 +14,8 @@ export function StoriesAndFlowsPart() {
             {USER_STORIES.map((s) => (
               <li key={s.id} className="m4-story-card">
                 <header>
-                  <span className="m4-tag">{s.id}</span>
-                  <Placeholder className={`m4-prio${s.priority.startsWith("2") ? " all" : ""}`} v={s.priority} hint="prioritate" />
+                  <span className="m4-tag">{s.id.replace("US", "User story ")}</span>
+                  <Placeholder className="m4-prio" v={s.priority} hint="prioritate" />
                 </header>
                 <p className="m4-story">
                   Ca <b><Placeholder v={s.role} hint="rol" /></b>, vreau <b><Placeholder v={s.want} hint="acțiune" /></b>, ca să <Placeholder v={s.benefit} hint="beneficiu" />.
@@ -34,11 +34,11 @@ export function StoriesAndFlowsPart() {
         <div className="wrap">
           <span className="num">02</span>
           <h2>Cazuri de utilizare</h2>
-          <p className="intro">Ce face utilizatorul în aplicație, pas cu pas, așa cum au descris participanții.</p>
+          <p className="intro">Ce face utilizatorul în aplicație, pas cu pas, așa cum au descris participanții. Fluxul alternativ, adică ce se întâmplă când ceva nu merge, nu vine din interviuri: îl propunem noi, echipa.</p>
           <div className="m4-cases">
             {USE_CASES.map((u) => u.name ? (
               <article key={u.id} className="m4-case">
-                <span className="m4-tag">{u.id}</span>
+                <span className="m4-tag">{u.id.replace("UC", "Use case ")}</span>
                 <h3>{u.name}</h3>
                 <dl className="m4-meta">
                   <div><dt>Actor</dt><dd>{u.actor}</dd></div>
@@ -48,11 +48,14 @@ export function StoriesAndFlowsPart() {
                 <ol className="m4-steps">{u.steps.map((x, i) => <li key={i}><Placeholder v={x} hint={`Pasul ${i + 1}`} /></li>)}</ol>
                 <dl className="m4-meta">
                   <div><dt>Rezultat</dt><dd>{u.result}</dd></div>
-                  <div><dt>Alternativ</dt><Placeholder as="dd" v={u.alt} hint="ce se întâmplă dacă ceva nu merge" /></div>
                 </dl>
+                <div className="m4-alt">
+                  <div className="m4-alt-head"><span className="m4-label">Flux alternativ</span><span className="m4-team">Propus de echipă</span></div>
+                  <Placeholder as="p" v={u.alt} hint="ce se întâmplă dacă ceva nu merge" />
+                </div>
               </article>
             ) : (
-              <div key={u.id} className="m4-empty"><b>{u.id}</b><span className="slot">Un caz de utilizare nou.</span></div>
+              <div key={u.id} className="m4-empty"><b>{u.id.replace("UC", "Use case ")}</b><span className="slot">Un caz de utilizare nou.</span></div>
             ))}
           </div>
         </div>

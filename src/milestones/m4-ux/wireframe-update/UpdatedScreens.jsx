@@ -20,6 +20,11 @@ const SCREENS = {
       <div className="wf-sub"><RoomBar mode="build" /></div>
       <div className="wf-cols build">
         <aside className="wf-panel">
+          <Mark n={2} className="wf-stack">
+            <div className="wf-row between"><h6>Pornește mai repede</h6><span className="wf-tag">Funcție viitoare</span></div>
+            <Btn>Scanează camera cu telefonul</Btn>
+            <small>Sau completează de mână dimensiunile de mai jos.</small>
+          </Mark>
           <div className="wf-stack">
             <h6>Tipul și numele</h6>
             <div className="wf-row"><Field l="Tipul camerei" v="Tip ▾" /><Field l="Numele camerei" v="Camera 1" /></div>
@@ -95,7 +100,7 @@ const SCREENS = {
           <span className="wf-compass">N</span>
           <span className="wf-otb"><span>L × l</span><span>↺</span><span>↻</span><span>⌫</span></span>
           <RoomPlan furnish />
-          <div className="wf-legend"><span><i className="fit" />Încape</span><span><i className="clash" />Nu încape</span><span><i className="own" />Mobilier existent</span></div>
+          <div className="wf-legend"><span><i className="fit" />Încape</span><span><i className="clash" />Nu încape</span><span><i className="own" />Mobilier existent</span><Mark n={4}><span><i className="swing" />Spațiu de deschidere</span></Mark></div>
           <small className="wf-hint corner">Click dreapta pe o piesă: opțiuni · R: rotire · Q, E: vedere</small>
         </div>
         <aside className="wf-panel">
@@ -111,6 +116,7 @@ const SCREENS = {
             </Mark>
             <div className="wf-vrow"><span>Locul din cameră</span><Verdict v="fit">Încape</Verdict></div>
             <Mark n={3}><div className="wf-vrow"><span>Drumul până în cameră</span><Verdict v="fit">Trece</Verdict></div></Mark>
+            <Mark n={4}><div className="wf-vrow"><span>Ușile se deschid</span><Verdict v="clash">Pe jumătate</Verdict></div></Mark>
             <small>Distanța până la cea mai apropiată piesă.</small>
             <dl className="wf-kv"><dt>Lățime</dt><dd>— cm</dd><dt>Adâncime</dt><dd>— cm</dd><dt>Înălțime</dt><dd>— cm</dd><dt>Rotație</dt><dd>↺ 0° ↻</dd></dl>
           </div>
@@ -146,24 +152,35 @@ const SCREENS = {
           </Mark>
         </aside>
         <div className="wf-main">
-          <div className="wf-row between"><div className="wf-search wide">⌕ Caută după nume, furnizor sau tip</div><div className="wf-row"><small>Doar ce încape</small><Switch /></div></div>
+          <div className="wf-row between"><div className="wf-search wide">⌕ Caută după nume, furnizor sau tip</div><div className="wf-row"><small>Doar ce încape</small><Switch /><Mark n={4} className="wf-row"><small>Doar ce e în stoc</small><Switch /></Mark></div></div>
           <div className="wf-ctx"><span>Verdict pentru <b>Camera 1, locul ales</b>: spațiul liber</span><small>N piese</small></div>
           <div className="wf-grid3">
             {[["fit", "x cm liberi"], ["fit", "x cm liberi"], ["clash", "lipsesc x cm"], ["fit", "x cm liberi", true], ["clash", "lipsesc x cm"], ["fit", "x cm liberi"]].map(([v, t, sel], i) => (
-              <div key={i} className={`wf-pc${sel ? " sel" : ""}${v === "clash" ? " dim" : ""}`}><Img h={92} /><b>Nume piesă</b><div className="wf-row between"><small>preț</small><Verdict v={v}>{t}</Verdict></div></div>
+              <div key={i} className={`wf-pc${sel ? " sel" : ""}${v === "clash" ? " dim" : ""}`}><Img h={92} /><b>Nume piesă</b><small>în stoc · N zile</small><div className="wf-row between"><small>preț</small><Verdict v={v}>{t}</Verdict></div></div>
             ))}
           </div>
         </div>
         <aside className="wf-panel">
           <div className="wf-stack">
-            <Img h={170} label="model 3D" />
+            <Img h={130} label="model 3D" />
             <small>Furnizor · tip</small>
             <h6 className="flat">Nume piesă</h6>
-            <span>Preț</span>
-            <dl className="wf-kv"><dt>Dimensiuni</dt><dd>L × l × Î</dd><dt>Potrivită pentru</dt><dd>tipuri de camere</dd></dl>
-            <Mark n={3} className="wf-stack">
+            <Mark n={4}><div className="wf-vrow"><span>În stoc</span><small>ajunge în N zile</small></div></Mark>
+          </div>
+          <Mark n={5} className="wf-stack">
+            <h6>Unde o găsești</h6>
+            <small>De la cel mai mic preț</small>
+            {["Furnizor 1", "Furnizor 2", "Furnizor 3"].map((f) => <div key={f} className="wf-vrow"><span>{f}</span><b>preț</b></div>)}
+          </Mark>
+          <div className="wf-stack">
+            <h6>Dimensiuni</h6>
+            <dl className="wf-kv"><dt>Piesa montată</dt><dd>L × l × Î</dd><dt>Potrivită pentru</dt><dd>tipuri de camere</dd></dl>
+            <Mark n={3}>
               <dl className="wf-kv"><dt>Colete</dt><dd>N</dd><dt>Cel mai mare</dt><dd>L × l × Î</dd><dt>Greutate</dt><dd>— kg</dd></dl>
             </Mark>
+          </div>
+          <div className="wf-stack">
+            <h6>Verificare</h6>
             <div className="wf-vrow"><span>Locul ales</span><Verdict v="fit">Încape</Verdict></div>
             <div className="wf-vrow"><span>Drumul până în cameră</span><Verdict v="fit">Trece</Verdict></div>
           </div>
