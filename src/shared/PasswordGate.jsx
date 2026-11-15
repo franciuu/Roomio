@@ -7,7 +7,7 @@ const sha256 = async (text) => {
   return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, "0")).join("");
 };
 
-export function PasswordGate({ children }) {
+export function PasswordGate({ children, id = "proof-pass", label = "Parola pentru dovezi" }) {
   const [open, setOpen] = useState(false);
   const [pass, setPass] = useState("");
   const [wrong, setWrong] = useState(false);
@@ -19,9 +19,9 @@ export function PasswordGate({ children }) {
   if (open) return children;
   return (
     <form className="lock" onSubmit={unlock}>
-      <label htmlFor="proof-pass">Parola pentru dovezi</label>
+      <label htmlFor={id}>{label}</label>
       <div>
-        <input id="proof-pass" type="password" value={pass} onChange={(e) => { setPass(e.target.value); setWrong(false); }} autoComplete="off" />
+        <input id={id} type="password" value={pass} onChange={(e) => { setPass(e.target.value); setWrong(false); }} autoComplete="off" />
         <button type="submit">Deschide</button>
       </div>
       {wrong && <p className="lock-err">Parola nu este corectă.</p>}

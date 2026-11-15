@@ -33,6 +33,7 @@ export const PERSONA = {
     "Nu poate vedea împreună piese de la magazine diferite.",
     "Culorile și nuanțele nu se potrivesc între magazine.",
     "Un retur o costă timp și bani.",
+    "Magazinele nu spun clar dacă piesa e în stoc și când ajunge.",
   ],
   habits: [
     "Măsoară cu ruleta și compară cu dimensiunile de pe site.",

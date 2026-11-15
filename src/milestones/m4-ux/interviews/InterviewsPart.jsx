@@ -1,6 +1,7 @@
 // Partea 1 din M4: interviurile, documentate, și concluziile lor
 import { Placeholder } from "../../../shared/Placeholder.jsx";
-import { INTERVIEWS, INTERVIEW_CONCLUSIONS, INTERVIEW_GUIDE, INTERVIEW_PLAN, INTERVIEW_STATS, SCREENER, WISHES } from "./interviews-content.js";
+import { PasswordGate } from "../../../shared/PasswordGate.jsx";
+import { INTERVIEWS, INTERVIEW_CONCLUSIONS, INTERVIEW_GUIDE, INTERVIEW_PLAN, INTERVIEW_STATS, PROOF_DRIVE_URL, SCREENER, WISHES } from "./interviews-content.js";
 
 // un interviu e făcut când are cel puțin vârsta participantului
 const done = (p) => Boolean(p.age);
@@ -17,7 +18,6 @@ function Person({ p }) {
         <ul className="plain m4-chips">
           <li>{p.duration}</li>
           <li><Placeholder v={p.date} hint="data" /></li>
-          <li><Placeholder v={p.place} hint="locul" /></li>
         </ul>
       </header>
       <p className="m4-person-sit">{p.situation}</p>
@@ -67,7 +67,7 @@ export function InterviewsPart() {
         <div className="wrap">
           <span className="num">03</span>
           <h2>Participanții și ce am aflat</h2>
-          <p className="intro">Cine sunt participantele, ce am aflat de la fiecare și o frază din interviu.</p>
+          <p className="intro">Cine sunt participanții, ce am aflat de la fiecare și o frază din interviu.</p>
           <div className="m4-people">
             {INTERVIEWS.map((p, i) => done(p)
               ? <Person key={i} p={p} />
@@ -95,7 +95,7 @@ export function InterviewsPart() {
         <div className="wrap">
           <span className="num">04</span>
           <h2>Ce își doresc de la o aplicație</h2>
-          <p className="intro">Ce au răspuns participantele când le-am întrebat de ce ar avea nevoie de la o aplicație. Cele cerute de amândouă sunt evidențiate.</p>
+          <p className="intro">Ce au răspuns participanții când i-am întrebat de ce ar avea nevoie de la o aplicație. Cele cerute de mai mulți sunt evidențiate.</p>
           <ul className="plain m4-wishes">
             {WISHES.map(([w, who]) => (
               <li key={w} className={who.length > 1 ? "all" : ""}>
@@ -121,6 +121,23 @@ export function InterviewsPart() {
               </li>
             ))}
           </ol>
+        </div>
+      </section>
+
+      <section id="i-dovezi">
+        <div className="wrap">
+          <span className="num">06</span>
+          <h2>Dovezi</h2>
+          <p className="intro">Înregistrările și transcrierile interviurilor sunt într-un folder de Google Drive. După ce introduci parola, apare linkul către folder și îl poți deschide.</p>
+          <PasswordGate id="m4-proof-pass">
+            <div className="m4-proof">
+              <span className="m4-label">Folderul cu dovezi</span>
+              {PROOF_DRIVE_URL
+                ? <a className="m4-proof-link" href={PROOF_DRIVE_URL} target="_blank" rel="noopener">Deschide folderul de Google Drive ↗</a>
+                : <span className="slot">Linkul către folderul de Google Drive</span>}
+              <p>Conține înregistrările audio și transcrierile tuturor interviurilor.</p>
+            </div>
+          </PasswordGate>
         </div>
       </section>
     </main>

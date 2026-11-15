@@ -4,9 +4,9 @@
 // [etichetă, valoare, indiciu]
 export const INTERVIEW_PLAN = [
   ["Obiectivul", "Să aflăm cum a decurs ultima amenajare a unei camere și ce ar avea nevoie participanții de la o aplicație ca Roomio.", "Ce vrem să aflăm din interviuri."],
-  ["Participanții", "Amândouă au mobilat sau renovat o cameră în ultimii doi ani și au căutat mobilier în ultima lună.", "Cine sunt și de ce fac parte din segmentul principal."],
-  ["Locul și formatul", "Apel Google, doar audio, înregistrat.", "Unde și cum au avut loc interviurile."],
-  ["Durata", "Între 15 și 20 de minute.", "Cât a durat, în medie, un interviu."],
+  ["Participanții", "Toți trei au mobilat sau renovat o cameră în ultimii doi ani și au căutat mobilier în ultima lună.", "Cine sunt și de ce fac parte din segmentul principal."],
+  ["Locul și formatul", "Interviuri înregistrate audio: două apeluri Google (A. și I.) și unul înregistrat de Franceska (An.).", "Unde și cum au avut loc interviurile."],
+  ["Durata", "Între 7 și 20 de minute.", "Cât a durat, în medie, un interviu."],
 ];
 
 // întrebările puse în interviuri, în ordinea lor; [temă, întrebări]
@@ -24,7 +24,7 @@ export const INTERVIEW_GUIDE = [
     "Cum ai decis ce mobilier să alegi?",
     "Cum ai comparat piesele găsite în magazine diferite?",
     "Cum ai verificat dacă piesele încap în spațiu? Ce ai folosit concret?",
-    "Ce ai făcut când nu erai sigură dacă două piese se potrivesc între ele?",
+    "Ce ai făcut când nu erai sigur(ă) dacă două piese se potrivesc între ele?",
     "Care a fost cea mai mare dificultate întâmpinată?",
     "Cum ai gestionat momentul?",
     "Cât te-a costat rezolvarea problemei, în timp sau bani?",
@@ -33,8 +33,8 @@ export const INTERVIEW_GUIDE = [
   ]],
   ["Despre participant și Roomio", [
     "Ce vârstă ai?",
-    "Cât de familiarizată ești cu tehnologia?",
-    "Locuiești singură, cu familia sau cu partenerul? Stai în chirie?",
+    "Cât de familiarizat(ă) ești cu tehnologia?",
+    "Locuiești singur(ă), cu familia sau cu partenerul? Stai în chirie?",
     "Ce ai avea nevoie de la o aplicație care să răspundă problemelor tale?",
     "Care ar fi funcționalitățile ei principale?",
     "Ți se pare greu să găsești mobilă? De ce?",
@@ -47,7 +47,7 @@ export const INTERVIEWS = [
   {
     name: "A.", age: "24 de ani", job: "", tech: "tehnologie: 10 din 10",
     situation: "Locuiește singură, în apartamentul ei. A mobilat dormitorul de la zero.",
-    date: "", place: "", duration: "15 minute",
+    date: "14 noiembrie 2026", duration: "15 minute",
     findings: [
       "A verificat dimensiunile doar cu ruleta, apoi cu rigla, când ruleta s-a stricat.",
       "A comparat piesele pe mai multe site-uri: întâi prețul, apoi materialul.",
@@ -61,7 +61,7 @@ export const INTERVIEWS = [
   {
     name: "I.", age: "28 de ani", job: "", tech: "folosește multe aplicații",
     situation: "Locuiește cu partenerul și nu stă în chirie. Acum un an și jumătate a renovat de la zero o sufragerie de circa 10 m², cu balcon. Renovează des.",
-    date: "", place: "", duration: "20 de minute",
+    date: "14 noiembrie 2026", duration: "20 de minute",
     findings: [
       "A trebuit să încadreze în cameră două fotolii și o bibliotecă pe care le avea deja.",
       "A văzut peste 50 de canapele în magazine, iar biroul l-a ales fără să măsoare locul din cameră.",
@@ -73,36 +73,48 @@ export const INTERVIEWS = [
     quote: "Poate dimensiunile pe hârtie ți se potrivesc, dar la fața locului realizezi că unghiurile nu te ajută.",
   },
   {
-    name: "", age: "", job: "", tech: "", situation: "", date: "", place: "", duration: "",
-    findings: ["", "", ""],
-    quote: "",
+    name: "An.", age: "32 de ani", job: "", tech: "interviu luat de Franceska",
+    situation: "Locuiește singur, în apartamentul lui, în care s-a mutat în ultimii doi ani. Ultima amenajare a fost bucătăria, cu mobilă pe comandă, împreună cu un arhitect.",
+    date: "15 noiembrie 2026", duration: "7 minute",
+    findings: [
+      "Pereții au rămas strâmbi după renovare, așa că măsurătorile au ieșit greșit și mobila pe comandă a trebuit ajustată la fața locului.",
+      "Masa, scaunele și alte piese care nu se fac pe comandă le-a căutat online, cu măsurători și calcule complicate ca să vadă ce încape în spațiul rămas.",
+      "Multe magazine online nu spun nimic despre stoc sau data livrării; unele piese le-a așteptat una-două luni.",
+      "Arhitectul a ales piesele și a verificat dacă încap; culorile le-au negociat împreună cu cei care au făcut mobila.",
+      "Nu toate site-urile au filtre după dimensiuni.",
+      "Și-ar dori o aplicație cu toată mobila, în care să caute după cuvinte-cheie și să vadă piesa în 3D, direct în cameră, prin camera telefonului.",
+    ],
+    quote: "M-ar ajuta pentru calcularea spațiului mult mai mult decât măsurarea clasică.",
   },
 ];
 
 // cifrele care ies în evidență; [valoare, ce înseamnă]
 export const INTERVIEW_STATS = [
-  ["2 din 2", "au verificat dimensiunile cu ruleta"],
+  ["3 din 3", "au măsurat de mână spațiul sau mobila"],
   ["6 luni", "de când A. caută un birou potrivit"],
   ["50+", "canapele văzute de I. în magazine"],
-  ["2–3 săptămâni", "a căutat I. mobilierul pentru sufragerie"],
+  ["1–2 luni", "a așteptat An. unele piese, fără să știe când ajung"],
 ];
 
-// răspunsurile la întrebările da / nu; [întrebare, răspunsuri în ordinea participantelor, notă]
+// răspunsurile la întrebările da / nu; [întrebare, răspunsuri în ordinea participanților, notă]
 export const SCREENER = [
-  ["S-a mutat într-o locuință nouă în ultimii doi ani", ["Da", "Nu"]],
-  ["Și-a luat vreodată mobilă pe comandă", ["Nu", "Da"], "A. a povestit apoi o comandă la producător, de acum mai bine de doi ani."],
-  ["A returnat o piesă care nu se potrivea", ["Nu", "Da"]],
-  ["A plătit un designer sau un proiect 3D", ["Nu", "Nu"]],
-  ["A mobilat sau renovat o cameră în ultimii doi ani", ["Da", "Da"]],
-  ["A căutat mobilier în ultima lună", ["Da", "Da"]],
+  ["S-a mutat într-o locuință nouă în ultimii doi ani", ["Da", "Nu", "Da"]],
+  ["Și-a luat vreodată mobilă pe comandă", ["Nu", "Da", "Da"], "A. a povestit apoi o comandă la producător, de acum mai bine de doi ani."],
+  ["A returnat o piesă care nu se potrivea", ["Nu", "Da", "—"], "An. a primit întrebarea împreună cu cea despre mobila pe comandă și nu a răspuns clar."],
+  ["A plătit un designer sau un proiect 3D", ["Nu", "Nu", "Da"], "An. a lucrat cu un arhitect, care a făcut și designul interior."],
+  ["A mobilat sau renovat o cameră în ultimii doi ani", ["Da", "Da", "Da"]],
+  ["A căutat mobilier în ultima lună", ["Da", "Da", "Da"]],
 ];
 
-// ce și-ar dori de la o aplicație, spus de ele; [dorință, cine a spus-o]
+// ce și-ar dori de la o aplicație, spus de participanți; [dorință, cine a spus-o]
 export const WISHES = [
-  ["Să vadă cum arată și dacă încape piesa în camera ei", ["A.", "I."]],
+  ["Să vadă cum arată și dacă încape piesa în cameră", ["A.", "I.", "An."]],
+  ["Să vadă piesa în 3D direct în cameră, prin camera telefonului", ["An."]],
   ["Să pornească de la o poză, o scanare sau planul camerei", ["A.", "I."]],
   ["Să adauge o piesă găsită, cu poza și dimensiunile ei", ["I."]],
-  ["Să filtreze produsele după dimensiuni și culoare", ["I."]],
+  ["Să filtreze produsele după dimensiuni", ["I.", "An."]],
+  ["Să filtreze produsele după culoare", ["I."]],
+  ["Să găsească toată mobila într-un singur loc și să caute după cuvinte-cheie", ["An."]],
   ["Să măsoare mobila și spațiul din aplicație", ["A."]],
   ["Să mute și să rotească piesele în 3D", ["A."]],
   ["Să fie ușor de folosit", ["A."]],
@@ -110,11 +122,14 @@ export const WISHES = [
   ["Să nu inventeze lucruri care nu există", ["A."]],
 ];
 
+// dovezile: folderul de Google Drive cu înregistrările și transcrierile; linkul apare doar după parolă
+export const PROOF_DRIVE_URL = "https://drive.google.com/drive/folders/1yhgXg6ehiNDcbZbBTyHwm3mZyoB3Iqz8?usp=sharing";
+
 // [concluzie, pe scurt]
 export const INTERVIEW_CONCLUSIONS = [
-  ["Dimensiunile se verifică cu ruleta", "Un birou ales la ghici, o canapea care n-a trecut pe ușă."],
+  ["Dimensiunile se verifică de mână", "Ruletă și calcule, un birou ales la ghici, o canapea care n-a trecut pe ușă."],
   ["Culorile nu se pot potrivi între magazine", "Puține culori și nuanțe care nu se potrivesc."],
-  ["Mobila existentă contează", "Amândouă au piese pe care le păstrează."],
-  ["Căutarea durează luni", "Un birou căutat de jumătate de an, încă negăsit."],
-  ["Vor să vadă piesa în cameră", "Simplu, în 3D, fără lucruri inventate."],
+  ["Mobila existentă contează", "Două din trei persoane au piese pe care le păstrează."],
+  ["Căutarea durează luni", "Un birou căutat de jumătate de an; piese așteptate una-două luni."],
+  ["Vor să vadă piesa în cameră", "Toți trei: simplu, în 3D, chiar prin camera telefonului."],
 ];

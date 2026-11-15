@@ -9,7 +9,7 @@ export function StoriesAndFlowsPart() {
         <div className="wrap">
           <span className="num">01</span>
           <h2>User stories</h2>
-          <p className="intro">Ce vrea să facă utilizatorul în Roomio și de ce, din ce au cerut participantele. Eticheta arată la câte participante apare nevoia, iar criteriile de acceptare sunt stabilite de echipă.</p>
+          <p className="intro">Ce vrea să facă utilizatorul în Roomio și de ce, din ce au cerut participanții. Eticheta arată la câți participanți apare nevoia, iar criteriile de acceptare sunt stabilite de echipă.</p>
           <ol className="plain m4-stories">
             {USER_STORIES.map((s) => (
               <li key={s.id} className="m4-story-card">
@@ -34,7 +34,7 @@ export function StoriesAndFlowsPart() {
         <div className="wrap">
           <span className="num">02</span>
           <h2>Cazuri de utilizare</h2>
-          <p className="intro">Ce face utilizatorul în aplicație, pas cu pas, așa cum au descris participantele.</p>
+          <p className="intro">Ce face utilizatorul în aplicație, pas cu pas, așa cum au descris participanții.</p>
           <div className="m4-cases">
             {USE_CASES.map((u) => u.name ? (
               <article key={u.id} className="m4-case">
@@ -62,7 +62,7 @@ export function StoriesAndFlowsPart() {
         <div className="wrap">
           <span className="num">03</span>
           <h2>Fluxuri</h2>
-          <p className="intro">Cum au mobilat participantele o cameră, pas cu pas, așa cum au povestit în interviuri.</p>
+          <p className="intro">Cum au mobilat participanții o cameră, pas cu pas, așa cum au povestit în interviuri.</p>
           <div className="m4-flows">
             {USER_FLOWS.map((f, i) => (
               <div key={i} className="m4-flow">

@@ -113,3 +113,12 @@ main section{padding-block:clamp(64px,8vw,112px)}
 .scaled-frame>div{position:absolute;top:0;left:0;transform-origin:0 0}
 /* câmp necompletat din fișierele de texte (Placeholder): indiciul, discret, subliniat punctat */
 .slot{color:var(--muted);font-style:italic;font-weight:400;text-decoration:underline dotted var(--line);text-underline-offset:4px}
+
+/* poarta cu parolă pentru dovezi (M2, M4) */
+.lock{display:grid;gap:10px;max-width:420px;padding:28px;background:var(--surface);border-radius:2px}
+.lock label{font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.lock div{display:flex;gap:8px}
+.lock input{flex:1;min-width:0;font:inherit;font-size:16px;padding:9px 12px;border:1px solid var(--line);border-radius:2px;background:var(--bg);color:var(--ink)}
+.lock input:focus{outline:none;border-color:var(--ink)}
+.lock button{font:inherit;font-size:15px;padding:9px 18px;border:1px solid var(--ink);border-radius:2px;background:var(--ink);color:var(--bg);cursor:pointer}
+.lock-err{font-size:14px;color:var(--warn)}

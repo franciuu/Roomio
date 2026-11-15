@@ -1,7 +1,7 @@
 // Partea 1 din M2: confirmarea problemei
 import { BarChart } from "./components/BarChart.jsx";
 import { EvidenceGallery } from "./components/EvidenceGallery.jsx";
-import { PasswordGate } from "./components/PasswordGate.jsx";
+import { PasswordGate } from "../../../shared/PasswordGate.jsx";
 import { ResearchStory } from "./components/ResearchStory.jsx";
 import { DIFFICULTIES, FINDINGS, FUNNEL, HYPOTHESES, IMPACT, PLAN, PROCESS, QUOTES, Q_SCREEN, Q_STORY, SCREEN, VALIDATED } from "./problem-content.js";
 
