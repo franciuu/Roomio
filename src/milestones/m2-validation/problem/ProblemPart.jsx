@@ -3,20 +3,11 @@ import { BarChart } from "./components/BarChart.jsx";
 import { EvidenceGallery } from "./components/EvidenceGallery.jsx";
 import { PasswordGate } from "./components/PasswordGate.jsx";
 import { ResearchStory } from "./components/ResearchStory.jsx";
-import { DIFFICULTIES, FINDINGS, FUNNEL, HYPOTHESES, IMPACT, NEXT, NOT_VALIDATED, PLAN, PROCESS, QUOTES, Q_SCREEN, Q_STORY, SCREEN, VALIDATED } from "./problem-content.js";
+import { DIFFICULTIES, FINDINGS, FUNNEL, HYPOTHESES, IMPACT, PLAN, PROCESS, QUOTES, Q_SCREEN, Q_STORY, SCREEN, VALIDATED } from "./problem-content.js";
 
 export function ProblemPart() {
   return (
     <>
-      <section className="wrap p1-stats part-in">
-        <ul className="plain stats">
-          <li><b>35</b><span>de răspunsuri în 7 zile</span></li>
-          <li><b>24</b><span>de povești despre ultima amenajare</span></li>
-          <li><b>14 <small>din 35</small></b><span>au returnat o piesă care nu se potrivea</span></li>
-          <li><b>21 <small>din 24</small></b><span>au măsurat cu ruleta</span></li>
-        </ul>
-      </section>
-
       <main>
         <section id="problema" className="band">
           <div className="wrap">
@@ -117,21 +108,9 @@ export function ProblemPart() {
             <span className="num">07</span>
             <h2>Suntem pregătiți să validăm soluția?</h2>
             <p className="verdict">Da.</p>
-            <p className="intro">Problema este validată. Următorul pas este validarea soluției.</p>
-            <div className="cols2">
-              <div>
-                <h3>Problema validată</h3>
-                <ul className="checks ok">{VALIDATED.map((v) => <li key={v}>{v}</li>)}</ul>
-              </div>
-              <div>
-                <h3>Ce validăm acum</h3>
-                <ul className="checks next">{NOT_VALIDATED.map((v) => <li key={v}>{v}</li>)}</ul>
-              </div>
-            </div>
-            <h3 className="sub-h">Pașii următori</h3>
-            <ol className="plain steps">
-              {NEXT.map(([t, d], i) => <li key={t}><span className="num">{String(i + 1).padStart(2, "0")}</span><h3>{t}</h3><p>{d}</p></li>)}
-            </ol>
+            <p className="intro">Problema există și apare des: oamenii verifică mobila doar cu ruleta, nu văd piesele împreună înainte să cumpere și ajung să returneze ce nu se potrivește.</p>
+            <h3>De ce</h3>
+            <ul className="checks ok">{VALIDATED.map((v) => <li key={v}>{v}</li>)}</ul>
           </div>
         </section>
 

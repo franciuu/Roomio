@@ -1,39 +1,37 @@
-// M2: antetul cu progresul și cele două părți (problema, soluția)
+// M2: antetul (titlul, etapele validării, cifrele principale) și confirmarea problemei
 import "./m2.css";
 import { ProblemPart } from "./problem/ProblemPart.jsx";
-import { SolutionPart } from "./solution/SolutionPart.jsx";
-import { M2_PARTS, PROGRESS } from "./m2-content.js";
+import { HERO_STATS, PROGRESS } from "./m2-content.js";
 
-export function M2Page({ part, onPart }) {
-  const done = PROGRESS.filter((p) => p[2] === "done").length;
+export function M2Page() {
   return (
     <>
-      <section id="top" className="hero-m2 wrap">
-        <p className="eyebrow">Milestone 2 · Customer Discovery</p>
-        <h1>Validarea ideii</h1>
-        <p className="lead">Am verificat întâi dacă problema pe care vrea s-o rezolve Roomio există cu adevărat. Acum verificăm dacă soluția noastră o rezolvă.</p>
+      <section id="top" className="hero-m2 m2-hero wrap">
+        <div className="m2-hero-grid">
+          <div>
+            <p className="eyebrow">Milestone 2</p>
+            <h1>Confirmarea problemei</h1>
+            <p className="lead">Am verificat dacă problema pe care vrea s-o rezolve Roomio există cu adevărat, întrebând oameni care și-au mobilat recent o cameră.</p>
+          </div>
 
-        <div className="progress" style={{ "--done": `${((done - 0.5) / (PROGRESS.length - 1)) * 100}%`, "--n": PROGRESS.length }}>
-          <ol className="plain">
-            {PROGRESS.map(([t, d, st]) => (
-              <li key={t} className={st}><i aria-hidden="true" /><b>{t}</b><span>{d}</span></li>
-            ))}
-          </ol>
+          <aside className="m2-timeline" aria-label="Etapele validării">
+            <span className="m2-timeline-label">Etapele validării</span>
+            <ol className="plain">
+              {PROGRESS.map(([t, d, st]) => (
+                <li key={t} className={st}><i aria-hidden="true" /><b>{t}</b><span>{d}</span></li>
+              ))}
+            </ol>
+          </aside>
         </div>
 
-        <div id="parti" className="parts" role="tablist" aria-label="Părțile din M2">
-          {M2_PARTS.map((p, i) => (
-            <button key={p.id} role="tab" aria-selected={part === p.id} className="part-card" disabled={p.locked} onClick={() => onPart(p.id)}>
-              <span className="part-num">Partea {i + 1}</span>
-              <b>{p.label}</b>
-              <span className={`part-status ${p.state}`}>{p.status}</span>
-              <small>{p.sub}</small>
-            </button>
+        <ul className="plain m2-hero-stats">
+          {HERO_STATS.map(([n, of, t]) => (
+            <li key={t}><b>{n}{of && <small> din {of}</small>}</b><span>{t}</span></li>
           ))}
-        </div>
+        </ul>
       </section>
 
-      {part === "solutie" ? <SolutionPart /> : <ProblemPart />}
+      <ProblemPart />
     </>
   );
 }

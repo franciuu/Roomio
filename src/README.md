@@ -11,6 +11,7 @@ src/
     m2-validation/         M2: confirmarea problemei (problem/), validarea soluției (solution/)
     m3-wireframe-landing/  M3: wireframe-ul (wireframe/), landing page-ul (landing/)
     m4-ux/                 M4: interviuri, persona, user stories și fluxuri, wireframe actualizat
+    m5-leads/              M5: colectarea leadurilor, analytics, campania pe canale
 ```
 
 Fiecare milestone are aceeași organizare:

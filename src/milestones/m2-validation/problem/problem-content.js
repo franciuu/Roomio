@@ -48,8 +48,8 @@ export const PLAN = [
 ];
 
 export const PROCESS = [
-  ["Pe cine am căutat", "Oameni care au mobilat o cameră în ultimii 2 ani sau caută mobilă acum."],
-  ["Cum am ajuns la ei", "Am trimis linkul pe WhatsApp și în grupurile de facultate, între 31 octombrie și 2 noiembrie 2026."],
+  ["Pe cine am căutat", "Oameni care au mobilat o cameră în ultimii 2 ani sau caută mobilă acum. Dintre cei care și-au spus vârsta, 22 din 25 au între 18 și 34 de ani."],
+  ["Cum am ajuns la ei", "Am trimis linkul formularului pe WhatsApp, prietenilor și familiei, și în grupurile noastre de facultate, între 31 octombrie și 2 noiembrie 2026."],
   ["Cum am strâns informația", "Un formular Google Forms: 6 întrebări da/nu, apoi 10 întrebări despre ultima amenajare, doar pentru cei care au mobilat recent."],
 ];
 
@@ -101,22 +101,13 @@ export const IMPACT = [
   ["Stoc și livrare", "Vezi dacă piesa e în stoc și în cât timp ajunge.", "Pentru 3 din 24, problema a fost așteptarea sau lipsa din stoc."],
 ];
 
+// argumentele pentru concluzie, toate din formular
 export const VALIDATED = [
-  "14 din 35 au returnat o piesă care nu se potrivea.",
+  "14 din 35 au returnat o piesă care nu se potrivea ca dimensiune, culoare sau stil.",
   "21 din 24 au măsurat cu ruleta; doar 3 au folosit și o aplicație.",
+  "Doar 5 din 24 au văzut piesele în cameră înainte să cumpere.",
   "13 din 24 au căutat mobilă două luni sau mai mult.",
-];
-
-export const NOT_VALIDATED = [
-  "Dacă cele 6 funcții Roomio rezolvă problemele găsite, printr-un formular nou.",
-  "Dacă oamenii ar comanda toate piesele prin aplicație.",
-  "Un eșantion mai larg: alte orașe și oameni peste 35 de ani.",
-];
-
-export const NEXT = [
-  ["Prototip", "Îl testăm cu cei 8 respondenți care au acceptat o discuție."],
-  ["Respondenți noi", "Grupuri despre renovări, alte orașe, oameni peste 35 de ani."],
-  ["Listă de așteptare", "O pagină cu înscriere pe email, ca să măsurăm interesul."],
+  "Două dintre cele trei ipoteze au fost confirmate, iar a treia parțial.",
 ];
 
 // capturi din Google Forms; răspunsurile individuale doar de la cei care au fost de acord să apară
