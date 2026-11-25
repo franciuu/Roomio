@@ -1,11 +1,11 @@
 // Partea 3 din M5: postările din campanie, sursele vizitatorilor și concluziile
 import { Placeholder } from "../../../shared/Placeholder.jsx";
 import { Icon } from "../components/Icon.jsx";
-import { BEST_CHANNEL, BOOSTS, BOOSTS_TEXT, CAMPAIGN_CONCLUSIONS, CHANNELS, FACEBOOK_TOTAL, FB_PAGE, POSTS, RESULTS, STAT_SHOTS } from "./campaign-content.js";
+import { BEST_CHANNEL, BOOSTS, BOOSTS_TEXT, CAMPAIGN_CONCLUSIONS, CHANNELS, FACEBOOK_TOTAL, FB_PAGE, POSTS, RESULTS, STAT_SHOTS, TIKTOK } from "./campaign-content.js";
 
 const LANDING_CLEAN = "https://franciuu.github.io/Roomio/landing.html";
 
-const CH = Object.fromEntries(CHANNELS.map((c) => [c.id, c]));
+const CH = { ...Object.fromEntries(CHANNELS.map((c) => [c.id, c])), tiktok: { name: "TikTok" } };
 
 const file = (f) => `${import.meta.env.BASE_URL}m5/${f}`;
 const TOTAL = RESULTS.reduce((s, r) => s + Number(r[2] || 0), 0);
@@ -28,7 +28,7 @@ export function CampaignPart() {
         <div className="wrap">
           <span className="num">01</span>
           <h2>Postările</h2>
-          <p className="intro">Am promovat landing page-ul pe Facebook: am creat <a href={FB_PAGE} target="_blank" rel="noopener">pagina Roomio</a> și am publicat o postare cu imagine și un reel, distribuite apoi și într-un grup despre amenajări. Fiecare postare are linkul ei cu UTM.</p>
+          <p className="intro">Am promovat landing page-ul pe Facebook: am creat <a href={FB_PAGE} target="_blank" rel="noopener">pagina Roomio</a> și am publicat o postare cu imagine și un reel, distribuite apoi și într-un grup despre amenajări. Fiecare postare are linkul ei cu UTM. Am postat și pe TikTok, dar acolo nu am făcut promovări, ci doar postări cu hashtag-uri.</p>
           {CHANNELS.map((c) => (
             <div key={c.id} className="m5-channel">
               <h3 className="m5-channel-name"><span className="m5-icon-box"><Icon name={c.icon} /></span>{c.name}</h3>
@@ -56,6 +56,37 @@ export function CampaignPart() {
               </div>
             </div>
           ))}
+
+          <div className="m5-channel">
+            <h3 className="m5-channel-name"><span className="m5-icon-box"><Icon name="play" /></span>TikTok</h3>
+            <p className="intro">{TIKTOK.text} <a href={TIKTOK.profile} target="_blank" rel="noopener">{TIKTOK.handle}</a></p>
+            <ul className="plain m5-tt-list">
+              {TIKTOK.posts.map((p) => (
+                <li key={p.title} className={p.best ? "best" : ""}>
+                  <div className="m5-tt-title">
+                    {p.best && <span className="m5-tag">Sunet viral · cea mai văzută</span>}
+                    <b>{p.title}</b>
+                    <span className="m5-muted">Postat {p.date}</span>
+                    <span className="m5-tt-window">Vizualizări în: {p.window}</span>
+                  </div>
+                  <ul className="plain m5-post-stats">
+                    <li><Placeholder as="b" v={p.views} hint="—" /><span>vizualizări</span></li>
+                    <li><Placeholder as="b" v={p.likes} hint="—" /><span>aprecieri</span></li>
+                    <li><Placeholder as="b" v={p.comments} hint="—" /><span>comentarii</span></li>
+                  </ul>
+                </li>
+              ))}
+            </ul>
+            <p className="m5-note">{TIKTOK.best} Cele trei video-uri postate pe 25 noiembrie, între 21:11 și 22:30, au strâns împreună 280 de vizualizări în mai puțin de 3 ore, mai mult decât celelalte trei video-uri (66) în 2 zile.</p>
+            <div className="m5-shots">
+              {TIKTOK.shots.map(([f, what]) => (
+                <figure key={f} className="wide">
+                  <a href={file(f)} target="_blank" rel="noopener" className="m5-shot-img"><img src={file(f)} alt={what} loading="lazy" /></a>
+                  <figcaption>{what}</figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 

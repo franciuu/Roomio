@@ -43,6 +43,26 @@ export const POSTS = [
   },
 ];
 
+// TikTok: doar postări organice cu hashtag-uri, fără promovare plătită; cifrele din TikTok Studio (25 noiembrie)
+// posts: titlu, data, window = intervalul de la postare până la captura cifrelor, vizualizări, aprecieri, comentarii; "" = încă lipsește; best = postarea cu sunetul viral
+export const TIKTOK = {
+  profile: "https://www.tiktok.com/@roomio2026",
+  handle: "@roomio2026",
+  text: "Pe TikTok nu am făcut nicio promovare plătită, doar postări organice, cu hashtag-uri. Contul Roomio are 6 video-uri, iar cifrele de mai jos sunt cele din TikTok Studio, luate pe 25 noiembrie la 23:47.",
+  posts: [
+    { title: "„Life after Roomio hits different”", date: "25 noiembrie, 21:11", window: "21:11 – 23:47 · 2 h 36 min", views: "118", likes: "1", comments: "1", best: true },
+    { title: "„Aceeași cameră, dar cu totul altă atmosferă: Scandinav, Industrial…” (video cu stiluri)", date: "25 noiembrie, 22:30", window: "22:30 – 23:47 · 1 h 17 min", views: "81", likes: "1", comments: "1" },
+    { title: "„Aceeași cameră, dar cu totul altă atmosferă” (video cu camera la dimensiunile reale)", date: "25 noiembrie, 22:28", window: "22:28 – 23:47 · 1 h 19 min", views: "81", likes: "1", comments: "0" },
+    { title: "„Cu Roomio îți refaci camera în 3D, la dimensiunile reale” (Her room is empty)", date: "23 noiembrie, 20:51", window: "din 23 noiembrie · 2 zile", views: "15", likes: "2", comments: "1" },
+    { title: "„Când ne-am refăcut bucătăria, am găsit un planificator 3D…”", date: "23 noiembrie, 12:16", window: "din 23 noiembrie · 2 zile", views: "25", likes: "2", comments: "1" },
+    { title: "„Ai cumpărat vreodată o canapea care NU a încăput?”", date: "23 noiembrie, 12:02", window: "din 23 noiembrie · 2 zile", views: "26", likes: "3", comments: "1" },
+  ],
+  best: "Cel mai mare succes pe TikTok a venit de la postarea cu un sunet viral, „Life after Roomio hits different”: 118 vizualizări în doar 2 ore și jumătate, cele mai multe din cont. Sunetul aflat în trend l-a ajutat să ajungă la mai mulți oameni, fără să plătim nimic.",
+  shots: [
+    ["tiktok-profil.png", "Profilul Roomio de pe TikTok, cu cele 6 video-uri și linkul către landing page în bio."],
+  ],
+};
+
 // comparația celor două boost-uri, din Ads Manager (fără sumele cheltuite)
 // image: din public/m5/; visits = vizite pe landing page („Landing page views”)
 export const BOOSTS = [
@@ -66,6 +86,7 @@ export const RESULTS = [
 export const STAT_SHOTS = [
   ["facebook", "facebook-statistici.jpg", "Statisticile postărilor din Meta Business Suite. Vizualizările postării cu imagine includ și afișările din boost. Primele două postări, din 8 noiembrie, au fost înainte de campanie."],
   ["facebook", "ads-manager.png", "Rezultatele celor două boost-uri din Ads Manager, 24–25 noiembrie. Am urmărit câte vizite aduc pe landing page."],
+  ["tiktok", "tiktok-studio.png", "Statisticile postărilor din TikTok Studio, la 25 noiembrie, ora 23:47: vizualizări, aprecieri și comentarii pentru cele 6 video-uri. Pe TikTok nu am făcut promovări, doar postări cu hashtag-uri."],
 ];
 
 // canalul care a mers cel mai bine: nume, de ce, imaginea (din public/m5/) și cifrele [valoare, ce înseamnă]
@@ -80,5 +101,6 @@ export const BEST_CHANNEL = {
 export const CAMPAIGN_CONCLUSIONS = [
   ["Video-ul ne-a adus cei mai mulți vizitatori", "Din cele 80 de vizite aduse de boost-uri, 61 au venit de la reel și 19 de la imagine."],
   ["Postarea cu imagine a avut mai multe reacții", "Postarea cu imagine a strâns 61 de interacțiuni, reel-ul doar 5. Pe reel, timpul mediu de vizionare a fost de 4 secunde, deci în următoarele video-uri arătăm problema din primele secunde."],
+  ["Pe TikTok, sunetul viral a contat mai mult decât hashtag-urile", "Fără promovare plătită, doar cu hashtag-uri, video-urile au avut între 15 și 118 vizualizări. Cel mai bine a mers postarea cu un sunet viral (118), deci data viitoare alegem de la început sunete aflate în trend."],
   ["Vizitatorii vin de pe telefon", "100 din 116 vizitatori au intrat de pe telefon, deci ne concentrăm ca landing page-ul și formularul să meargă bine mai ales pe telefon."],
 ];
