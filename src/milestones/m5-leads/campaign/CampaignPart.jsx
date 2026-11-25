@@ -1,115 +1,148 @@
-// Partea 3 din M5: postările din campanie, comparația canalelor și concluziile
+// Partea 3 din M5: postările din campanie, sursele vizitatorilor și concluziile
 import { Placeholder } from "../../../shared/Placeholder.jsx";
 import { Icon } from "../components/Icon.jsx";
-import { BEST_CHANNEL, CAMPAIGN_CONCLUSIONS, CHANNELS, POSTS, RESULTS } from "./campaign-content.js";
+import { BEST_CHANNEL, BOOSTS, BOOSTS_TEXT, CAMPAIGN_CONCLUSIONS, CHANNELS, FACEBOOK_TOTAL, FB_PAGE, POSTS, RESULTS, STAT_SHOTS } from "./campaign-content.js";
+
+const LANDING_CLEAN = "https://franciuu.github.io/Roomio/landing.html";
 
 const CH = Object.fromEntries(CHANNELS.map((c) => [c.id, c]));
-const shot = (f) => `${import.meta.env.BASE_URL}m5/${f}`;
-// conversia vizitator → lead, doar când avem cifrele
-const conv = (r) => (r.visitors && r.leads ? `${Math.round((Number(r.leads) / Number(r.visitors)) * 100)}%` : "");
 
-// schița unei postări, până avem captura
-function PostSketch() {
-  return (
-    <div className="m5-post-sketch" aria-hidden="true">
-      <span className="m5-sk-head"><i /><span><b /><b /></span></span>
-      <b className="m5-sk-line" /><b className="m5-sk-line short" />
-      <span className="m5-sk-img">captura postării</span>
-      <span className="m5-sk-foot"><b /><b /><b /></span>
-    </div>
-  );
+const file = (f) => `${import.meta.env.BASE_URL}m5/${f}`;
+const TOTAL = RESULTS.reduce((s, r) => s + Number(r[2] || 0), 0);
+const num = (v) => Number(String(v).replace(".", ""));
+const pct = (a, b) => `${((num(a) / num(b)) * 100).toFixed(1).replace(".", ",")}%`;
+const MAX_VISITS = Math.max(...BOOSTS.map((x) => num(x.visits)));
+
+function Media({ m }) {
+  if (!m) return <div className="m5-post-media m5-post-empty slot">captura postării</div>;
+  return m.type === "video"
+    ? <video className="m5-post-media" src={file(m.src)} poster={file(m.poster)} controls playsInline preload="none" />
+    : <img className="m5-post-media" src={file(m.src)} alt={m.alt} loading="lazy" />;
 }
 
 export function CampaignPart() {
-  const maxLeads = Math.max(1, ...RESULTS.map((r) => Number(r.leads) || 0));
+  const max = Math.max(1, ...RESULTS.map((r) => Number(r[2]) || 0));
   return (
     <main className="part-in">
       <section id="k-postari" className="band">
         <div className="wrap">
           <span className="num">01</span>
           <h2>Postările</h2>
-          <p className="intro">Unde am distribuit landing page-ul. Fiecare canal are linkul lui, ca să vedem în PostHog câți vizitatori și câte înscrieri a adus.</p>
-          <div className="m5-posts">
-            {POSTS.map((p, i) => {
-              const c = CH[p.channel];
-              return (
-                <article key={i} className="m5-post">
-                  <header className="m5-post-head">
-                    <span className="m5-icon-box"><Icon name={c.icon} /></span>
-                    <div><h3>{c.name}</h3><span><Placeholder v={p.where} hint={c.where} /> · <Placeholder v={p.date} hint="data" /></span></div>
-                  </header>
-                  {p.screenshot
-                    ? <a className="m5-post-img" href={p.permalink || shot(p.screenshot)} target="_blank" rel="noopener"><img src={shot(p.screenshot)} alt={`Postarea pe ${c.name}`} loading="lazy" /></a>
-                    : <PostSketch />}
-                  <ul className="plain m5-post-stats">
-                    <li><Placeholder as="b" v={p.reach} hint="—" /><span>reach</span></li>
-                    <li><Placeholder as="b" v={p.reactions} hint="—" /><span>reacții</span></li>
-                    <li>{p.permalink ? <a href={p.permalink} target="_blank" rel="noopener">Deschide postarea ↗</a> : <span className="slot">linkul postării</span>}</li>
-                  </ul>
-                  <code className="m5-utm" title="Linkul folosit în postare">{c.link.replace("https://", "")}</code>
-                </article>
-              );
-            })}
+          <p className="intro">Am promovat landing page-ul pe Facebook: am creat <a href={FB_PAGE} target="_blank" rel="noopener">pagina Roomio</a> și am publicat o postare cu imagine și un reel, distribuite apoi și într-un grup despre amenajări. Fiecare postare are linkul ei cu UTM.</p>
+          {CHANNELS.map((c) => (
+            <div key={c.id} className="m5-channel">
+              <h3 className="m5-channel-name"><span className="m5-icon-box"><Icon name={c.icon} /></span>{c.name}</h3>
+              <div className="m5-posts">
+                {POSTS.filter((p) => p.channel === c.id).map((p, i) => (
+                  <article key={i} className="m5-post">
+                    <header className="m5-post-head">
+                      <div><Placeholder as="h3" v={p.title} hint="Postarea" /><span><Placeholder v={p.where} hint={`Profilul Roomio de pe ${c.name}`} /> · <Placeholder v={p.date} hint="data" /></span></div>
+                    </header>
+                    {p.published
+                      ? <a href={p.permalink || file(p.published)} target="_blank" rel="noopener"><img className="m5-post-pub" src={file(p.published)} alt={`Postarea publicată: ${p.title}`} loading="lazy" /></a>
+                      : <Media m={p.media} />}
+                    {p.published && p.media?.type === "video" && (
+                      <details className="m5-post-video"><summary>Pornește video-ul</summary><Media m={p.media} /></details>
+                    )}
+                    <Placeholder as="p" className="m5-post-text" v={p.text} hint="Textul postării" />
+                    <ul className="plain m5-post-stats">
+                      {p.stats.map(([v, t]) => <li key={t}><Placeholder as="b" v={v} hint="—" /><span>{t}</span></li>)}
+                    </ul>
+                    {p.group && <p className="m5-post-group"><Icon name="group" size={18} /><span>Distribuită în grupul <b>{p.group[0]}</b>: {p.group[1]}</span></p>}
+                    <a className="m5-utm" href={LANDING_CLEAN} target="_blank" rel="noopener" title={p.link}>{LANDING_CLEAN.replace("https://", "")} ↗</a>
+                    {p.permalink && <a className="m5-link" href={p.permalink} target="_blank" rel="noopener">Deschide postarea ↗</a>}
+                  </article>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="k-statistici">
+        <div className="wrap">
+          <span className="num">02</span>
+          <h2>Statisticile postărilor</h2>
+          <p className="intro">Capturile din statisticile fiecărei rețele, ca să se vadă de unde vin cifrele de mai sus.</p>
+          <div className="m5-shots">
+            {STAT_SHOTS.map(([ch, f, what], i) => (
+              <figure key={i} className={f ? "wide" : ""}>
+                <span className="m5-label">{CH[ch].name}</span>
+                {f
+                  ? <a href={file(f)} target="_blank" rel="noopener" className="m5-shot-img"><img src={file(f)} alt={what} loading="lazy" /></a>
+                  : <div className="m5-shot slot">{what}</div>}
+                {f && <figcaption>{what}</figcaption>}
+              </figure>
+            ))}
           </div>
         </div>
       </section>
 
-      <section id="k-canale">
+      <section id="k-canale" className="band">
         <div className="wrap">
-          <span className="num">02</span>
+          <span className="num">03</span>
           <h2>Comparația canalelor</h2>
-          <p className="intro">Vizitatorii și click-urile vin din PostHog, leadurile din formular. Conversia este procentul de vizitatori care s-au înscris.</p>
-          <ul className="plain m5-bars" aria-label="Leaduri pe canal">
-            {RESULTS.map((r) => {
-              const c = CH[r.channel];
-              return (
-                <li key={r.channel} className={BEST_CHANNEL[0] === c.name ? "best" : ""}>
-                  <span className="m5-bars-name"><Icon name={c.icon} size={18} />{c.name}</span>
-                  <span className="m5-bars-track"><i style={{ width: r.leads ? `${(Number(r.leads) / maxLeads) * 100}%` : "0" }} /></span>
-                  <span className="m5-bars-val"><Placeholder v={r.leads} hint="—" /> <small>leaduri</small></span>
-                </li>
-              );
-            })}
-          </ul>
-          <div className="m5-table">
-            <table>
-              <thead><tr><th>Canalul</th><th>Postări</th><th>Vizitatori</th><th>Click „Intră în listă”</th><th>Leaduri</th><th>Conversie</th></tr></thead>
-              <tbody>
-                {RESULTS.map((r) => (
-                  <tr key={r.channel} className={BEST_CHANNEL[0] === CH[r.channel].name ? "best" : ""}>
-                    <th scope="row">{CH[r.channel].name}</th>
-                    <td><Placeholder v={r.posts} hint="—" /></td>
-                    <td><Placeholder v={r.visitors} hint="—" /></td>
-                    <td><Placeholder v={r.clicks} hint="—" /></td>
-                    <td><Placeholder v={r.leads} hint="—" /></td>
-                    <td><Placeholder v={conv(r)} hint="—" /></td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <p className="intro">Am promovat ambele postări de pe pagina Roomio printr-un boost pe Facebook, ca să ajungă și la oameni care nu ne urmăresc încă. Aici comparăm ce ne-a adus fiecare boost și de unde au venit vizitatorii landing page-ului.</p>
+
+          <h3 className="m5-sub m5-sub-first">Cele două boost-uri</h3>
+          <div className="m5-boosts">
+            {BOOSTS.map((b, i) => (
+              <article key={b.name} className={`m5-boost${i === 0 ? " best" : ""}`}>
+                <img src={file(b.image)} alt={b.what} loading="lazy" />
+                <div className="m5-boost-body">
+                  {i === 0 && <span className="m5-tag">Ne-a adus cele mai multe vizite</span>}
+                  <h4>{b.name}</h4>
+                  <span className="m5-muted">{b.what}</span>
+                  <div className="m5-boost-big"><b>{b.visits}</b><span>vizite pe landing page</span></div>
+                  <span className="m5-boost-track"><i style={{ width: `${(num(b.visits) / MAX_VISITS) * 100}%` }} /></span>
+                  <dl className="m5-boost-stats">
+                    <div><dt>Persoane atinse</dt><dd>{b.reach}</dd></div>
+                    <div><dt>Afișări</dt><dd>{b.impressions}</dd></div>
+                    <div><dt>Au intrat pe pagină</dt><dd>{pct(b.visits, b.impressions)}</dd></div>
+                  </dl>
+                </div>
+              </article>
+            ))}
           </div>
+          <p className="m5-note">{BOOSTS_TEXT}</p>
+
+          <h3 className="m5-sub">De unde au venit vizitatorii</h3>
+          <ul className="plain m5-sources" aria-label="Vizitatori pe sursă">
+            {RESULTS.map(([name, what, v, leads], i) => (
+              <li key={name} className={i === 0 ? "best" : ""}>
+                <div className="m5-sources-name"><b>{name}</b><span>{what}</span></div>
+                <span className="m5-bars-track"><i style={{ width: `${(Number(v) / max) * 100}%` }} /></span>
+                <div className="m5-sources-val"><b>{v}</b><span>{Math.round((Number(v) / TOTAL) * 100)}% · {leads === "0" ? "fără leaduri" : `${leads} leaduri`}</span></div>
+              </li>
+            ))}
+          </ul>
+          <p className="m5-note">Din vizitatorii numărați de PostHog, {FACEBOOK_TOTAL[0]} au venit de pe Facebook și tot de acolo au venit ambele leaduri. Nu putem spune din ce boost a venit fiecare lead, pentru că amândoi au intrat pe un link de Facebook fără UTM.</p>
+
           <div className="m5-best">
-            <span className="m5-icon-box"><Icon name="star" /></span>
-            <div>
-              <span className="m5-label">Canalul care a mers cel mai bine</span>
-              <Placeholder as="h3" v={BEST_CHANNEL[0]} hint="Numele canalului" />
-              <Placeholder as="p" v={BEST_CHANNEL[1]} hint="De ce a mers cel mai bine: mai mulți vizitatori, o conversie mai mare sau ambele." />
+            <img className="m5-best-img" src={file(BEST_CHANNEL.image)} alt="Primul cadru din reel-ul „Încape sau nu?”" loading="lazy" />
+            <div className="m5-best-body">
+              <span className="m5-label"><Icon name="star" size={15} /> Canalul care a mers cel mai bine</span>
+              <h3>{BEST_CHANNEL.name}</h3>
+              <p>{BEST_CHANNEL.why}</p>
+              <ul className="plain m5-best-stats">
+                {BEST_CHANNEL.stats.map(([v, t]) => <li key={t}><b>{v}</b><span>{t}</span></li>)}
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="k-concluzii" className="band">
+      <section id="k-concluzii">
         <div className="wrap">
-          <span className="num">03</span>
+          <span className="num">04</span>
           <h2>Concluzii</h2>
           <p className="intro">Ce am învățat din campanie, pe scurt.</p>
           <ol className="plain m5-conclusions">
             {CAMPAIGN_CONCLUSIONS.map(([t, d], i) => (
               <li key={i}>
-                <span className="m5-tag">C{i + 1}</span>
-                <Placeholder as="h3" v={t} hint={`Concluzia ${i + 1}`} />
-                <Placeholder as="p" v={d} hint="Pe scurt" />
+                <span className="m5-tag">Concluzia {i + 1}</span>
+                <h3>{t}</h3>
+                <p>{d}</p>
               </li>
             ))}
           </ol>

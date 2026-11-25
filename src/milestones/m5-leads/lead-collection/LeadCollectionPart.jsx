@@ -48,7 +48,7 @@ export function LeadCollectionPart() {
               </dl>
               <a className="m5-link" href={LANDING_HREF} target="_blank" rel="noopener">Vezi landing page-ul ↗</a>
             </div>
-            <div className="m5-shot tall slot">Captura secțiunii de înscriere de pe landing page</div>
+            <figure className="m5-figure m5-signup-shot"><img src={`${import.meta.env.BASE_URL}m5/sectiune-inscriere.jpg`} alt="Secțiunea de înscriere de pe landing page: emailul pentru noutăți și chestionarul cu acordul GDPR" loading="lazy" /><figcaption>Secțiunea „Aproape gata” de pe landing page: emailul pentru noutăți, apoi chestionarul cu informarea GDPR.</figcaption></figure>
           </div>
         </div>
       </section>

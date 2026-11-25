@@ -9,7 +9,7 @@ export function M2Page() {
       <section id="top" className="hero-m2 m2-hero wrap">
         <div className="m2-hero-grid">
           <div>
-            <p className="eyebrow">Milestone 2</p>
+            <p className="eyebrow">Milestone 2 · Validation 1</p>
             <h1>Confirmarea problemei</h1>
             <p className="lead">Am verificat dacă problema pe care vrea s-o rezolve Roomio există cu adevărat, întrebând oameni care și-au mobilat recent o cameră.</p>
           </div>
